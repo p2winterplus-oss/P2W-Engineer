@@ -16,18 +16,20 @@
 - **Style**: Luxury architectural fine-line aesthetic
 
 ## Page Structure (Top → Bottom)
-1. **Header** — Logo (w-16) + nav + dark mode toggle + "ขอคำปรึกษา" CTA button
-2. **Hero** — Headline + metrics (15+ ปี / 45+ วิศวกร / 1,200+ โครงการ) + verification card
+1. **Header** — Logo (w-16) + nav + dark mode toggle + "ขอคำปรึกษา" CTA button → `#consultation-wizard`
+2. **Hero** — Background image (Unsplash) + overlay + Headline + metrics (15+ ปี / 45+ วิศวกร / 1,200+ โครงการ) + verification card
 3. **Services (5 Pillars)** — Tab switcher: โยธา / โซล่า / เครื่องกล / ที่ปรึกษา / รับรอง + pricing cards
 4. **How We Work** — 5-step process with circle icons + connecting line
-5. **CTA Banner** — Dark bg + "มีโครงการที่ต้องการคำปรึกษา?" + button
-6. **Consultation Wizard** — 3-step form (service → project details → contact + file upload)
-7. **Portfolio** — 3 project cards (placeholder gradients, no real photos yet)
-8. **Footer** — Logo (w-24) + links + contact info + Line OA
+5. **Why Choose Us** — Full-width bg image (`WhyChooseUs.png`) + gradient overlay + 4 จุดเด่น (2x2 grid)
+6. **CTA Banner** — Dark bg + "มีโครงการที่ต้องการคำปรึกษา?" + ปุ่ม "ขอคำปรึกษา" → `#consultation-wizard`
+7. **Consultation Wizard** — id=`consultation-wizard`, 3-step form (service → project details → contact + file upload)
+8. **Portfolio** — 3 project cards (placeholder gradients, no real photos yet)
+9. **Footer** — Logo (w-24) + links + contact info + Line OA
 
 ## Key Files
 - `index.html` — entire website (single file)
-- `logo.png` — P2W INTERPLUS logo (dark navy on white, needs dark mode handling)
+- `logo.png` — P2W INTERPLUS logo (dark navy on white, dark mode: `dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]`)
+- `WhyChooseUs.png` — background image สำหรับ section Why Choose Us
 
 ## Email Integration
 - **Service**: Web3Forms (free, 250 submissions/month)
@@ -45,16 +47,18 @@
 - Full page layout with all sections
 - Dark/Light mode toggle
 - 5-service tab switcher with pricing
-- How We Work 5-step section
-- CTA banner
+- How We Work 5-step section (fixed step 4 hover state)
+- Why Choose Us section — full-width bg image + text overlay
+- CTA banner — ปุ่ม "ขอคำปรึกษา" link ไป `#consultation-wizard`
 - 3-step consultation wizard with file upload + email notification
 - Responsive mobile menu
-- Logo uploaded to repo
+- Logo uploaded to repo + bronze glow on dark mode
+- Hero section background image with overlay
+- ปุ่ม "ขอคำปรึกษา" ทุกจุด (header, mobile, CTA) scroll ไป wizard
 - Deployed on GitHub Pages
 
 ## What's Missing / TODO ❌
 - Real project photos for portfolio cards (currently placeholder gradients)
-- Logo visibility fix on dark mode (dark navy logo on dark bg)
 - "เกี่ยวกับเรา" (About Us) section — team, company background
 - Testimonials / client reviews section
 - Custom domain (currently on .github.io)

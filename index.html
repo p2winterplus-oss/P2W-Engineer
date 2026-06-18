@@ -86,82 +86,60 @@
 
     <!-- HEADER / NAVIGATION -->
     <header class="sticky top-0 z-40 bg-brand-lightBg/95 dark:bg-brand-dark/95 backdrop-blur-md border-b border-brand-lightBorder dark:border-brand-border/60 transition-all duration-500 theme-transition">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 h-24 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#home" class="flex items-center space-x-4 group">
-                <div class="relative w-10 h-10 flex items-center justify-center transition-all">
-                    <img src="logo.png" alt="P2W GROUP Logo" class="w-10 h-10 object-contain">
-                </div>
+            <a href="#home" class="flex items-center space-x-3 group">
+                <img src="logo.png" alt="P2W GROUP Logo" class="w-10 h-10 object-contain dark:brightness-200">
                 <div>
-                    <span class="text-base font-light tracking-[0.22em] text-brand-dark dark:text-white uppercase block theme-transition">P2W GROUP</span>
-                    <span class="text-[9px] text-brand-bronze tracking-[0.35em] uppercase block font-medium">Engineering Collective</span>
+                    <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block theme-transition">P2W GROUP</span>
+                    <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
                 </div>
             </a>
 
-            <!-- Sophisticated Fine-line Navigation Links -->
-            <nav class="hidden md:flex space-x-8 text-xs font-light tracking-[0.18em] uppercase">
-                <a href="#home" class="text-brand-bronze hover:text-brand-dark dark:hover:text-white transition-colors">หน้าแรก</a>
-                <a href="#services" class="hover:text-brand-bronze text-gray-500 dark:text-gray-400 transition-colors theme-transition">บริการของเรา</a>
-                <a href="#projects" class="hover:text-brand-bronze text-gray-500 dark:text-gray-400 transition-colors theme-transition">ผลงานเด่น</a>
-                <a href="#consultation-wizard" class="hover:text-brand-bronze text-gray-500 dark:text-gray-400 transition-colors theme-transition">ประเมินโครงการ</a>
-                <a href="#contact" class="hover:text-brand-bronze text-gray-500 dark:text-gray-400 transition-colors theme-transition">ติดต่อ</a>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-7 text-xs font-light tracking-[0.12em]">
+                <a href="#home" class="text-brand-dark dark:text-white hover:text-brand-bronze dark:hover:text-brand-bronze transition-colors font-medium">หน้าแรก</a>
+                <a href="#services" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white transition-colors theme-transition">บริการของเรา</a>
+                <a href="#projects" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white transition-colors theme-transition">ผลงาน</a>
+                <a href="#how-we-work" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white transition-colors theme-transition">เกี่ยวกับเรา</a>
+                <a href="#contact" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white transition-colors theme-transition">ติดต่อเรา</a>
             </nav>
 
-            <!-- Mode Switcher & CTA Button -->
-            <div class="flex items-center space-x-6">
-                <!-- Day/Night Toggle Button -->
-                <button onclick="toggleTheme()" id="theme-toggle-btn" class="relative group p-2.5 border border-brand-lightBorder dark:border-brand-border/80 hover:border-brand-bronze text-gray-500 dark:text-gray-400 hover:text-brand-bronze dark:hover:text-brand-bronze transition-all rounded-none focus:outline-none" aria-label="สลับโหมดสว่างและมืด">
-                    <!-- Sun Icon (Show in Dark Mode) -->
-                    <svg id="sun-icon" class="w-4 h-4 hidden dark:block theme-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <!-- Right side: Dark mode toggle + CTA -->
+            <div class="flex items-center space-x-3">
+                <!-- Day/Night Toggle (subtle icon only) -->
+                <button onclick="toggleTheme()" class="p-2 text-gray-400 hover:text-brand-bronze transition-colors focus:outline-none" aria-label="สลับโหมด">
+                    <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
                     </svg>
-                    <!-- Moon Icon (Show in Light Mode) -->
-                    <svg id="moon-icon" class="w-4 h-4 block dark:hidden theme-transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
                     </svg>
                 </button>
 
-                <!-- CTA Button -->
-                <div class="hidden lg:block">
-                    <a href="#consultation-wizard" class="relative group inline-block py-2.5 px-6 border border-brand-bronze/40 text-[10px] tracking-[0.25em] uppercase text-brand-dark dark:text-white hover:text-brand-lightBg dark:hover:text-brand-dark transition-colors duration-500 overflow-hidden theme-transition">
-                        <span class="absolute inset-0 w-full h-full bg-brand-bronze transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100 z-0 theme-transition"></span>
-                        <span class="relative z-10">ประเมินงานฟรี &rarr;</span>
-                    </a>
-                </div>
+                <!-- CTA Button - Bronze filled -->
+                <a href="#contact-form" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-2.5 transition-all duration-300">
+                    ขอคำปรึกษา
+                </a>
 
                 <!-- Mobile menu icon -->
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white focus:outline-none theme-transition">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h12m-12 6h16" />
-                        </svg>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white focus:outline-none theme-transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-16 6h16" />
+                    </svg>
+                </button>
             </div>
         </div>
 
-        <!-- Mobile Menu (Updated with integrated Theme Toggle) -->
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-brand-lightBg/95 dark:bg-brand-dark/95 border-b border-brand-lightBorder dark:border-brand-border/60 px-6 py-6 space-y-4 theme-transition">
-            <a href="#home" class="block text-xs uppercase tracking-widest text-brand-bronze">หน้าแรก</a>
-            <a href="#services" class="block text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">บริการของเรา</a>
-            <a href="#projects" class="block text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ผลงานเด่น</a>
-            <a href="#consultation-wizard" class="block text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ประเมินโครงการ</a>
-            <a href="#contact" class="block text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ติดต่อ</a>
-
-            <!-- Mobile Day/Night Switcher Button -->
-            <div class="pt-4 border-t border-brand-lightBorder dark:border-brand-border/60 flex items-center justify-between theme-transition">
-                <span class="text-[10px] tracking-wider uppercase text-gray-400 dark:text-gray-500 font-medium">สลับโหมดการแสดงผล</span>
-                <button onclick="toggleTheme()" class="px-4 py-2 border border-brand-lightBorder dark:border-brand-border hover:border-brand-bronze text-brand-bronze hover:text-brand-bronzedark transition-all text-[10px] tracking-widest uppercase flex items-center gap-1.5">
-                    <!-- Sun icon -->
-                    <svg class="w-3.5 h-3.5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-                    </svg>
-                    <!-- Moon icon -->
-                    <svg class="w-3.5 h-3.5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
-                    </svg>
-                    <span>สลับโหมด</span>
-                </button>
+            <a href="#home" class="block text-sm text-brand-bronze font-medium">หน้าแรก</a>
+            <a href="#services" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">บริการของเรา</a>
+            <a href="#projects" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ผลงาน</a>
+            <a href="#how-we-work" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">เกี่ยวกับเรา</a>
+            <a href="#contact" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ติดต่อเรา</a>
+            <div class="pt-4 border-t border-brand-lightBorder dark:border-brand-border/60">
+                <a href="#contact-form" class="block w-full text-center bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-3 transition-all">ขอคำปรึกษา</a>
             </div>
         </div>
     </header>
@@ -555,6 +533,210 @@
         </div>
     </section>
 
+    <!-- HOW WE WORK SECTION -->
+    <section id="how-we-work" class="py-24 bg-brand-lightBg dark:bg-brand-dark border-t border-brand-lightBorder dark:border-brand-border/45 theme-transition">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-[10px] tracking-[0.35em] text-brand-bronze uppercase block font-medium mb-2">HOW WE WORK</span>
+                <h2 class="text-3xl md:text-4xl font-light text-brand-dark dark:text-white serif-title theme-transition">ขั้นตอนการทำงาน</h2>
+                <div class="w-12 h-[1px] bg-brand-bronze mx-auto mt-4"></div>
+            </div>
+
+            <!-- Steps -->
+            <div class="relative">
+                <!-- Connecting line (desktop) -->
+                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-brand-lightBorder dark:bg-brand-border/60 theme-transition"></div>
+
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-24 h-24 rounded-full border border-brand-lightBorder dark:border-brand-border/60 bg-brand-lightCard dark:bg-brand-charcoal/50 flex items-center justify-center transition-all duration-300 group-hover:border-brand-bronze theme-transition">
+                                <svg class="w-9 h-9 text-gray-400 dark:text-gray-500 group-hover:text-brand-bronze transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-dark dark:bg-brand-charcoal border border-brand-bronze text-brand-bronze text-[10px] font-bold flex items-center justify-center">1</span>
+                        </div>
+                        <h4 class="text-xs font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2 theme-transition">รับข้อมูลโครงการ</h4>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">พูดคุยความต้องการเบื้องต้น</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-24 h-24 rounded-full border border-brand-lightBorder dark:border-brand-border/60 bg-brand-lightCard dark:bg-brand-charcoal/50 flex items-center justify-center transition-all duration-300 group-hover:border-brand-bronze theme-transition">
+                                <svg class="w-9 h-9 text-gray-400 dark:text-gray-500 group-hover:text-brand-bronze transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-dark dark:bg-brand-charcoal border border-brand-bronze text-brand-bronze text-[10px] font-bold flex items-center justify-center">2</span>
+                        </div>
+                        <h4 class="text-xs font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2 theme-transition">สำรวจ & วิเคราะห์</h4>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">ลงพื้นที่จริงและวิเคราะห์ทาง วิศวกรรม</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-24 h-24 rounded-full border border-brand-lightBorder dark:border-brand-border/60 bg-brand-lightCard dark:bg-brand-charcoal/50 flex items-center justify-center transition-all duration-300 group-hover:border-brand-bronze theme-transition">
+                                <svg class="w-9 h-9 text-gray-400 dark:text-gray-500 group-hover:text-brand-bronze transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-dark dark:bg-brand-charcoal border border-brand-bronze text-brand-bronze text-[10px] font-bold flex items-center justify-center">3</span>
+                        </div>
+                        <h4 class="text-xs font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2 theme-transition">เสนอแนวทาง & ราคา</h4>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">นำเสนอแผนงานและใบเสนอราคา</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-24 h-24 rounded-full border-2 border-brand-bronze bg-brand-bronze/10 dark:bg-brand-bronze/5 flex items-center justify-center transition-all duration-300 theme-transition">
+                                <svg class="w-9 h-9 text-brand-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-bronze text-brand-dark text-[10px] font-bold flex items-center justify-center">4</span>
+                        </div>
+                        <h4 class="text-xs font-semibold text-brand-bronze uppercase tracking-wider mb-2">ดำเนินงาน</h4>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">เริ่มงานตามแผน ควบคุม โดยวิศวกร</p>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex flex-col items-center text-center group">
+                        <div class="relative mb-6">
+                            <div class="w-24 h-24 rounded-full border border-brand-lightBorder dark:border-brand-border/60 bg-brand-lightCard dark:bg-brand-charcoal/50 flex items-center justify-center transition-all duration-300 group-hover:border-brand-bronze theme-transition">
+                                <svg class="w-9 h-9 text-gray-400 dark:text-gray-500 group-hover:text-brand-bronze transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-brand-dark dark:bg-brand-charcoal border border-brand-bronze text-brand-bronze text-[10px] font-bold flex items-center justify-center">5</span>
+                        </div>
+                        <h4 class="text-xs font-semibold text-brand-dark dark:text-white uppercase tracking-wider mb-2 theme-transition">ตรวจสอบ & ส่งมอบ</h4>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">ตรวจสอบคุณภาพและส่งมอบงาน</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="py-20 bg-brand-dark dark:bg-[#080807] relative overflow-hidden theme-transition">
+        <!-- Subtle background grid -->
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="50%" x2="100%" y2="50%" stroke="white" stroke-width="1"/>
+                <circle cx="50%" cy="50%" r="300" fill="none" stroke="white" stroke-width="1"/>
+            </svg>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 sm:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-light text-white serif-title leading-tight mb-4">
+                มีโครงการที่ต้องการคำปรึกษา?
+            </h2>
+            <p class="text-sm text-gray-400 font-light max-w-xl mx-auto leading-relaxed mb-10">
+                ไม่ว่าจะเป็นงานเล็กหรืองานใหญ่ ส่งข้อมูลให้ทีมวิศวกรของเราประเมินเบื้องต้นได้ฟรี ไม่มีค่าใช้จ่าย
+            </p>
+            <a href="#contact-form" class="inline-flex items-center gap-3 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm tracking-wider uppercase px-10 py-4 transition-all duration-300">
+                ติดต่อ P2W Engineer
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM SECTION -->
+    <section id="contact-form" class="py-24 bg-brand-stone dark:bg-brand-charcoal border-t border-brand-lightBorder dark:border-brand-border/45 theme-transition">
+        <div class="max-w-3xl mx-auto px-6 sm:px-8">
+            <div class="text-center mb-12">
+                <span class="text-[10px] tracking-[0.3em] text-brand-bronze uppercase font-medium block mb-2">GET IN TOUCH</span>
+                <h2 class="text-3xl font-light text-brand-dark dark:text-white serif-title theme-transition">ส่งรายละเอียดโครงการ</h2>
+                <div class="w-12 h-[1px] bg-brand-bronze mx-auto mt-4"></div>
+            </div>
+
+            <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-6 bg-brand-lightCard dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border p-8 md:p-10 relative shadow-xl theme-transition">
+                <!-- Corner marks -->
+                <div class="absolute top-0 left-0 w-6 h-[1px] bg-brand-bronze"></div>
+                <div class="absolute top-0 left-0 h-6 w-[1px] bg-brand-bronze"></div>
+                <div class="absolute bottom-0 right-0 w-6 h-[1px] bg-brand-bronze"></div>
+                <div class="absolute bottom-0 right-0 h-6 w-[1px] bg-brand-bronze"></div>
+
+                <!-- Name + Phone -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">ชื่อ-นามสกุล <span class="text-brand-bronze">*</span></label>
+                        <input type="text" required placeholder="คุณชื่อ นามสกุล"
+                            class="w-full bg-brand-stone/60 dark:bg-brand-charcoal/50 border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-sm text-brand-dark dark:text-white focus:outline-none rounded-none theme-transition placeholder-gray-400">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">เบอร์โทรศัพท์ <span class="text-brand-bronze">*</span></label>
+                        <input type="tel" required placeholder="08X-XXX-XXXX"
+                            class="w-full bg-brand-stone/60 dark:bg-brand-charcoal/50 border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-sm text-brand-dark dark:text-white focus:outline-none rounded-none theme-transition placeholder-gray-400">
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">อีเมล</label>
+                    <input type="email" placeholder="email@example.com"
+                        class="w-full bg-brand-stone/60 dark:bg-brand-charcoal/50 border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-sm text-brand-dark dark:text-white focus:outline-none rounded-none theme-transition placeholder-gray-400">
+                </div>
+
+                <!-- Service Type -->
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">ประเภทงานที่สนใจ <span class="text-brand-bronze">*</span></label>
+                    <select required class="w-full bg-brand-stone/60 dark:bg-brand-charcoal/50 border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-sm text-brand-dark dark:text-white focus:outline-none rounded-none theme-transition appearance-none cursor-pointer">
+                        <option value="" disabled selected>เลือกประเภทงาน</option>
+                        <option value="civil">วิศวกรรมโยธา / โครงสร้างอาคาร</option>
+                        <option value="solar">ติดตั้งโซล่าเซลล์</option>
+                        <option value="mechanical">วิศวกรรมเครื่องกล / ยานยนต์</option>
+                        <option value="consult">ที่ปรึกษาโครงการ</option>
+                        <option value="certify">ตรวจสอบ / รับรองอาคาร</option>
+                    </select>
+                </div>
+
+                <!-- Project Details -->
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">รายละเอียดโครงการเบื้องต้น <span class="text-brand-bronze">*</span></label>
+                    <textarea required rows="4" placeholder="อธิบายความต้องการ หรือปัญหาที่ต้องการให้เราช่วยแก้ไข..."
+                        class="w-full bg-brand-stone/60 dark:bg-brand-charcoal/50 border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-sm text-brand-dark dark:text-white focus:outline-none rounded-none theme-transition placeholder-gray-400 resize-none"></textarea>
+                </div>
+
+                <!-- File Upload -->
+                <div>
+                    <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 font-medium theme-transition">แนบไฟล์รูปภาพ/แบบแปลน (ถ้ามี)</label>
+                    <label class="flex flex-col items-center justify-center w-full h-32 border border-dashed border-brand-lightBorder dark:border-brand-border/70 hover:border-brand-bronze cursor-pointer bg-brand-stone/30 dark:bg-brand-charcoal/20 transition-all theme-transition">
+                        <svg class="w-8 h-8 text-brand-bronze mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                        <span class="text-xs text-brand-bronze font-medium">อัพโหลดไฟล์</span>
+                        <span class="text-[10px] text-gray-400 mt-1">PNG, JPG, PDF สูงสุด 10MB</span>
+                        <input type="file" class="hidden" accept=".png,.jpg,.jpeg,.pdf">
+                    </label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="w-full bg-brand-dark dark:bg-brand-bronze hover:bg-brand-charcoal dark:hover:bg-brand-bronzedark text-white dark:text-brand-dark font-semibold text-sm tracking-wider uppercase py-4 transition-all duration-300 flex items-center justify-center gap-3 theme-transition">
+                    ส่งข้อมูลให้ทีมวิศวกรประเมิน
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                    </svg>
+                </button>
+
+                <!-- Success message -->
+                <div id="contactSuccess" class="hidden text-center py-6">
+                    <div class="w-10 h-10 border border-brand-bronze text-brand-bronze flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <p class="text-sm text-brand-dark dark:text-white font-light theme-transition">ส่งข้อมูลเรียบร้อยแล้ว ทีมวิศวกรจะติดต่อกลับภายใน 24 ชั่วโมง</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <!-- HIGH-CONVERSION 3-STEP WIZARD FORM -->
     <section id="consultation-wizard" class="py-24 bg-brand-lightBg dark:bg-brand-dark relative border-t border-b border-brand-lightBorder dark:border-brand-border/45 theme-transition">
         <div class="max-w-4xl mx-auto px-6 sm:px-8">
@@ -908,6 +1090,14 @@
             document.getElementById('wizardForm').reset();
             document.getElementById('successModal').classList.add('hidden');
             goToStep(1);
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('contactSuccess');
+            form.querySelector('button[type="submit"]').classList.add('hidden');
+            success.classList.remove('hidden');
         }
     </script>
 </body>

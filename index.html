@@ -632,68 +632,72 @@
     </section>
 
     <!-- WHY CHOOSE US -->
-    <section class="py-24 bg-brand-dark relative overflow-hidden theme-transition">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch min-h-[480px]">
-                <!-- Left: Photo -->
-                <div class="relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2070&auto=format&fit=crop"
-                         alt="วิศวกรทำงาน"
-                         class="w-full h-full object-cover object-center grayscale opacity-70">
-                    <div class="absolute inset-0 bg-gradient-to-r from-transparent to-brand-dark/60"></div>
-                    <!-- Bronze left accent bar -->
-                    <div class="absolute top-0 left-0 w-1 h-full bg-brand-bronze"></div>
-                </div>
+    <section class="relative overflow-hidden min-h-[560px] flex items-center theme-transition">
+        <!-- Background image full width -->
+        <div class="absolute inset-0 z-0">
+            <img src="WhyChooseUs.png" alt="Why Choose Us" class="w-full h-full object-cover object-center">
+            <!-- Dark gradient overlay: darker on right so text readable, lighter on left to show image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/60 via-brand-dark/75 to-brand-dark/92"></div>
+        </div>
 
-                <!-- Right: Content -->
-                <div class="bg-[#111110] px-10 py-14 flex flex-col justify-center">
-                    <span class="text-[10px] tracking-[0.35em] text-brand-bronze uppercase font-medium mb-3">WHY CHOOSE US</span>
-                    <h2 class="text-3xl md:text-4xl font-light text-white serif-title leading-tight mb-5">
-                        ทำไมต้องเลือก <span class="text-brand-bronze">P2W Engineer</span>
-                    </h2>
-                    <p class="text-sm text-gray-400 leading-relaxed mb-8 font-light">
-                        เราไม่ใช่แค่ผู้รับเหมาทั่วไป แต่เราคือบริษัทที่ปรึกษาและให้บริการด้านวิศวกรรม<br class="hidden md:block">
-                        ที่ขับเคลื่อนด้วยมาตรฐาน ความปลอดภัย และความเชี่ยวชาญทางวิชาชีพ
-                    </p>
+        <!-- Bronze top accent line -->
+        <div class="absolute top-0 left-0 right-0 h-[1px] bg-brand-bronze/40 z-10"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-[1px] bg-brand-bronze/20 z-10"></div>
 
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold text-sm mb-1">ทีมวิศวกรหลายสาขา</p>
-                                <p class="text-gray-400 text-xs leading-relaxed">บุคลากรมีความเชี่ยวชาญเฉพาะด้าน ครอบคลุมงานโยธา เครื่องกล และพลังงาน</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold text-sm mb-1">ทำงานตามหลักวิศวกรรม</p>
-                                <p class="text-gray-400 text-xs leading-relaxed">ทุกขั้นตอนผ่านการคำนวณ วางแผน และวิเคราะห์ตามหลักวิชาการที่ถูกต้อง</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold text-sm mb-1">บริการครบจบในที่เดียว</p>
-                                <p class="text-gray-400 text-xs leading-relaxed">ดูแลตั้งแต่การให้คำปรึกษา ออกแบบ ประเมินราคา ก่อสร้าง ไปจนถึงตรวจสอบรับรอง</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            <div>
-                                <p class="text-white font-semibold text-sm mb-1">เครือข่าย Partner แข็งแกร่ง</p>
-                                <p class="text-gray-400 text-xs leading-relaxed">มีพันธมิตรรองรับงานเฉพาะทาง เพื่อให้ผลงานออกมาสมบูรณ์แบบที่สุด</p>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- Content overlaid on image -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-24 w-full">
+            <div class="max-w-2xl ml-auto">
+                <!-- Label -->
+                <span class="text-[10px] tracking-[0.35em] text-brand-bronze uppercase font-medium mb-3 block">WHY CHOOSE US</span>
+                <!-- Heading -->
+                <h2 class="text-3xl md:text-4xl font-light text-white serif-title leading-tight mb-5">
+                    ทำไมต้องเลือก <span class="text-brand-bronze">P2W Engineer</span>
+                </h2>
+                <!-- Bronze divider -->
+                <div class="w-12 h-[1px] bg-brand-bronze mb-6"></div>
+                <!-- Desc -->
+                <p class="text-sm text-gray-300 leading-relaxed mb-10 font-light">
+                    เราไม่ใช่แค่ผู้รับเหมาทั่วไป แต่เราคือบริษัทที่ปรึกษาและให้บริการด้านวิศวกรรม
+                    ที่ขับเคลื่อนด้วยมาตรฐาน ความปลอดภัย และความเชี่ยวชาญทางวิชาชีพ
+                </p>
+                <!-- 4 points in 2x2 grid on md, stack on mobile -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <p class="text-white font-semibold text-sm mb-1">ทีมวิศวกรหลายสาขา</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">บุคลากรมีความเชี่ยวชาญเฉพาะด้าน ครอบคลุมงานโยธา เครื่องกล และพลังงาน</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <p class="text-white font-semibold text-sm mb-1">ทำงานตามหลักวิศวกรรม</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">ทุกขั้นตอนผ่านการคำนวณ วางแผน และวิเคราะห์ตามหลักวิชาการที่ถูกต้อง</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <p class="text-white font-semibold text-sm mb-1">บริการครบจบในที่เดียว</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">ดูแลตั้งแต่การให้คำปรึกษา ออกแบบ ประเมินราคา ก่อสร้าง ไปจนถึงตรวจสอบรับรอง</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-bronze mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <div>
+                            <p class="text-white font-semibold text-sm mb-1">เครือข่าย Partner แข็งแกร่ง</p>
+                            <p class="text-gray-400 text-xs leading-relaxed">มีพันธมิตรรองรับงานเฉพาะทาง เพื่อให้ผลงานออกมาสมบูรณ์แบบที่สุด</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

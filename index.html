@@ -89,7 +89,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#home" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-16 h-16 object-contain dark:brightness-200">
+                <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-16 h-16 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
                 <div>
                     <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block theme-transition">P2W INTERPLUS</span>
                     <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
@@ -118,7 +118,7 @@
                 </button>
 
                 <!-- CTA Button - Bronze filled -->
-                <a href="#contact-form" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-2.5 transition-all duration-300">
+                <a href="#consultation-wizard" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-2.5 transition-all duration-300">
                     ขอคำปรึกษา
                 </a>
 
@@ -139,15 +139,23 @@
             <a href="#how-we-work" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">เกี่ยวกับเรา</a>
             <a href="#contact" class="block text-sm text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ติดต่อเรา</a>
             <div class="pt-4 border-t border-brand-lightBorder dark:border-brand-border/60">
-                <a href="#contact-form" class="block w-full text-center bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-3 transition-all">ขอคำปรึกษา</a>
+                <a href="#consultation-wizard" class="block w-full text-center bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-3 transition-all">ขอคำปรึกษา</a>
             </div>
         </div>
     </header>
 
     <!-- HERO SECTION WITH INTEGRATED METRICS & DYNAMIC CARDS -->
     <section id="home" class="relative min-h-[90vh] flex items-center py-16 md:py-24 overflow-hidden border-b border-brand-lightBorder dark:border-brand-border/45 theme-transition">
+        <!-- Hero Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop"
+                 alt="" class="w-full h-full object-cover object-center" loading="eager">
+            <!-- Overlay: light mode = light tint, dark mode = dark tint -->
+            <div class="absolute inset-0 bg-brand-lightBg/80 dark:bg-brand-dark/85 theme-transition"></div>
+        </div>
+
         <!-- Abstract Structural Line Grid -->
-        <div class="absolute inset-0 pointer-events-none opacity-[0.06] dark:opacity-[0.03] theme-transition">
+        <div class="absolute inset-0 pointer-events-none opacity-[0.06] dark:opacity-[0.03] theme-transition z-10">
             <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <line x1="25%" y1="0" x2="25%" y2="100%" class="stroke-[#0D0D0C] dark:stroke-white theme-transition" stroke-width="1" />
                 <line x1="75%" y1="0" x2="75%" y2="100%" class="stroke-[#0D0D0C] dark:stroke-white theme-transition" stroke-width="1" />
@@ -155,7 +163,7 @@
             </svg>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <!-- Left Info Panel -->
             <div class="lg:col-span-7 space-y-8">
                 <div class="inline-flex items-center space-x-2 bg-brand-stone/40 dark:bg-brand-charcoal/40 border border-brand-bronze/35 px-4 py-1.5 rounded-none theme-transition">
@@ -869,7 +877,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             <div class="md:col-span-4 space-y-6">
                 <a href="#home" class="flex items-center space-x-3">
-                    <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-24 h-24 object-contain dark:brightness-200">
+                    <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-24 h-24 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
                     <div>
                         <span class="text-sm font-light tracking-[0.25em] text-brand-dark dark:text-white uppercase block theme-transition">P2W INTERPLUS</span>
                     </div>

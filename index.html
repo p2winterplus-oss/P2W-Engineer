@@ -89,7 +89,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#home" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="P2W GROUP Logo" class="w-10 h-10 object-contain dark:brightness-200">
+                <img src="logo.png" alt="P2W GROUP Logo" class="w-16 h-16 object-contain dark:brightness-200">
                 <div>
                     <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block theme-transition">P2W GROUP</span>
                     <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
@@ -754,6 +754,165 @@
     </section>
 
 
+    <!-- CONSULTATION WIZARD -->
+    <section id="consultation-wizard" class="py-24 bg-brand-lightBg dark:bg-brand-dark relative border-t border-b border-brand-lightBorder dark:border-brand-border/45 theme-transition">
+        <div class="max-w-4xl mx-auto px-6 sm:px-8">
+            <div class="border border-brand-lightBorder dark:border-brand-border p-8 md:p-14 bg-brand-lightCard dark:bg-brand-charcoal/30 relative shadow-2xl rounded-none theme-transition">
+                <div class="absolute top-0 right-0 w-8 h-[1px] bg-brand-bronze"></div>
+                <div class="absolute top-0 right-0 h-8 w-[1px] bg-brand-bronze"></div>
+
+                <div class="text-center mb-10">
+                    <span class="text-[10px] tracking-[0.3em] text-brand-bronze uppercase font-light block">Bespoke Engineering Planner</span>
+                    <h2 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title mt-2 theme-transition">เครื่องมือประเมินงบประมาณระบบและโครงการ</h2>
+                    <p class="text-gray-500 text-xs mt-3 font-light max-w-sm mx-auto theme-transition">ระบุเป้าหมายเบื้องต้นเพื่อจับคู่ข้อเสนอด้านวิศวกรรมสถาปัตยกรรมที่ลงตัวที่สุดร่วมกับเรา</p>
+                </div>
+
+                <!-- Step Indicators -->
+                <div class="flex justify-center items-center space-x-4 mb-12 flex-wrap gap-y-2">
+                    <div id="step-indicator-1" class="flex items-center space-x-2">
+                        <span class="w-7 h-7 rounded-none border border-brand-bronze text-brand-bronze text-xs flex items-center justify-center font-bold">1</span>
+                        <span class="text-[10px] uppercase tracking-wider text-brand-bronze font-light">ประเภทบริการ</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-brand-lightBorder dark:bg-brand-border theme-transition"></div>
+                    <div id="step-indicator-2" class="flex items-center space-x-2 opacity-35">
+                        <span class="w-7 h-7 rounded-none border border-gray-400 dark:border-gray-600 text-gray-500 text-xs flex items-center justify-center font-bold">2</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 font-light">สเกลโครงการ</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-brand-lightBorder dark:bg-brand-border theme-transition"></div>
+                    <div id="step-indicator-3" class="flex items-center space-x-2 opacity-35">
+                        <span class="w-7 h-7 rounded-none border border-gray-400 dark:border-gray-600 text-gray-500 text-xs flex items-center justify-center font-bold">3</span>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 font-light">ช่องทางติดต่อ</span>
+                    </div>
+                </div>
+
+                <form id="wizardForm" class="space-y-8" onsubmit="handleWizardSubmit(event)">
+                    <!-- Web3Forms hidden fields -->
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                    <input type="hidden" name="subject" value="[P2W Engineer] แจ้งเตือนคำขอประเมินโครงการใหม่">
+                    <input type="hidden" name="from_name" value="P2W Engineer Website">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+                    <!-- STEP 1: Service Type -->
+                    <div id="wizard-step-1" class="space-y-6">
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 dark:text-slate-400 text-center font-light mb-4 theme-transition">คุณกำลังประสงค์ขอการประเมินบริการด้านใด?</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="flex items-center p-4 border border-brand-lightBorder dark:border-brand-border rounded-none bg-brand-stone/30 dark:bg-brand-dark/40 cursor-pointer hover:border-brand-bronze/55 transition-all theme-transition">
+                                <input type="radio" name="wizardService" value="วิศวกรรมโยธาและภูมิทัศน์ (สร้าง/ต่อเติม/ฐานราก)" class="form-radio text-brand-bronze focus:ring-0 mr-4" checked>
+                                <span class="text-xs text-gray-700 dark:text-slate-300 font-light theme-transition">วิศวกรรมโยธาและภูมิทัศน์ (สร้าง/ต่อเติม/ฐานราก)</span>
+                            </label>
+                            <label class="flex items-center p-4 border border-brand-lightBorder dark:border-brand-border rounded-none bg-brand-stone/30 dark:bg-brand-dark/40 cursor-pointer hover:border-brand-bronze/55 transition-all theme-transition">
+                                <input type="radio" name="wizardService" value="งานติดตั้งโซล่าเซลล์ประหยัดค่าไฟ" class="form-radio text-brand-bronze focus:ring-0 mr-4">
+                                <span class="text-xs text-gray-700 dark:text-slate-300 font-light theme-transition">งานติดตั้งหลังคาพลังงานสะอาดโซล่าเซลล์ประหยัดค่าไฟ</span>
+                            </label>
+                            <label class="flex items-center p-4 border border-brand-lightBorder dark:border-brand-border rounded-none bg-brand-stone/30 dark:bg-brand-dark/40 cursor-pointer hover:border-brand-bronze/55 transition-all theme-transition">
+                                <input type="radio" name="wizardService" value="วิศวกรรมยานยนต์ ตรวจสภาพดัดแปลงระบบเครื่องกล" class="form-radio text-brand-bronze focus:ring-0 mr-4">
+                                <span class="text-xs text-gray-700 dark:text-slate-300 font-light theme-transition">วิศวกรรมยานยนต์ ตรวจสภาพดัดแปลงระบบเครื่องกล</span>
+                            </label>
+                            <label class="flex items-center p-4 border border-brand-lightBorder dark:border-brand-border rounded-none bg-brand-stone/30 dark:bg-brand-dark/40 cursor-pointer hover:border-brand-bronze/55 transition-all theme-transition">
+                                <input type="radio" name="wizardService" value="ที่ปรึกษาบริหารจัดการโครงการก่อสร้าง" class="form-radio text-brand-bronze focus:ring-0 mr-4">
+                                <span class="text-xs text-gray-700 dark:text-slate-300 font-light theme-transition">ที่ปรึกษาบริหารจัดการโครงการก่อสร้างและสเปซ</span>
+                            </label>
+                            <label class="flex items-center p-4 border border-brand-lightBorder dark:border-brand-border rounded-none bg-brand-stone/30 dark:bg-brand-dark/40 cursor-pointer hover:border-brand-bronze/55 transition-all sm:col-span-2 theme-transition">
+                                <input type="radio" name="wizardService" value="เซ็นตรวจสอบรับรองความปลอดภัยโครงสร้างอาคารประจำปี (อ.1)" class="form-radio text-brand-bronze focus:ring-0 mr-4">
+                                <span class="text-xs text-gray-700 dark:text-slate-300 font-light theme-transition">เซ็นตรวจสอบรับรองความปลอดภัยโครงสร้างอาคารประจำปี (อ.1)</span>
+                            </label>
+                        </div>
+                        <div class="flex justify-end pt-4">
+                            <button type="button" onclick="goToStep(2)" class="bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-[10px] tracking-widest uppercase px-6 py-3.5 transition-all flex items-center gap-2">
+                                ขั้นตอนถัดไป
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Project Scale -->
+                    <div id="wizard-step-2" class="space-y-6 hidden">
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 dark:text-slate-400 text-center font-light mb-4 theme-transition">ระบุขนาดขอบเขตงานหรือความต้องการเบื้องต้น</label>
+                        <div class="space-y-5">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">ขนาดของโครงการ</label>
+                                <input type="text" name="projectScope" class="w-full bg-brand-stone/50 dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-xs text-brand-dark dark:text-slate-200 focus:outline-none rounded-none theme-transition" placeholder="เช่น บ้าน 2 ชั้น 200 ตร.ม., ต้องการ Solar 5kWp, รถที่ต้องการดัดแปลง">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">ข้อมูลปัญหาหรือความประสงค์</label>
+                                <textarea name="projectDetails" rows="4" class="w-full bg-brand-stone/50 dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-xs text-brand-dark dark:text-slate-200 focus:outline-none rounded-none theme-transition" placeholder="อธิบายรายละเอียดโครงการ..."></textarea>
+                            </div>
+                        </div>
+                        <div class="flex justify-between pt-4">
+                            <button type="button" onclick="goToStep(1)" class="border border-brand-lightBorder dark:border-brand-border text-brand-dark dark:text-white font-semibold text-[10px] tracking-widest uppercase px-6 py-3.5 transition-all flex items-center gap-2 theme-transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                ย้อนกลับ
+                            </button>
+                            <button type="button" onclick="goToStep(3)" class="bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-[10px] tracking-widest uppercase px-6 py-3.5 transition-all flex items-center gap-2">
+                                ขั้นตอนถัดไป
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Contact + File Upload -->
+                    <div id="wizard-step-3" class="space-y-6 hidden">
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 dark:text-slate-400 text-center font-light mb-4 theme-transition">กรอกข้อมูลเพื่อส่งเรื่องถึงวิศวกรวิชาชีพควบคุมงาน</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">นามผู้ติดต่อ <span class="text-brand-bronze">*</span></label>
+                                <input type="text" name="name" id="wizardName" required class="w-full bg-brand-stone/50 dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-xs text-brand-dark dark:text-slate-200 focus:outline-none rounded-none theme-transition" placeholder="คุณอภิสิทธิ์ รัตนกุล">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">หมายเลขโทรศัพท์ <span class="text-brand-bronze">*</span></label>
+                                <input type="tel" name="phone" id="wizardPhone" required class="w-full bg-brand-stone/50 dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-xs text-brand-dark dark:text-slate-200 focus:outline-none rounded-none theme-transition" placeholder="082-XXX-XXXX">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">อีเมล (ถ้ามี)</label>
+                                <input type="email" name="email" id="wizardEmail" class="w-full bg-brand-stone/50 dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze px-4 py-3 text-xs text-brand-dark dark:text-slate-200 focus:outline-none rounded-none theme-transition" placeholder="email@example.com">
+                            </div>
+                            <!-- File Upload -->
+                            <div class="sm:col-span-2">
+                                <label class="block text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-2 theme-transition">แนบไฟล์รูปภาพ/แบบแปลน (ถ้ามี)</label>
+                                <label class="flex flex-col items-center justify-center w-full h-28 border border-dashed border-brand-lightBorder dark:border-brand-border/70 hover:border-brand-bronze cursor-pointer bg-brand-stone/30 dark:bg-brand-dark/40 transition-all theme-transition">
+                                    <svg class="w-7 h-7 text-brand-bronze mb-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                    </svg>
+                                    <span id="wizardFileText" class="text-[10px] text-brand-bronze font-medium">อัพโหลดไฟล์ หรือลากไฟล์มาวาง</span>
+                                    <span class="text-[9px] text-gray-400 mt-1">PNG, JPG, PDF สูงสุด 10MB</span>
+                                    <input type="file" name="attachment" class="hidden" accept=".png,.jpg,.jpeg,.pdf" onchange="updateWizardFileName(this)">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="flex justify-between pt-4">
+                            <button type="button" onclick="goToStep(2)" class="border border-brand-lightBorder dark:border-brand-border text-brand-dark dark:text-white font-semibold text-[10px] tracking-widest uppercase px-6 py-3.5 transition-all flex items-center gap-2 theme-transition">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                ย้อนกลับ
+                            </button>
+                            <button type="submit" id="wizardSubmitBtn" class="bg-gradient-to-r from-brand-bronze to-brand-bronzelight text-brand-dark font-semibold text-[10px] tracking-widest uppercase px-8 py-3.5 shadow-xl transition-all flex items-center gap-2">
+                                <span id="wizardSubmitText">ยืนยันข้อมูลประเมิน</span>
+                                <svg id="wizardSubmitIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                <svg id="wizardSubmitSpinner" class="w-4 h-4 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Modal -->
+                <div id="successModal" class="hidden absolute inset-0 bg-brand-lightBg dark:bg-brand-dark z-20 flex flex-col items-center justify-center p-8 text-center border border-brand-bronze/40 theme-transition">
+                    <div class="w-12 h-12 border border-brand-bronze text-brand-bronze flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-light text-brand-dark dark:text-white serif-title mb-3 theme-transition">คำร้องของคุณได้รับการส่งเรียบร้อยแล้ว</h3>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed mb-8 theme-transition">
+                        ทีมวิศวกรวิชาชีพจะติดต่อกลับหาท่านภายใน 24 ชั่วโมง
+                    </p>
+                    <button onclick="resetWizard()" class="border border-brand-lightBorder dark:border-brand-border text-gray-500 dark:text-slate-400 hover:text-brand-dark dark:hover:text-white hover:border-brand-bronze text-[10px] tracking-widest uppercase px-6 py-2.5 transition-all theme-transition">
+                        ย้อนกลับมาที่เว็บไซต์
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PORTFOLIO SECTION -->
     <section id="projects" class="py-24 bg-brand-lightBg dark:bg-brand-dark border-b border-brand-lightBorder dark:border-brand-border/45 theme-transition">
         <div class="max-w-7xl mx-auto px-6 sm:px-8">
@@ -814,7 +973,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             <div class="md:col-span-4 space-y-6">
                 <a href="#home" class="flex items-center space-x-3">
-                    <img src="logo.png" alt="P2W GROUP Logo" class="w-8 h-8 object-contain">
+                    <img src="logo.png" alt="P2W GROUP Logo" class="w-24 h-24 object-contain dark:brightness-200">
                     <div>
                         <span class="text-sm font-light tracking-[0.25em] text-brand-dark dark:text-white uppercase block theme-transition">P2W GROUP</span>
                     </div>
@@ -823,7 +982,7 @@
                     กลุ่มนักออกแบบสเปซและวิศวกรวิชาชีพควบคุมผู้บูรณาการเทคโนโลยีและความงามชั้นพรีเมียม ร่วมมือกับสมาคมการไฟฟ้าและโยธาเพื่อสร้างมาตรฐานโครงการอันเป็นที่ไว้วางใจสูงสุด
                 </p>
                 <div class="text-[10px] text-gray-500 dark:text-gray-600 font-light theme-transition">
-                    <p>P2W GROUP CO., LTD. สงวนลิขสิทธิ์</p>
+                    <p>P2W INTERPLUS CO.,LTD. สงวนลิขสิทธิ์</p>
                 </div>
             </div>
 
@@ -970,7 +1129,52 @@
         function resetWizard() {
             document.getElementById('wizardForm').reset();
             document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('wizardSubmitBtn').disabled = false;
+            document.getElementById('wizardSubmitText').textContent = 'ยืนยันข้อมูลประเมิน';
+            document.getElementById('wizardSubmitIcon').classList.remove('hidden');
+            document.getElementById('wizardSubmitSpinner').classList.add('hidden');
+            document.getElementById('wizardFileText').textContent = 'อัพโหลดไฟล์ หรือลากไฟล์มาวาง';
             goToStep(1);
+        }
+
+        async function handleWizardSubmit(event) {
+            event.preventDefault();
+            const btn = document.getElementById('wizardSubmitBtn');
+            const text = document.getElementById('wizardSubmitText');
+            const icon = document.getElementById('wizardSubmitIcon');
+            const spinner = document.getElementById('wizardSubmitSpinner');
+
+            btn.disabled = true;
+            text.textContent = 'กำลังส่ง...';
+            icon.classList.add('hidden');
+            spinner.classList.remove('hidden');
+
+            const formData = new FormData(document.getElementById('wizardForm'));
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                if (data.success) {
+                    document.getElementById('successModal').classList.remove('hidden');
+                } else {
+                    throw new Error('failed');
+                }
+            } catch (err) {
+                btn.disabled = false;
+                text.textContent = 'ยืนยันข้อมูลประเมิน';
+                icon.classList.remove('hidden');
+                spinner.classList.add('hidden');
+                alert('เกิดข้อผิดพลาด กรุณาลองใหม่หรือติดต่อ 088-788-8364');
+            }
+        }
+
+        function updateWizardFileName(input) {
+            if (input.files && input.files[0]) {
+                document.getElementById('wizardFileText').textContent = '✔ ' + input.files[0].name;
+            }
         }
 
         async function handleContactSubmit(event) {

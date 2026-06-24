@@ -69,6 +69,17 @@
             background: #C5A880;
             border-radius: 3px;
         }
+        .dark .logo-glow {
+            filter:
+                drop-shadow(1px  0    0 #C5A880)
+                drop-shadow(-1px 0    0 #C5A880)
+                drop-shadow(0    1px  0 #C5A880)
+                drop-shadow(0   -1px  0 #C5A880)
+                drop-shadow(1px  1px  0 #C5A880)
+                drop-shadow(-1px 1px  0 #C5A880)
+                drop-shadow(1px -1px  0 #C5A880)
+                drop-shadow(-1px -1px 0 #C5A880);
+        }
     </style>
     <script>
         // ระบบตรวจเช็คโหมดเริ่มต้นจากผู้ใช้ก่อนโหลดหน้าตาเว็บ
@@ -89,7 +100,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#home" class="flex items-center space-x-3 group">
-                <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-16 h-16 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
+                <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-16 h-16 object-contain logo-glow">
                 <div>
                     <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block theme-transition">P2W INTERPLUS</span>
                     <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
@@ -904,7 +915,8 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Card 01: Structural Civil -->
                 <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 bg-gradient-to-br from-[#1C110C] to-brand-dark relative flex items-center justify-center p-6 text-center">
                         <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-all"></div>
@@ -917,27 +929,45 @@
                     </div>
                 </div>
 
+                <!-- Card 02: Solar Rooftop 50kW Factory -->
                 <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
-                    <div class="h-56 bg-gradient-to-br from-[#0E1F1A] to-brand-dark relative flex items-center justify-center p-6 text-center">
-                        <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-all"></div>
-                        <span class="text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 relative z-10 font-medium">ภาพจริง / Solar Systems</span>
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="public/solar-factory.png" alt="Solar Rooftop Factory 50kW" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+                        <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Solar Rooftop / Industrial</span>
                     </div>
                     <div class="p-6 space-y-3">
                         <span class="text-[9px] uppercase tracking-widest text-brand-bronze font-bold font-mono">02 / GREEN ENERGY SOLAR</span>
-                        <h4 class="font-light text-brand-dark dark:text-white text-base tracking-wide uppercase theme-transition">ติดตั้งระบบ Solar On-Grid 120kWp นิคมบางปู</h4>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed theme-transition">วางแผงโซล่าเซลล์ประหยัดพลังงานไฟในอาคารอุตสาหกรรม โดยมีระบบมอนิเตอร์ความร้อนและแรงดันไฟแบบเรียลไทม์ คืนทุนเร็วภายใน 4.8 ปี</p>
+                        <h4 class="font-light text-brand-dark dark:text-white text-base tracking-wide uppercase theme-transition">ติดตั้ง Solar Rooftop ขนาด 50kW บนหลังคาโรงงาน</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed theme-transition">ออกแบบและติดตั้งระบบ Solar On-Grid บนหลังคาโรงงานอุตสาหกรรม ขนาด 50kWp พร้อมระบบมอนิเตอร์แบบเรียลไทม์ ช่วยลดค่าไฟฟ้าได้สูงสุด 70% คืนทุนภายใน 5-6 ปี</p>
                     </div>
                 </div>
 
+                <!-- Card 03: Solar Rooftop 5kW Home -->
                 <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
-                    <div class="h-56 bg-gradient-to-br from-[#1C0F0F] to-brand-dark relative flex items-center justify-center p-6 text-center">
-                        <div class="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition-all"></div>
-                        <span class="text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 relative z-10 font-medium">ภาพจริง / Commercial Complex</span>
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="public/solar-home.png" alt="Solar Rooftop Home 5kW" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+                        <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Solar Rooftop / Residential</span>
                     </div>
                     <div class="p-6 space-y-3">
-                        <span class="text-[9px] uppercase tracking-widest text-brand-bronze font-bold font-mono">03 / CERTIFICATION AUDIT</span>
-                        <h4 class="font-light text-brand-dark dark:text-white text-base tracking-wide uppercase theme-transition">ตรวจสอบอาคารและตรวจอัคคีภัยศูนย์พลาซ่า</h4>
-                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed theme-transition">เข้าประเมินโครงสร้างอาคารพาณิชย์ขนาดใหญ่ 5 ชั้นและตรวจจับความร้อนจุดตัดไฟด้วยเครื่องสแกนความร้อนสเปคสูง พร้อมออกตราประทับ อ.1 ครบถ้วน</p>
+                        <span class="text-[9px] uppercase tracking-widest text-brand-bronze font-bold font-mono">03 / GREEN ENERGY SOLAR</span>
+                        <h4 class="font-light text-brand-dark dark:text-white text-base tracking-wide uppercase theme-transition">ติดตั้ง Solar Rooftop ขนาด 5kW บนหลังคาบ้านพักอาศัย</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed theme-transition">ออกแบบและติดตั้งระบบ Solar On-Grid สำหรับที่พักอาศัย ขนาด 5kWp เหมาะสำหรับบ้านทั่วไป ลดค่าไฟฟ้าเฉลี่ย 60-80% ต่อเดือน รับประกันแผงนาน 25 ปี</p>
+                    </div>
+                </div>
+
+                <!-- Card 04: Engineering Design & Analysis -->
+                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                    <div class="h-56 relative overflow-hidden">
+                        <img src="public/engineering-design.png" alt="Engineering Design & Analysis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
+                        <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Design & Structural / Analysis</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <span class="text-[9px] uppercase tracking-widest text-brand-bronze font-bold font-mono">04 / STRUCTURAL DESIGN</span>
+                        <h4 class="font-light text-brand-dark dark:text-white text-base tracking-wide uppercase theme-transition">รับออกแบบบ้าน วิเคราะห์และตรวจสอบงานระบบ-โครงสร้าง</h4>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-light leading-relaxed theme-transition">บริการออกแบบบ้านและอาคารครบวงจร พร้อมวิเคราะห์และตรวจสอบงานระบบวิศวกรรม งานโครงสร้าง โดยทีมวิศวกรและสถาปนิกมืออาชีพ รับรองโดยสภาวิศวกร</p>
                     </div>
                 </div>
             </div>
@@ -949,7 +979,7 @@
         <div class="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
             <div class="md:col-span-4 space-y-6">
                 <a href="#home" class="flex items-center space-x-3">
-                    <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-24 h-24 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
+                    <img src="logo.png" alt="P2W INTERPLUS Logo" class="w-24 h-24 object-contain logo-glow">
                     <div>
                         <span class="text-sm font-light tracking-[0.25em] text-brand-dark dark:text-white uppercase block theme-transition">P2W INTERPLUS</span>
                     </div>

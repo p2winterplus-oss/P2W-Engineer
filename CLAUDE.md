@@ -1,10 +1,14 @@
 # P2W INTERPLUS - Engineering Website
 
+## Architecture รวม
+ดู `C:\Users\witta\OneDrive\Claude AI Backup\P2W-ARCHITECTURE.md`
+
 ## Project Overview
-เว็บไซต์บริษัทวิศวกรรม P2W INTERPLUS CO.,LTD.
+เว็บไซต์บริษัทวิศวกรรม P2W INTERPLUS CO.,LTD. — เป็นส่วนหนึ่งของ P2W Hub
 - **Live URL**: https://p2winterplus-oss.github.io/P2W-Engineer/
+- **URL หลัง domain พร้อม**: https://p2winterplus.com/engineer
 - **Repo**: https://github.com/p2winterplus-oss/P2W-Engineer.git
-- **Hosted**: GitHub Pages (free, static)
+- **Hosted**: GitHub Pages (free, static) — ไม่ย้ายไป Railway เพราะไม่มี backend
 - **Stack**: HTML + Tailwind CSS CDN + Vanilla JavaScript (single file: index.html)
 
 ## Design System
@@ -28,7 +32,7 @@
 
 ## Key Files
 - `index.html` — entire website (single file)
-- `logo.png` — P2W INTERPLUS logo (dark navy on white, dark mode: `dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]`)
+- `logo.png` — P2W INTERPLUS logo (dark navy on white, dark mode: CSS class `.logo-glow` — outer stroke 1px สีบรอนซ์ `#C5A880` ด้วย drop-shadow 8 ทิศทาง, ใช้ทั้ง header w-16 และ footer w-24)
 - `WhyChooseUs.png` — background image สำหรับ section Why Choose Us
 
 ## Email Integration
@@ -52,18 +56,30 @@
 - CTA banner — ปุ่ม "ขอคำปรึกษา" link ไป `#consultation-wizard`
 - 3-step consultation wizard with file upload + email notification
 - Responsive mobile menu
-- Logo uploaded to repo + bronze glow on dark mode
+- Logo uploaded to repo + bronze 1px outer stroke dark mode (`.logo-glow` CSS class, drop-shadow 8 ทิศทาง)
 - Hero section background image with overlay
 - ปุ่ม "ขอคำปรึกษา" ทุกจุด (header, mobile, CTA) scroll ไป wizard
 - Deployed on GitHub Pages
+
+## Tracking & Data Plan
+- **Visitor tracking**: Google Analytics (เพิ่ม script tag ใน `<head>`) — ฟรี ดู dashboard ได้
+- **Form → Google Sheet**: ใช้ Google Apps Script แทน Zapier — ฟรีไม่จำกัด ส่ง form submission เข้า Sheet อัตโนมัติ
+- **Form email**: Web3Forms (มีอยู่แล้ว) คงไว้ควบคู่กัน
+
+## Phase 2 (หลังซื้อ domain p2winterplus.com)
+- เพิ่ม link กลับ Main Hub (`/`) ใน Header
+- เพิ่ม link ไปหน้าอื่นๆ ของ P2W ใน Footer
+- เปลี่ยน URL เป็น p2winterplus.com/engineer ผ่าน Cloudflare
 
 ## What's Missing / TODO ❌
 - Real project photos for portfolio cards (currently placeholder gradients)
 - "เกี่ยวกับเรา" (About Us) section — team, company background
 - Testimonials / client reviews section
-- Custom domain (currently on .github.io)
-- Google Analytics / tracking
+- Custom domain (currently on .github.io) — รอซื้อ p2winterplus.com
+- Google Analytics — เพิ่ม script tag (ยังไม่ได้ทำ)
+- Google Apps Script — เชื่อม form → Google Sheet (ยังไม่ได้ทำ)
 - SEO meta tags (og:image, description, keywords)
 - Line OA chat widget (floating button)
 - Portfolio filter buttons (โยธา/โซล่า) not yet functional
 - Mobile nav auto-close after link click
+- Header: link กลับ P2W Main (รอ domain พร้อม)

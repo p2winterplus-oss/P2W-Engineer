@@ -60,6 +60,11 @@
 - Hero section background image with overlay
 - ปุ่ม "ขอคำปรึกษา" ทุกจุด (header, mobile, CTA) scroll ไป wizard
 - Deployed on GitHub Pages
+- Portfolio อัปเดตเป็น 4 cards (2x2 grid) พร้อมรูปจริง:
+  - Card 01: Structural Civil — ต่อเติมคฤหาสน์ราชพฤกษ์ (gradient placeholder)
+  - Card 02: Solar Rooftop 50kW โรงงาน (`public/solar-factory.png`) คืนทุน 3-4 ปี
+  - Card 03: Solar Rooftop 5kW บ้าน (`public/solar-home.png`) ลดค่าไฟ 60-80%
+  - Card 04: รับออกแบบ/วิเคราะห์/ตรวจสอบโครงสร้าง (`public/engineering-design.png`)
 
 ## Tracking & Data Plan
 - **Visitor tracking**: Google Analytics (เพิ่ม script tag ใน `<head>`) — ฟรี ดู dashboard ได้
@@ -72,7 +77,7 @@
 - เปลี่ยน URL เป็น p2winterplus.com/engineer ผ่าน Cloudflare
 
 ## What's Missing / TODO ❌
-- Real project photos for portfolio cards (currently placeholder gradients)
+- รูปจริงสำหรับ Card 01 Structural Civil (ยังเป็น gradient placeholder)
 - "เกี่ยวกับเรา" (About Us) section — team, company background
 - Testimonials / client reviews section
 - Custom domain (currently on .github.io) — รอซื้อ p2winterplus.com

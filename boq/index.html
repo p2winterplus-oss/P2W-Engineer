@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ระบบ BOQ &amp; ใบเสนอราคา | P2W INTERPLUS</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'brand-bronze': '#C5A880',
+        'brand-bronzedark': '#B39569',
+        'brand-dark': '#0D0D0C',
+        'brand-charcoal': '#1B1B19',
+        'brand-lightBg': '#F9F8F6',
+        'brand-lightCard': '#FFFFFF',
+        'brand-lightBorder': '#E8E5DF',
+        'brand-border': '#2A2A27'
+      },
+      fontFamily: {
+        serif: ['Playfair Display', 'serif'],
+        sans: ['Prompt', 'sans-serif']
+      }
+    }
+  }
+}
+</script>
+<style>
+  body { font-family: 'Prompt', sans-serif; }
+  .serif-title { font-family: 'Playfair Display', serif; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
+  input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white !important; }
+    .print-area { display: block !important; }
+  }
+  .print-area { display: none; }
+</style>
+</head>
+<body class="bg-brand-lightBg text-brand-dark min-h-screen">
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="loginScreen" class="min-h-screen flex items-center justify-center px-6 bg-brand-dark">
+  <div class="w-full max-w-sm bg-brand-charcoal border border-brand-border rounded-xl p-10 flex flex-col items-center gap-6 shadow-2xl">
+    <div class="text-sm font-semibold tracking-[0.2em] text-white uppercase">P2W <span class="text-brand-bronze">INTERPLUS</span></div>
+    <div class="w-12 h-12 rounded-full bg-brand-bronze/15 flex items-center justify-center">
+      <svg class="w-6 h-6 text-brand-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+    </div>
+    <div class="text-center">
+      <h1 class="text-white text-base font-medium">ระบบออกแบบราคา &amp; BOQ</h1>
+      <p class="text-gray-400 text-xs mt-1">สำหรับทีมงาน P2W เท่านั้น</p>
+    </div>
+    <form id="loginForm" class="w-full flex flex-col gap-4" onsubmit="return handleLogin(event)">
+      <input id="pwInput" type="password" placeholder="รหัสผ่าน" autocomplete="off"
+        class="w-full text-center tracking-widest bg-brand-dark border border-brand-border rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-bronze transition-colors">
+      <p id="loginError" class="hidden text-red-400 text-xs text-center">รหัสผ่านไม่ถูกต้อง</p>
+      <button type="submit" class="w-full bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm py-3 rounded-lg transition-colors">เข้าสู่ระบบ</button>
+    </form>
+    <p class="text-[11px] text-gray-500 text-center leading-relaxed">Session หมดอายุอัตโนมัติหลัง 30 นาที<br>หรือเมื่อปิด/รีเฟรชหน้าต่าง</p>
+  </div>
+</div>
+
+<!-- ============ APP (hidden until logged in) ============ -->
+<div id="appScreen" class="hidden">
+
+  <!-- Top bar -->
+  <div class="no-print sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-lightBorder">
+    <div class="px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-sm font-semibold tracking-[0.15em] uppercase">P2W <span class="text-brand-bronze">ENGINEER</span></span>
+        <span class="text-gray-300">/</span>
+        <span class="text-xs text-gray-500">ระบบ BOQ &amp; ใบเสนอราคา</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span id="sessionClock" class="text-[11px] text-gray-400 hidden sm:inline-flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span id="sessionMins">30</span> นาที
+        </span>
+        <button onclick="logout()" class="text-xs border border-brand-lightBorder hover:border-brand-bronze rounded-lg px-3 py-1.5 transition-colors">ออกจากระบบ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE SELECTION -->
+  <div id="templateScreen" class="max-w-6xl mx-auto px-6 py-10">
+    <h1 class="text-2xl serif-title font-medium mb-1">เลือก Template</h1>
+    <p class="text-sm text-gray-500 mb-8">เลือกประเภทงานเพื่อเริ่มต้น BOQ พร้อมรายการสำเร็จรูป หรือดูเอกสารที่บันทึกไว้</p>
+
+    <div id="draftsSection" class="hidden mb-10">
+      <h2 class="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">เอกสารที่บันทึกไว้</h2>
+      <div id="draftsList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+    </div>
+
+    <h2 class="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">เริ่มต้นใหม่</h2>
+    <div id="templateGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+
+  <!-- BOQ EDITOR -->
+  <div id="editorScreen" class="hidden max-w-6xl mx-auto px-6 py-8">
+    <div class="no-print flex items-center justify-between mb-6 flex-wrap gap-3">
+      <button onclick="backToTemplates()" class="text-xs text-gray-500 hover:text-brand-bronze flex items-center gap-1">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+        กลับหน้า Template
+      </button>
+      <div class="flex items-center gap-2">
+        <button onclick="saveDraft()" class="text-xs border border-brand-lightBorder hover:border-brand-bronze rounded-lg px-3 py-2 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-6 0V3h6v4m-6 0h6"></path></svg>
+          บันทึก
+        </button>
+        <button onclick="window.print()" class="text-xs bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold rounded-lg px-4 py-2 flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a1 1 0 001-1v-4a1 1 0 00-1-1H9a1 1 0 00-1 1v4a1 1 0 001 1zm8-12V5a1 1 0 00-1-1H8a1 1 0 00-1 1v4h10z"></path></svg>
+          Export / Print PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Project meta -->
+    <div class="bg-white border border-brand-lightBorder rounded-xl p-6 mb-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div>
+          <label class="text-xs text-gray-500 block mb-1.5">ชื่อโครงการ</label>
+          <input id="metaProject" type="text" placeholder="เช่น อาคารพาณิชย์ 5 ชั้น ลาดพร้าว" class="w-full text-sm border border-brand-lightBorder rounded-lg px-3 py-2 focus:outline-none focus:border-brand-bronze">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500 block mb-1.5">ลูกค้า</label>
+          <input id="metaClient" type="text" placeholder="ชื่อลูกค้า/บริษัท" class="w-full text-sm border border-brand-lightBorder rounded-lg px-3 py-2 focus:outline-none focus:border-brand-bronze">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500 block mb-1.5">เลขที่ใบเสนอราคา</label>
+          <input id="metaQuoteNo" type="text" class="w-full text-sm border border-brand-lightBorder rounded-lg px-3 py-2 focus:outline-none focus:border-brand-bronze">
+        </div>
+        <div>
+          <label class="text-xs text-gray-500 block mb-1.5">วันที่</label>
+          <input id="metaDate" type="date" class="w-full text-sm border border-brand-lightBorder rounded-lg px-3 py-2 focus:outline-none focus:border-brand-bronze">
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar-only calc panel -->
+    <div id="solarPanel" class="hidden bg-brand-charcoal text-white rounded-xl p-6 mb-6">
+      <h3 class="text-sm font-medium text-brand-bronze mb-4 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        คำนวณคืนทุนระบบโซล่าร์
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+        <div>
+          <label class="text-[11px] text-gray-400 block mb-1">ขนาดระบบ (kWp)</label>
+          <input id="solarKwp" type="number" step="0.1" oninput="recalc()" class="w-full text-sm bg-brand-dark border border-brand-border rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-bronze">
+        </div>
+        <div>
+          <label class="text-[11px] text-gray-400 block mb-1">ค่าไฟ (บาท/หน่วย)</label>
+          <input id="solarTariff" type="number" step="0.1" value="4.2" oninput="recalc()" class="w-full text-sm bg-brand-dark border border-brand-border rounded-lg px-3 py-2 text-white focus:outline-none focus:border-brand-bronze">
+        </div>
+        <div>
+          <label class="text-[11px] text-gray-400 block mb-1">ผลิตไฟ/เดือน (หน่วย)</label>
+          <div id="solarMonthlyGen" class="text-sm py-2 text-brand-bronze font-medium">-</div>
+        </div>
+        <div>
+          <label class="text-[11px] text-gray-400 block mb-1">ประหยัด/ปี (บาท)</label>
+          <div id="solarAnnualSaving" class="text-sm py-2 text-brand-bronze font-medium">-</div>
+        </div>
+      </div>
+      <div class="border-t border-brand-border pt-4 flex items-center justify-between">
+        <span class="text-xs text-gray-400">ระยะเวลาคืนทุนโดยประมาณ</span>
+        <span id="solarPayback" class="text-lg font-medium text-brand-bronze">- ปี</span>
+      </div>
+    </div>
+
+    <!-- BOQ table -->
+    <div class="bg-white border border-brand-lightBorder rounded-xl overflow-hidden mb-6">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="bg-brand-lightBg text-[11px] font-medium text-gray-500 uppercase tracking-wider">
+            <th class="text-left px-4 py-3 w-10">#</th>
+            <th class="text-left px-4 py-3">รายการงาน</th>
+            <th class="text-right px-4 py-3 w-24">จำนวน</th>
+            <th class="text-left px-4 py-3 w-24">หน่วย</th>
+            <th class="text-right px-4 py-3 w-32">ราคา/หน่วย</th>
+            <th class="text-right px-4 py-3 w-32">รวม</th>
+            <th class="no-print w-10"></th>
+          </tr>
+        </thead>
+        <tbody id="boqBody"></tbody>
+      </table>
+      <button onclick="addCategory()" class="no-print w-full text-xs text-brand-bronze hover:bg-brand-lightBg py-3 flex items-center justify-center gap-1.5 border-t border-brand-lightBorder">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        เพิ่มหมวดงาน
+      </button>
+    </div>
+
+    <!-- Summary -->
+    <div class="bg-brand-lightBg border border-brand-lightBorder rounded-xl p-6 max-w-md ml-auto">
+      <div class="flex items-center justify-between text-sm text-gray-600 py-1.5">
+        <span>รวมค่าวัสดุและแรงงาน</span>
+        <span id="sumSubtotal">0 ฿</span>
+      </div>
+      <div class="flex items-center justify-between text-sm text-gray-600 py-1.5">
+        <span class="flex items-center gap-2">ค่าดำเนินการ (Overhead)
+          <input id="pctOverhead" type="number" value="10" oninput="recalc()" class="w-14 text-xs border border-brand-lightBorder rounded px-1.5 py-0.5 text-center">%
+        </span>
+        <span id="sumOverhead">0 ฿</span>
+      </div>
+      <div class="flex items-center justify-between text-sm text-gray-600 py-1.5">
+        <span class="flex items-center gap-2">กำไร (Profit)
+          <input id="pctProfit" type="number" value="8" oninput="recalc()" class="w-14 text-xs border border-brand-lightBorder rounded px-1.5 py-0.5 text-center">%
+        </span>
+        <span id="sumProfit">0 ฿</span>
+      </div>
+      <div class="flex items-center justify-between text-sm text-gray-600 py-1.5">
+        <span class="flex items-center gap-2">ภาษีมูลค่าเพิ่ม
+          <input id="pctVat" type="number" value="7" oninput="recalc()" class="w-14 text-xs border border-brand-lightBorder rounded px-1.5 py-0.5 text-center">%
+        </span>
+        <span id="sumVat">0 ฿</span>
+      </div>
+      <div class="flex items-center justify-between text-base font-medium border-t border-brand-lightBorder mt-2 pt-3">
+        <span>ราคารวมสุทธิ</span>
+        <span id="sumTotal" class="text-brand-bronze">0 ฿</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRINT-ONLY DOCUMENT -->
+  <div id="printArea" class="print-area p-10">
+    <div class="flex items-start justify-between border-b-2 border-brand-bronze pb-6 mb-6">
+      <div>
+        <div class="text-lg font-semibold tracking-widest">P2W INTERPLUS CO.,LTD.</div>
+        <div class="text-xs text-gray-500 mt-1">49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ</div>
+        <div class="text-xs text-gray-500">โทร. 088-788-8364 · p2w.interplus@gmail.com</div>
+      </div>
+      <div class="text-right">
+        <div class="text-base font-medium serif-title">ใบเสนอราคา / BOQ</div>
+        <div id="printQuoteNo" class="text-xs text-gray-500 mt-1"></div>
+        <div id="printDate" class="text-xs text-gray-500"></div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-6 mb-6 text-sm">
+      <div><span class="text-gray-500">โครงการ:</span> <span id="printProject"></span></div>
+      <div><span class="text-gray-500">ลูกค้า:</span> <span id="printClient"></span></div>
+    </div>
+    <table class="w-full text-sm border-collapse">
+      <thead>
+        <tr class="border-b-2 border-brand-dark text-xs uppercase">
+          <th class="text-left py-2">รายการ</th>
+          <th class="text-right py-2 w-20">จำนวน</th>
+          <th class="text-left py-2 w-16">หน่วย</th>
+          <th class="text-right py-2 w-28">ราคา/หน่วย</th>
+          <th class="text-right py-2 w-28">รวม</th>
+        </tr>
+      </thead>
+      <tbody id="printBody"></tbody>
+    </table>
+    <div class="flex justify-end mt-6">
+      <div class="w-72 text-sm">
+        <div class="flex justify-between py-1"><span>รวมค่าวัสดุและแรงงาน</span><span id="printSubtotal"></span></div>
+        <div class="flex justify-between py-1"><span id="printOverheadLabel"></span><span id="printOverhead"></span></div>
+        <div class="flex justify-between py-1"><span id="printProfitLabel"></span><span id="printProfit"></span></div>
+        <div class="flex justify-between py-1"><span id="printVatLabel"></span><span id="printVat"></span></div>
+        <div class="flex justify-between py-2 border-t-2 border-brand-dark font-medium text-base mt-1"><span>ราคารวมสุทธิ</span><span id="printTotal"></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const PASSWORD = "#Aveo9872";
+const IDLE_LIMIT_MS = 30 * 60 * 1000;
+let idleTimer = null;
+let clockInterval = null;
+let sessionStart = null;
+let authenticated = false;
+
+const TEMPLATES = {
+  civil: {
+    name: "งานโครงสร้าง / อาคาร",
+    desc: "ฐานราก เสา คาน พื้น หลังคา งานก่อ ฉาบ",
+    icon: "building", color: "blue", isSolar: false,
+    categories: [
+      { name: "1. งานฐานราก", items: [
+        { d: "งานขุดดินฐานราก", q: 150, u: "ม.³", p: 180 },
+        { d: "งานถมทรายบดอัด", q: 80, u: "ม.³", p: 350 },
+        { d: "งานฐานรากแผ่ (คอนกรีต FC240)", q: 45, u: "ม.³", p: 4200 },
+        { d: "เหล็กเสริมฐานราก SD40", q: 6500, u: "กก.", p: 38 }
+      ]},
+      { name: "2. งานโครงสร้างเสา-คาน", items: [
+        { d: "เสาคอนกรีต FC280", q: 120, u: "ม.³", p: 5800 },
+        { d: "คานคอนกรีตเสริมเหล็ก FC280", q: 85, u: "ม.³", p: 6200 },
+        { d: "เหล็กเสริมเสา-คาน SD40 (DB12-DB25)", q: 18000, u: "กก.", p: 38 },
+        { d: "แบบหล่อไม้", q: 2200, u: "ม.²", p: 320 }
+      ]},
+      { name: "3. งานพื้นและหลังคา", items: [
+        { d: "พื้นคอนกรีตเสริมเหล็ก หนา 12 ซม.", q: 850, u: "ม.²", p: 850 },
+        { d: "โครงหลังคาเหล็กรูปพรรณ", q: 1, u: "งาน", p: 450000 },
+        { d: "มุงหลังคาเมทัลชีท", q: 600, u: "ม.²", p: 380 }
+      ]},
+      { name: "4. งานสถาปัตยกรรม", items: [
+        { d: "ก่ออิฐมวลเบา ฉาบเรียบ", q: 1200, u: "ม.²", p: 420 },
+        { d: "งานปูพื้นกระเบื้อง", q: 900, u: "ม.²", p: 550 },
+        { d: "งานทาสีภายใน-ภายนอก", q: 2500, u: "ม.²", p: 120 },
+        { d: "งานประตู-หน้าต่างอลูมิเนียม", q: 45, u: "บาน", p: 8500 }
+      ]}
+    ]
+  },
+  solarFactory: {
+    name: "Solar Rooftop โรงงาน",
+    desc: "ระบบ 10kW-500kW แผง อินเวอร์เตอร์ โครงสร้าง",
+    icon: "solar-panel", color: "green", isSolar: true, defaultKwp: 50,
+    categories: [
+      { name: "1. อุปกรณ์หลัก", items: [
+        { d: "แผงโซล่าเซลล์ Monocrystalline 550W", q: 91, u: "แผง", p: 6500 },
+        { d: "อินเวอร์เตอร์ 3-Phase 50kW", q: 1, u: "เครื่อง", p: 185000 },
+        { d: "โครงสร้างยึดแผง (Mounting System)", q: 50, u: "kWp", p: 1200 }
+      ]},
+      { name: "2. งานติดตั้งระบบไฟฟ้า", items: [
+        { d: "สายไฟ DC/AC พร้อมอุปกรณ์ป้องกัน", q: 1, u: "ระบบ", p: 65000 },
+        { d: "ตู้ควบคุมไฟฟ้า (AC/DC Combiner Box)", q: 1, u: "ชุด", p: 45000 },
+        { d: "มิเตอร์ไฟฟ้า Net Metering", q: 1, u: "ชุด", p: 15000 }
+      ]},
+      { name: "3. งานติดตั้งและวิศวกรรม", items: [
+        { d: "ค่าแรงติดตั้งระบบ 50 kWp", q: 1, u: "งาน", p: 120000 },
+        { d: "ค่าออกแบบและขออนุญาต (กฟผ./กฟภ.)", q: 1, u: "งาน", p: 35000 },
+        { d: "ค่าทดสอบระบบและ Commissioning", q: 1, u: "งาน", p: 20000 }
+      ]}
+    ]
+  },
+  solarHome: {
+    name: "Solar Rooftop บ้าน",
+    desc: "ระบบ 3kW-10kW พร้อมคำนวณคืนทุน",
+    icon: "home", color: "green", isSolar: true, defaultKwp: 5,
+    categories: [
+      { name: "1. อุปกรณ์หลัก", items: [
+        { d: "แผงโซล่าเซลล์ Monocrystalline 550W", q: 10, u: "แผง", p: 6500 },
+        { d: "อินเวอร์เตอร์ 1-Phase 5kW", q: 1, u: "เครื่อง", p: 32000 },
+        { d: "โครงสร้างยึดแผงหลังคา", q: 1, u: "ชุด", p: 15000 }
+      ]},
+      { name: "2. งานติดตั้ง", items: [
+        { d: "สายไฟและอุปกรณ์ป้องกันไฟฟ้า", q: 1, u: "ชุด", p: 12000 },
+        { d: "ค่าแรงติดตั้ง", q: 1, u: "งาน", p: 18000 },
+        { d: "ค่าขออนุญาตหน่วยงานไฟฟ้า (การไฟฟ้า)", q: 1, u: "งาน", p: 8000 }
+      ]}
+    ]
+  },
+  hvac: {
+    name: "ระบบ HVAC / เครื่องกล",
+    desc: "ระบบปรับอากาศ ท่อลม ระบบน้ำเย็น",
+    icon: "air-conditioning", color: "amber", isSolar: false,
+    categories: [
+      { name: "1. เครื่องปรับอากาศหลัก", items: [
+        { d: "Chiller ขนาด 50 ตัน", q: 1, u: "เครื่อง", p: 850000 },
+        { d: "AHU (Air Handling Unit)", q: 4, u: "เครื่อง", p: 120000 }
+      ]},
+      { name: "2. งานท่อและระบบส่งลม", items: [
+        { d: "ท่อลม (Duct) สังกะสี", q: 400, u: "ม.²", p: 650 },
+        { d: "ท่อน้ำเย็น (Chilled Water Pipe)", q: 250, u: "เมตร", p: 850 },
+        { d: "ฉนวนหุ้มท่อ", q: 400, u: "ม.²", p: 280 }
+      ]},
+      { name: "3. งานติดตั้งและควบคุม", items: [
+        { d: "ค่าแรงติดตั้งระบบ", q: 1, u: "งาน", p: 280000 },
+        { d: "ระบบควบคุม BMS", q: 1, u: "ชุด", p: 150000 }
+      ]}
+    ]
+  },
+  renovate: {
+    name: "ซ่อมแซม / ต่อเติม",
+    desc: "งานปรับปรุงอาคาร รื้อถอน ซ่อมโครงสร้าง",
+    icon: "ruler", color: "blue", isSolar: false,
+    categories: [
+      { name: "1. งานรื้อถอน", items: [
+        { d: "รื้อถอนโครงสร้างเดิม", q: 1, u: "งาน", p: 85000 },
+        { d: "ขนย้ายเศษวัสดุ", q: 1, u: "งาน", p: 25000 }
+      ]},
+      { name: "2. งานซ่อมแซมโครงสร้าง", items: [
+        { d: "ซ่อมแซมรอยร้าวคอนกรีต", q: 120, u: "เมตร", p: 450 },
+        { d: "เสริมกำลังโครงสร้างด้วย Carbon Fiber", q: 80, u: "ม.²", p: 3500 }
+      ]},
+      { name: "3. งานต่อเติม", items: [
+        { d: "ต่อเติมพื้นที่ใช้สอย", q: 60, u: "ม.²", p: 12000 }
+      ]}
+    ]
+  },
+  blank: {
+    name: "เอกสารเปล่า",
+    desc: "เริ่มต้นจากศูนย์ กำหนดรายการเองทั้งหมด",
+    icon: "file-plus", color: "gray", isSolar: false,
+    categories: [
+      { name: "1. หมวดงาน", items: [
+        { d: "", q: 1, u: "", p: 0 }
+      ]}
+    ]
+  }
+};
+
+let state = null;
+
+function handleLogin(e) {
+  e.preventDefault();
+  const val = document.getElementById('pwInput').value;
+  if (val === PASSWORD) {
+    authenticated = true;
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('appScreen').classList.remove('hidden');
+    startSession();
+    renderTemplateGrid();
+    renderDrafts();
+  } else {
+    document.getElementById('loginError').classList.remove('hidden');
+    document.getElementById('pwInput').value = '';
+  }
+  return false;
+}
+
+function startSession() {
+  sessionStart = Date.now();
+  resetIdleTimer();
+  ['click','keydown','mousemove','input'].forEach(evt => {
+    document.addEventListener(evt, resetIdleTimer, { passive: true });
+  });
+  clockInterval = setInterval(updateClock, 1000);
+}
+
+function resetIdleTimer() {
+  sessionStart = Date.now();
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(logout, IDLE_LIMIT_MS);
+}
+
+function updateClock() {
+  const elapsed = Date.now() - sessionStart;
+  const remainMins = Math.max(0, Math.ceil((IDLE_LIMIT_MS - elapsed) / 60000));
+  const el = document.getElementById('sessionMins');
+  if (el) el.textContent = remainMins;
+}
+
+function logout() {
+  authenticated = false;
+  clearTimeout(idleTimer);
+  clearInterval(clockInterval);
+  document.getElementById('appScreen').classList.add('hidden');
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('pwInput').value = '';
+  document.getElementById('loginError').classList.add('hidden');
+}
+
+const iconSvgs = {
+  building: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M6 21V5a1 1 0 011-1h10a1 1 0 011 1v16M9 8h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"></path>',
+  'solar-panel': '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path>',
+  home: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h4a1 1 0 001-1v-4a1 1 0 011-1h0a1 1 0 011 1v4a1 1 0 001 1h4a1 1 0 001-1V10"></path>',
+  'air-conditioning': '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 8a2 2 0 100-4h16a2 2 0 100 4M4 8v0a2 2 0 002 2h1m10-2v0a2 2 0 01-2 2h-1m0 0v6m-6-6v6"></path>',
+  ruler: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21l10-10M4 14l6 6M14 4l6 6M8 8l1 1m2 2l1 1m2 2l1 1"></path>',
+  'file-plus': '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m-3-3h6M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V9l-4-4H9z"></path>'
+};
+const colorClasses = {
+  blue: { bg: 'bg-blue-50', text: 'text-blue-600' },
+  green: { bg: 'bg-green-50', text: 'text-green-600' },
+  amber: { bg: 'bg-amber-50', text: 'text-amber-600' },
+  gray: { bg: 'bg-gray-100', text: 'text-gray-500' }
+};
+
+function renderTemplateGrid() {
+  const grid = document.getElementById('templateGrid');
+  grid.innerHTML = '';
+  Object.keys(TEMPLATES).forEach(key => {
+    const t = TEMPLATES[key];
+    const c = colorClasses[t.color];
+    const card = document.createElement('div');
+    card.className = 'bg-white border border-brand-lightBorder rounded-xl p-5 cursor-pointer hover:border-brand-bronze transition-colors flex flex-col gap-3';
+    card.onclick = () => selectTemplate(key);
+    card.innerHTML = `
+      <div class="w-10 h-10 rounded-lg ${c.bg} flex items-center justify-center">
+        <svg class="w-5 h-5 ${c.text}" fill="none" stroke="currentColor" viewBox="0 0 24 24">${iconSvgs[t.icon]}</svg>
+      </div>
+      <div>
+        <div class="text-sm font-medium">${t.name}</div>
+        <div class="text-xs text-gray-500 mt-1 leading-relaxed">${t.desc}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function selectTemplate(key, loadedState) {
+  const t = TEMPLATES[key];
+  state = loadedState || {
+    templateKey: key,
+    project: '',
+    client: '',
+    quoteNo: 'QT-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random()*9000+1000)),
+    date: new Date().toISOString().slice(0,10),
+    categories: JSON.parse(JSON.stringify(t.categories)),
+    overhead: 10, profit: 8, vat: 7,
+    isSolar: t.isSolar,
+    solarKwp: t.defaultKwp || 5,
+    solarTariff: 4.2
+  };
+
+  document.getElementById('templateScreen').classList.add('hidden');
+  document.getElementById('editorScreen').classList.remove('hidden');
+
+  document.getElementById('metaProject').value = state.project;
+  document.getElementById('metaClient').value = state.client;
+  document.getElementById('metaQuoteNo').value = state.quoteNo;
+  document.getElementById('metaDate').value = state.date;
+  document.getElementById('pctOverhead').value = state.overhead;
+  document.getElementById('pctProfit').value = state.profit;
+  document.getElementById('pctVat').value = state.vat;
+
+  document.getElementById('solarPanel').classList.toggle('hidden', !state.isSolar);
+  if (state.isSolar) {
+    document.getElementById('solarKwp').value = state.solarKwp;
+    document.getElementById('solarTariff').value = state.solarTariff;
+  }
+
+  [['metaProject','project'],['metaClient','client'],['metaQuoteNo','quoteNo'],['metaDate','date']].forEach(([id,key2]) => {
+    document.getElementById(id).oninput = (e) => { state[key2] = e.target.value; };
+  });
+
+  renderBOQTable();
+  recalc();
+}
+
+function backToTemplates() {
+  document.getElementById('editorScreen').classList.add('hidden');
+  document.getElementById('templateScreen').classList.remove('hidden');
+  renderDrafts();
+}
+
+function renderBOQTable() {
+  const body = document.getElementById('boqBody');
+  body.innerHTML = '';
+  state.categories.forEach((cat, ci) => {
+    const catRow = document.createElement('tr');
+    catRow.className = 'bg-brand-lightBg';
+    catRow.innerHTML = `
+      <td colspan="6" class="px-4 py-2 text-xs font-medium text-gray-600">
+        <input value="${cat.name}" oninput="updateCatName(${ci}, this.value)" class="bg-transparent border-none outline-none w-full font-medium text-gray-600 focus:text-brand-dark">
+      </td>
+      <td class="no-print px-2 text-center">
+        <button onclick="removeCategory(${ci})" class="text-gray-300 hover:text-red-400 text-xs">✕</button>
+      </td>
+    `;
+    body.appendChild(catRow);
+
+    cat.items.forEach((item, ii) => {
+      const row = document.createElement('tr');
+      row.className = 'border-b border-brand-lightBorder/60';
+      const total = (item.q || 0) * (item.p || 0);
+      row.innerHTML = `
+        <td class="px-4 py-2 text-xs text-gray-400">${ci+1}.${ii+1}</td>
+        <td class="px-4 py-2">
+          <input value="${item.d}" oninput="updateItem(${ci},${ii},'d',this.value)" placeholder="ชื่อรายการ" class="w-full text-sm border-none outline-none bg-transparent">
+        </td>
+        <td class="px-4 py-2">
+          <input type="number" value="${item.q}" oninput="updateItem(${ci},${ii},'q',this.value)" class="w-full text-sm text-right border-none outline-none bg-transparent">
+        </td>
+        <td class="px-4 py-2">
+          <input value="${item.u}" oninput="updateItem(${ci},${ii},'u',this.value)" placeholder="หน่วย" class="w-full text-sm border-none outline-none bg-transparent">
+        </td>
+        <td class="px-4 py-2">
+          <input type="number" value="${item.p}" oninput="updateItem(${ci},${ii},'p',this.value)" class="w-full text-sm text-right border-none outline-none bg-transparent">
+        </td>
+        <td class="px-4 py-2 text-sm text-right font-medium" id="rowtotal-${ci}-${ii}">${fmt(total)}</td>
+        <td class="no-print px-2 text-center">
+          <button onclick="removeItem(${ci},${ii})" class="text-gray-300 hover:text-red-400 text-xs">✕</button>
+        </td>
+      `;
+      body.appendChild(row);
+    });
+
+    const addRow = document.createElement('tr');
+    addRow.className = 'no-print';
+    addRow.innerHTML = `
+      <td colspan="7" class="px-4 py-1.5">
+        <button onclick="addItem(${ci})" class="text-xs text-brand-bronze hover:underline">+ เพิ่มรายการ</button>
+      </td>
+    `;
+    body.appendChild(addRow);
+  });
+}
+
+function updateCatName(ci, val) { state.categories[ci].name = val; }
+function updateItem(ci, ii, field, val) {
+  const item = state.categories[ci].items[ii];
+  item[field] = (field === 'q' || field === 'p') ? parseFloat(val) || 0 : val;
+  const total = (item.q || 0) * (item.p || 0);
+  const cell = document.getElementById(`rowtotal-${ci}-${ii}`);
+  if (cell) cell.textContent = fmt(total);
+  recalc();
+}
+function addItem(ci) {
+  state.categories[ci].items.push({ d: '', q: 1, u: '', p: 0 });
+  renderBOQTable();
+}
+function removeItem(ci, ii) {
+  state.categories[ci].items.splice(ii, 1);
+  renderBOQTable();
+  recalc();
+}
+function addCategory() {
+  state.categories.push({ name: 'หมวดงานใหม่', items: [{ d: '', q: 1, u: '', p: 0 }] });
+  renderBOQTable();
+}
+function removeCategory(ci) {
+  if (state.categories.length <= 1) return;
+  state.categories.splice(ci, 1);
+  renderBOQTable();
+  recalc();
+}
+
+function fmt(n) {
+  return Math.round(n).toLocaleString('th-TH') + ' ฿';
+}
+
+function recalc() {
+  if (!state) return;
+  let subtotal = 0;
+  state.categories.forEach(cat => cat.items.forEach(item => {
+    subtotal += (item.q || 0) * (item.p || 0);
+  }));
+
+  const overheadPct = parseFloat(document.getElementById('pctOverhead').value) || 0;
+  const profitPct = parseFloat(document.getElementById('pctProfit').value) || 0;
+  const vatPct = parseFloat(document.getElementById('pctVat').value) || 0;
+  state.overhead = overheadPct; state.profit = profitPct; state.vat = vatPct;
+
+  const overhead = subtotal * overheadPct / 100;
+  const profit = subtotal * profitPct / 100;
+  const beforeVat = subtotal + overhead + profit;
+  const vat = beforeVat * vatPct / 100;
+  const total = beforeVat + vat;
+
+  document.getElementById('sumSubtotal').textContent = fmt(subtotal);
+  document.getElementById('sumOverhead').textContent = fmt(overhead);
+  document.getElementById('sumProfit').textContent = fmt(profit);
+  document.getElementById('sumVat').textContent = fmt(vat);
+  document.getElementById('sumTotal').textContent = fmt(total);
+
+  if (state.isSolar) {
+    const kwp = parseFloat(document.getElementById('solarKwp').value) || 0;
+    const tariff = parseFloat(document.getElementById('solarTariff').value) || 0;
+    state.solarKwp = kwp; state.solarTariff = tariff;
+    const dailyGen = kwp * 4.2;
+    const monthlyGen = dailyGen * 30;
+    const monthlySaving = monthlyGen * tariff;
+    const annualSaving = monthlySaving * 12;
+    const payback = annualSaving > 0 ? (total / annualSaving) : 0;
+
+    document.getElementById('solarMonthlyGen').textContent = Math.round(monthlyGen).toLocaleString('th-TH') + ' หน่วย';
+    document.getElementById('solarAnnualSaving').textContent = fmt(annualSaving);
+    document.getElementById('solarPayback').textContent = (payback > 0 ? payback.toFixed(1) : '-') + ' ปี';
+  }
+
+  updatePrintArea(subtotal, overhead, profit, vat, total, overheadPct, profitPct, vatPct);
+}
+
+function updatePrintArea(subtotal, overhead, profit, vat, total, oPct, pPct, vPct) {
+  document.getElementById('printQuoteNo').textContent = 'เลขที่: ' + (state.quoteNo || '-');
+  document.getElementById('printDate').textContent = 'วันที่: ' + (state.date || '-');
+  document.getElementById('printProject').textContent = state.project || '-';
+  document.getElementById('printClient').textContent = state.client || '-';
+
+  const body = document.getElementById('printBody');
+  body.innerHTML = '';
+  state.categories.forEach(cat => {
+    const catRow = document.createElement('tr');
+    catRow.innerHTML = `<td colspan="5" class="pt-3 pb-1 text-xs font-medium text-gray-600">${cat.name}</td>`;
+    body.appendChild(catRow);
+    cat.items.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td class="py-1 pl-3">${item.d}</td>
+        <td class="py-1 text-right">${item.q}</td>
+        <td class="py-1">${item.u}</td>
+        <td class="py-1 text-right">${fmt(item.p)}</td>
+        <td class="py-1 text-right">${fmt((item.q||0)*(item.p||0))}</td>
+      `;
+      body.appendChild(row);
+    });
+  });
+
+  document.getElementById('printSubtotal').textContent = fmt(subtotal);
+  document.getElementById('printOverheadLabel').textContent = `ค่าดำเนินการ (${oPct}%)`;
+  document.getElementById('printOverhead').textContent = fmt(overhead);
+  document.getElementById('printProfitLabel').textContent = `กำไร (${pPct}%)`;
+  document.getElementById('printProfit').textContent = fmt(profit);
+  document.getElementById('printVatLabel').textContent = `ภาษีมูลค่าเพิ่ม (${vPct}%)`;
+  document.getElementById('printVat').textContent = fmt(vat);
+  document.getElementById('printTotal').textContent = fmt(total);
+}
+
+function saveDraft() {
+  const drafts = JSON.parse(localStorage.getItem('p2w_boq_drafts') || '{}');
+  drafts[state.quoteNo] = state;
+  localStorage.setItem('p2w_boq_drafts', JSON.stringify(drafts));
+  alert('บันทึกแล้ว: ' + state.quoteNo);
+}
+
+function renderDrafts() {
+  const drafts = JSON.parse(localStorage.getItem('p2w_boq_drafts') || '{}');
+  const keys = Object.keys(drafts);
+  const section = document.getElementById('draftsSection');
+  const list = document.getElementById('draftsList');
+  if (keys.length === 0) { section.classList.add('hidden'); return; }
+  section.classList.remove('hidden');
+  list.innerHTML = '';
+  keys.forEach(k => {
+    const d = drafts[k];
+    const t = TEMPLATES[d.templateKey] || TEMPLATES.blank;
+    const card = document.createElement('div');
+    card.className = 'bg-white border border-brand-lightBorder rounded-xl p-4 cursor-pointer hover:border-brand-bronze transition-colors flex items-center justify-between gap-3';
+    card.onclick = () => selectTemplate(d.templateKey, d);
+    card.innerHTML = `
+      <div class="min-w-0">
+        <div class="text-sm font-medium truncate">${d.project || '(ไม่มีชื่อโครงการ)'}</div>
+        <div class="text-xs text-gray-500 mt-0.5">${k} · ${t.name}</div>
+      </div>
+      <button onclick="event.stopPropagation(); deleteDraft('${k}')" class="text-gray-300 hover:text-red-400 text-xs shrink-0">ลบ</button>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function deleteDraft(key) {
+  const drafts = JSON.parse(localStorage.getItem('p2w_boq_drafts') || '{}');
+  delete drafts[key];
+  localStorage.setItem('p2w_boq_drafts', JSON.stringify(drafts));
+  renderDrafts();
+}
+</script>
+</body>
+</html>

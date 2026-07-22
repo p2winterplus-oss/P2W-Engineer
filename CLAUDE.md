@@ -27,7 +27,7 @@
 5. **Why Choose Us** — Full-width bg image (`WhyChooseUs.png`) + gradient overlay + 4 จุดเด่น (2x2 grid)
 6. **CTA Banner** — Dark bg + "มีโครงการที่ต้องการคำปรึกษา?" + ปุ่ม "ขอคำปรึกษา" → `#consultation-wizard`
 7. **Consultation Wizard** — id=`consultation-wizard`, 3-step form (service → project details → contact + file upload)
-8. **Portfolio** — 4 cards (2x2 grid) พร้อมรูปจริง
+8. **Portfolio** — 5 cards (2x2 + 1) พร้อมรูปจริง
 9. **Footer** — Logo (w-24) + links + contact info + Line OA
 
 ## Key Files
@@ -37,7 +37,7 @@
 - `robots.txt` — อนุญาต bot ทุกเจ้า รวม AI crawlers ✅
 - `llms.txt` — สรุปข้อมูลบริษัทสำหรับ LLM/AI อ่านโดยตรง ✅
 
-## Portfolio Cards (2x2 grid)
+## Portfolio Cards (5 ใบ — 2x2 + 1)
 - **Card 01**: อาคารสำนักงาน 8 ชั้น (`public/engineer-01.png`) — STRUCTURAL CIVIL
 - **Card 02**: บ้านพักอาศัยหรู 3 ชั้น (`public/engineer-02.png`) — STRUCTURAL CIVIL
 - **Card 03**: Solar Rooftop 50kW โรงงาน (`public/solar-factory.png`) — GREEN ENERGY SOLAR, คืนทุน 3-4 ปี

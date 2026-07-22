@@ -32,7 +32,6 @@
 
 ## Key Files
 - `index.html` — เว็บไซต์หลัก (single file)
-- `boq/index.html` — **ระบบ BOQ / ใบเสนอราคา ภายในองค์กร** (ดูหัวข้อ BOQ Tool ด้านล่าง)
 - `logo.png` — P2W INTERPLUS logo (dark navy on white, dark mode: CSS class `.logo-glow` — outer stroke 1px สีบรอนซ์ `#C5A880` ด้วย drop-shadow 8 ทิศทาง, ใช้ทั้ง header w-16 และ footer w-24)
 - `WhyChooseUs.png` — background image สำหรับ section Why Choose Us
 - `robots.txt` — อนุญาต bot ทุกเจ้า รวม AI crawlers ✅
@@ -70,46 +69,11 @@
 - อีเมล (ถ้ามี)
 - แนบไฟล์รูปภาพ/แบบแปลน (ถ้ามี)
 
-## BOQ / Quotation Tool (ระบบภายใน) 🔒
-ไฟล์: `boq/index.html` — หน้าเดียวจบ (HTML + Tailwind CDN + Vanilla JS)
-
-**URL**
-- Live: https://p2winterplus.com/engineer/boq/
-- GitHub Pages: https://p2winterplus-oss.github.io/P2W-Engineer/boq/
-
-**การเข้าถึง (ซ่อนจากลูกค้า)**
-- **ปุ่มลับ**: ในหน้าเว็บหลัก footer บรรทัดลิขสิทธิ์ — คลิกที่ตัวเลข **"2026"** (`&copy; 2026 P2W INTERPLUS...` บรรทัด ~1167 ใน index.html) เป็น `<a href="boq/">` แบบไม่มีเส้นใต้/ไม่เปลี่ยนสี/`cursor:default`
-- `<meta name="robots" content="noindex, nofollow">` — ไม่ขึ้นใน Google
-- ไม่มี link อื่นชี้เข้าหน้านี้เลย
-
-**Login & Session**
-- รหัสผ่าน: `#Aveo9872` (hardcode ตัวแปร `PASSWORD` ในไฟล์)
-- ไม่ใช้ localStorage/sessionStorage เก็บสถานะ login → **รีเฟรช / วาง URL ใหม่ / ปิดแท็บ = ต้อง login ใหม่ทุกครั้ง**
-- Auto logout เมื่อไม่มี activity 30 นาที (`IDLE_LIMIT_MS`) — reset timer เมื่อ click/keydown/mousemove/input
-- มีนาฬิกานับถอยหลังนาทีที่เหลือบน top bar
-
-**Templates 6 แบบ** (ตัวแปร `TEMPLATES` — มีรายการ + ราคาต่อหน่วยตัวอย่างครบทุกอัน)
-| key | ชื่อ | หมายเหตุ |
-|---|---|---|
-| `civil` | งานโครงสร้าง / อาคาร | 4 หมวด: ฐานราก, เสา-คาน, พื้น-หลังคา, สถาปัตยกรรม |
-| `solarFactory` | Solar Rooftop โรงงาน | default 50 kWp, 3 หมวด |
-| `solarHome` | Solar Rooftop บ้าน | default 5 kWp, 2 หมวด |
-| `hvac` | ระบบ HVAC / เครื่องกล | Chiller, AHU, ท่อลม, BMS |
-| `renovate` | ซ่อมแซม / ต่อเติม | รื้อถอน, เสริมกำลัง, ต่อเติม |
-| `blank` | เอกสารเปล่า | เริ่มจากศูนย์ |
-
-**ฟีเจอร์**
-- ตาราง BOQ แก้ไข/เพิ่ม/ลบ ได้ทั้งรายการและหมวดงาน คำนวณ real-time
-- สูตรราคา: Overhead % + Profit % + VAT % (ปรับได้ทุกช่อง, default 10 / 8 / 7)
-- **Solar calculator** (แสดงเฉพาะ template โซล่าร์): กรอก kWp + ค่าไฟ/หน่วย → ผลิตไฟ/เดือน, ประหยัด/ปี, ระยะเวลาคืนทุน (สูตร: kWp × 4.2 ชม./วัน × 30 วัน)
-- บันทึก draft ลง `localStorage` key `p2w_boq_drafts` (เก็บเฉพาะเครื่องนั้น ไม่ sync ข้ามเครื่อง) → เปิดย้อนหลัง/ลบได้จากหน้า template
-- **Export PDF** ผ่าน `window.print()`
-
-**เอกสาร Print (สำคัญ)**
-- ตอน print จะซ่อน `#loginScreen`, `#templateScreen`, `#editorScreen`, `.no-print` ทั้งหมด แล้วโชว์เฉพาะ `#printArea`
-- ขนาด A4, margin 16mm 14mm
-- **ซ่อนกำไรจากลูกค้า** — ไม่แสดง Profit แยก แต่รวมเข้ากับ Overhead เป็นบรรทัดเดียวชื่อ "ค่าดำเนินการ" (`fmt(overhead + profit)`)
-- Layout: letterhead P2W + เลขที่/วันที่ → โครงการ/ลูกค้า → ตารางรายการ → สรุปราคา (รวมเป็นเงิน / ค่าดำเนินการ / VAT / ราคารวมสุทธิ) → ช่องลายเซ็น ผู้เสนอราคา + ผู้อนุมัติ
+## BOQ / Quotation Tool — ย้ายออกจากโปรเจกต์นี้แล้ว 📦
+- เคยอยู่ที่ `boq/index.html` (commit `d7a1f0d`) — **ลบออกแล้ว** เพราะจะย้ายไปโฮสต์ที่เว็บอื่น
+- สำเนาไฟล์: `C:\Users\BD\OneDrive\Claude AI Backup\P2W-BOQ-Tool-backup.html`
+- กู้จาก git ได้: `git show d7a1f0d:boq/index.html > boq.html`
+- ระบบที่มีในไฟล์นั้น: login password, 6 templates (civil / solarFactory / solarHome / hvac / renovate / blank), คำนวณ Overhead+Profit+VAT, Solar payback calculator, save draft ลง localStorage, export PDF ผ่าน `window.print()`
 
 ## Email Integration
 - **Service**: Web3Forms (free, 250 submissions/month)
@@ -135,7 +99,6 @@
 ## Domain & Routing
 - **Cloudflare Worker**: `p2w-engineer` — route `p2winterplus.com/engineer*` → GitHub Pages
 - Worker rewrite `src="..."` ให้ชี้กลับ GitHub Pages origin อัตโนมัติ
-- ⚠️ ต้องเช็คว่า Worker route ครอบ `/engineer/boq/` ด้วยหรือไม่ (pattern `engineer*` ควรครอบอยู่แล้ว แต่ยังไม่ได้ verify)
 
 ## Tracking & Data Plan
 - **Visitor tracking**: Google Analytics — ยังไม่ได้ทำ (ต้องเพิ่ม script tag)
@@ -158,8 +121,6 @@
 - `robots.txt` — allow all bots + AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Meta AI)
 - `llms.txt` — AI-readable site summary (บริการ ราคา ผลงาน ติดต่อ)
 - SEO meta tags ครบ (description, keywords, OG, Twitter Card, JSON-LD structured data)
-- **ระบบ BOQ / ใบเสนอราคา ภายในองค์กร** (`boq/index.html`) — login, 6 templates, คำนวณราคา, Solar payback, save draft, export PDF
-- ปุ่มลับเข้าหน้า BOQ ที่ตัวเลข "2026" ใน footer
 
 ## What's Missing / TODO ❌
 - "เกี่ยวกับเรา" (About Us) section — team, company background
@@ -171,11 +132,3 @@
 - Mobile nav auto-close after link click
 - Header/Footer: link กลับ P2W Main (`/`) — ยังไม่ได้ใส่
 - Submit Google Search Console (ต้องทำเองใน browser)
-
-### TODO ฝั่ง BOQ Tool
-- ยังไม่ได้ทดสอบ print จริงบนเบราว์เซอร์ (ลองกด Export PDF ดูว่า layout ตรงไหม)
-- Draft เก็บเฉพาะเครื่อง — ถ้าอยาก sync ข้ามเครื่องต้องต่อ Google Sheets / Firebase
-- ยังไม่มีระบบเลขที่ใบเสนอราคาแบบ running number (ตอนนี้ random 4 หลัก)
-- ยังไม่มีหน้า "สรุปค่าใช้จ่าย" / "วิเคราะห์คืนทุน" แยก (Solar calc อยู่ในหน้า editor แล้ว)
-- ราคาต่อหน่วยใน template เป็นราคาตัวอย่าง — ควรอัปเดตเป็นราคาจริงของบริษัท
-- ยังไม่มี logo P2W ในหัวเอกสาร print (ตอนนี้เป็นข้อความอย่างเดียว)

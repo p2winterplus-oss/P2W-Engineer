@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>บทความ & ข่าวสาร | P2W INTERPLUS</title>
+<meta name="description" content="ความรู้ด้านวิศวกรรม อัปเดตเทคโนโลยีก่อสร้างและโซล่าร์เซลล์ และข่าวสารโครงการจาก P2W INTERPLUS">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="บทความ & ข่าวสาร | P2W INTERPLUS">
+<meta property="og:description" content="ความรู้ด้านวิศวกรรม อัปเดตเทคโนโลยี และข่าวสารโครงการจาก P2W">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://p2winterplus.com/engineer/articles/">
+<link rel="canonical" href="https://p2winterplus.com/engineer/articles/">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: { extend: {
+    colors: { brand: {
+      dark: '#0D0D0C', charcoal: '#1B1B19', bronze: '#C5A880', bronzedark: '#A3845B',
+      bronzelight: '#E2CDA9', border: '#2A2A28', stone: '#F5F2EB', lightBg: '#F9F8F6',
+      lightCard: '#F5F2EB', lightBorder: '#E2DFD8'
+    }},
+    fontFamily: { sans: ['Prompt','sans-serif'], serif: ['Playfair Display','serif'] }
+  }}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Prompt', sans-serif; }
+  .serif-title { font-family: 'Playfair Display', serif; }
+  .theme-transition { transition: background-color .5s, color .5s, border-color .5s; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-thumb { background: #C5A880; border-radius: 4px; }
+  .article-body p { margin-bottom: 1.25rem; line-height: 1.9; }
+  .article-body h2 { font-size: 1.35rem; font-weight: 600; margin: 2rem 0 1rem; }
+</style>
+</head>
+<body class="bg-brand-lightBg dark:bg-brand-dark text-brand-dark dark:text-white theme-transition min-h-screen">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-40 bg-brand-lightBg/95 dark:bg-brand-dark/95 backdrop-blur-md border-b border-brand-lightBorder dark:border-brand-border/60 theme-transition">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+    <a href="../" class="flex items-center space-x-3">
+      <img src="../logo.png" alt="P2W INTERPLUS Logo" class="w-14 h-14 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
+      <div>
+        <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block">P2W INTERPLUS</span>
+        <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center space-x-8 text-sm">
+      <a href="../" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white theme-transition">หน้าแรก</a>
+      <a href="../#services" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white theme-transition">บริการของเรา</a>
+      <a href="../#projects" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white theme-transition">ผลงาน</a>
+      <a href="./" class="text-brand-bronze font-medium">บทความ</a>
+      <a href="../#contact" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white theme-transition">ติดต่อเรา</a>
+    </nav>
+    <a href="../#consultation-wizard" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-2.5 transition-all">ขอคำปรึกษา</a>
+    <a href="./" class="md:hidden text-brand-bronze text-sm">← บทความ</a>
+  </div>
+</header>
+
+<!-- ============ LIST VIEW ============ -->
+<div id="listView">
+  <!-- Page hero -->
+  <section class="bg-brand-dark py-16 text-center border-b border-brand-border">
+    <span class="text-[10px] tracking-[0.35em] text-brand-bronze uppercase font-medium">Insights &amp; News</span>
+    <h1 class="serif-title text-3xl md:text-4xl font-light text-white mt-3">บทความ &amp; ข่าวสาร</h1>
+    <p class="text-sm text-gray-400 mt-3 max-w-xl mx-auto px-6">ความรู้ด้านวิศวกรรม อัปเดตเทคโนโลยี และข่าวสารโครงการจาก P2W</p>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-6 sm:px-8 py-12">
+    <!-- Category filter -->
+    <div id="categoryFilter" class="flex flex-wrap gap-2.5 mb-10"></div>
+
+    <!-- Featured -->
+    <div id="featuredWrap" class="mb-10"></div>
+
+    <!-- Grid -->
+    <div id="articleGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <div id="emptyState" class="hidden text-center text-gray-400 text-sm py-16">ยังไม่มีบทความในหมวดนี้</div>
+  </div>
+</div>
+
+<!-- ============ ARTICLE READER ============ -->
+<div id="readerView" class="hidden">
+  <article class="max-w-3xl mx-auto px-6 sm:px-8 py-12">
+    <a href="./" class="text-xs text-gray-500 hover:text-brand-bronze flex items-center gap-1 mb-8">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+      กลับหน้าบทความ
+    </a>
+    <div id="readerMeta" class="mb-4"></div>
+    <h1 id="readerTitle" class="serif-title text-3xl md:text-4xl font-light leading-tight mb-6"></h1>
+    <img id="readerCover" class="w-full rounded-xl object-cover max-h-[420px] mb-8" alt="">
+    <div id="readerBody" class="article-body text-gray-700 dark:text-gray-300 text-[15px]"></div>
+
+    <div class="mt-12 pt-8 border-t border-brand-lightBorder dark:border-brand-border">
+      <div class="bg-brand-charcoal rounded-xl p-8 text-center">
+        <h3 class="serif-title text-xl text-white mb-2">สนใจบริการของเรา?</h3>
+        <p class="text-sm text-gray-400 mb-5">ปรึกษาทีมวิศวกร P2W ประเมินโครงการเบื้องต้นได้ฟรี</p>
+        <a href="../#consultation-wizard" class="inline-flex bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm px-8 py-3 rounded-lg transition-colors">ขอคำปรึกษา</a>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-brand-dark py-10 border-t border-brand-border mt-10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center text-[11px] text-gray-500 tracking-widest">
+    <p>&copy; 2026 P2W INTERPLUS CO.,LTD. · โทร. 088-788-8364 · p2w.interplus@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+const CATEGORY_COLORS = {
+  'งานโครงสร้าง': 'from-blue-700 to-blue-900',
+  'โซล่าร์เซลล์': 'from-green-700 to-green-900',
+  'ความรู้วิศวกรรม': 'from-amber-700 to-amber-900',
+  'ข่าวบริษัท': 'from-gray-600 to-gray-800'
+};
+let ALL_ARTICLES = [];
+let activeCategory = 'ทั้งหมด';
+
+function fmtDate(iso) {
+  const months = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const d = new Date(iso);
+  return d.getDate() + ' ' + months[d.getMonth()] + ' ' + (d.getFullYear() + 543);
+}
+
+async function init() {
+  try {
+    const res = await fetch('articles.json');
+    ALL_ARTICLES = await res.json();
+    ALL_ARTICLES.sort((a,b) => new Date(b.date) - new Date(a.date));
+  } catch (e) {
+    ALL_ARTICLES = [];
+  }
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  if (id) { showReader(id); } else { showList(); }
+}
+
+function showList() {
+  document.getElementById('listView').classList.remove('hidden');
+  document.getElementById('readerView').classList.add('hidden');
+  renderCategories();
+  renderArticles();
+}
+
+function renderCategories() {
+  const cats = ['ทั้งหมด', ...new Set(ALL_ARTICLES.map(a => a.category))];
+  const wrap = document.getElementById('categoryFilter');
+  wrap.innerHTML = '';
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    const on = cat === activeCategory;
+    btn.className = 'text-sm px-4 py-2 rounded-full border transition-colors ' +
+      (on ? 'bg-brand-bronze text-brand-dark border-brand-bronze font-medium'
+          : 'bg-white dark:bg-brand-charcoal text-gray-500 dark:text-gray-400 border-brand-lightBorder dark:border-brand-border hover:border-brand-bronze');
+    btn.textContent = cat;
+    btn.onclick = () => { activeCategory = cat; renderCategories(); renderArticles(); };
+    wrap.appendChild(btn);
+  });
+}
+
+function renderArticles() {
+  const filtered = activeCategory === 'ทั้งหมด'
+    ? ALL_ARTICLES
+    : ALL_ARTICLES.filter(a => a.category === activeCategory);
+
+  const featWrap = document.getElementById('featuredWrap');
+  const grid = document.getElementById('articleGrid');
+  const empty = document.getElementById('emptyState');
+  featWrap.innerHTML = '';
+  grid.innerHTML = '';
+
+  if (filtered.length === 0) { empty.classList.remove('hidden'); return; }
+  empty.classList.add('hidden');
+
+  // Featured = newest (only when showing all)
+  let rest = filtered;
+  if (activeCategory === 'ทั้งหมด' && filtered.length > 0) {
+    const f = filtered[0];
+    rest = filtered.slice(1);
+    featWrap.innerHTML = `
+      <a href="?id=${f.id}" class="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border rounded-xl overflow-hidden hover:border-brand-bronze transition-colors group">
+        <div class="relative min-h-[240px] overflow-hidden">
+          <img src="${f.cover}" alt="${f.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <span class="absolute top-4 left-4 bg-brand-dark text-brand-bronze text-[10px] px-3 py-1 rounded tracking-wider">บทความแนะนำ</span>
+        </div>
+        <div class="p-7 flex flex-col justify-center">
+          <div class="text-[11px] text-gray-400 mb-2">${f.category} · ${fmtDate(f.date)}</div>
+          <h2 class="serif-title text-2xl font-light leading-snug mb-3 group-hover:text-brand-bronze transition-colors">${f.title}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">${f.excerpt}</p>
+          <span class="mt-4 text-xs text-brand-bronze font-medium">อ่านต่อ →</span>
+        </div>
+      </a>`;
+  }
+
+  rest.forEach(a => {
+    const card = document.createElement('a');
+    card.href = `?id=${a.id}`;
+    card.className = 'bg-white dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border rounded-xl overflow-hidden hover:border-brand-bronze transition-colors group flex flex-col';
+    card.innerHTML = `
+      <div class="relative h-44 overflow-hidden">
+        <img src="${a.cover}" alt="${a.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2.5 py-1 rounded">${a.category}</span>
+      </div>
+      <div class="p-5 flex flex-col flex-1">
+        <div class="text-[10px] text-gray-400 mb-1.5">${fmtDate(a.date)}</div>
+        <h3 class="text-[15px] font-medium leading-snug mb-2 group-hover:text-brand-bronze transition-colors">${a.title}</h3>
+        <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">${a.excerpt}</p>
+      </div>`;
+    grid.appendChild(card);
+  });
+}
+
+function showReader(id) {
+  const a = ALL_ARTICLES.find(x => x.id === id);
+  if (!a) { location.href = './'; return; }
+
+  document.getElementById('listView').classList.add('hidden');
+  document.getElementById('readerView').classList.remove('hidden');
+
+  document.title = a.title + ' | P2W INTERPLUS';
+  document.getElementById('readerMeta').innerHTML =
+    `<div class="flex items-center gap-3 text-xs text-gray-400">
+       <span class="bg-brand-bronze/15 text-brand-bronze px-2.5 py-1 rounded">${a.category}</span>
+       <span>${fmtDate(a.date)}</span>
+       <span>· ${a.author || 'P2W'}</span>
+     </div>`;
+  document.getElementById('readerTitle').textContent = a.title;
+  const cover = document.getElementById('readerCover');
+  cover.src = a.cover; cover.alt = a.title;
+
+  const body = document.getElementById('readerBody');
+  body.innerHTML = '';
+  (a.content || []).forEach(block => {
+    if (block.type === 'p') {
+      const p = document.createElement('p');
+      p.textContent = block.text;
+      body.appendChild(p);
+    } else if (block.type === 'h') {
+      const h = document.createElement('h2');
+      h.textContent = block.text;
+      body.appendChild(h);
+    } else if (block.type === 'img') {
+      const fig = document.createElement('figure');
+      fig.className = 'my-6';
+      fig.innerHTML = `<img src="${block.src}" alt="${block.caption||''}" class="w-full rounded-xl object-cover">` +
+        (block.caption ? `<figcaption class="text-center text-xs text-gray-400 mt-2">${block.caption}</figcaption>` : '');
+      body.appendChild(fig);
+    }
+  });
+  window.scrollTo(0, 0);
+}
+
+init();
+</script>
+</body>
+</html>

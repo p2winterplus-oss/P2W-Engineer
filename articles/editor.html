@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>เครื่องมือเขียนบทความ | P2W</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode:'class', theme:{ extend:{ colors:{ brand:{
+  dark:'#0D0D0C', charcoal:'#1B1B19', bronze:'#C5A880', bronzedark:'#A3845B',
+  lightBg:'#F9F8F6', lightBorder:'#E2DFD8' }}, fontFamily:{ sans:['Prompt','sans-serif'] }}}}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Prompt',sans-serif}
+  input,textarea,select{font-family:'Prompt',sans-serif}
+  .fld{width:100%;border:1px solid #E2DFD8;border-radius:8px;padding:9px 12px;font-size:14px;outline:none}
+  .fld:focus{border-color:#C5A880}
+  .lbl{font-size:12px;color:#666;display:block;margin-bottom:5px}
+</style>
+</head>
+<body class="bg-brand-lightBg min-h-screen text-brand-dark">
+
+<!-- LOGIN GATE -->
+<div id="loginGate" class="min-h-screen flex items-center justify-center px-6 bg-brand-dark">
+  <div class="w-full max-w-sm bg-brand-charcoal rounded-xl p-10 flex flex-col items-center gap-5" style="border:1px solid #2A2A28">
+    <div class="text-sm font-semibold tracking-[0.2em] text-white uppercase">P2W <span class="text-brand-bronze">INTERPLUS</span></div>
+    <div class="w-11 h-11 rounded-full flex items-center justify-center" style="background:rgba(197,168,128,.15)">
+      <svg class="w-5 h-5 text-brand-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+    </div>
+    <div class="text-center">
+      <div class="text-white text-sm font-medium">เครื่องมือเขียนบทความ</div>
+      <div class="text-gray-400 text-xs mt-1">สำหรับทีมงาน P2W เท่านั้น</div>
+    </div>
+    <form onsubmit="return doLogin(event)" class="w-full flex flex-col gap-3">
+      <input id="pw" type="password" placeholder="รหัสผ่าน" autocomplete="off" class="w-full text-center tracking-widest rounded-lg px-4 py-3 text-white text-sm" style="background:#0D0D0C;border:1px solid #2A2A28;outline:none">
+      <p id="pwErr" class="hidden text-red-400 text-xs text-center">รหัสผ่านไม่ถูกต้อง</p>
+      <button type="submit" class="w-full bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm py-3 rounded-lg">เข้าสู่ระบบ</button>
+    </form>
+  </div>
+</div>
+
+<div id="editorApp" class="hidden max-w-3xl mx-auto px-6 py-10">
+  <div class="flex items-center justify-between mb-2">
+    <h1 class="text-xl font-semibold">เครื่องมือเขียนบทความ</h1>
+    <a href="./" class="text-xs text-gray-500 hover:text-brand-bronze">← กลับหน้าบทความ</a>
+  </div>
+  <p class="text-sm text-gray-500 mb-8">กรอกข้อมูลด้านล่าง → กดปุ่ม "สร้างโค้ด" → คัดลอกไปวางในไฟล์ <code class="bg-white px-1.5 py-0.5 rounded border">articles.json</code></p>
+
+  <div class="bg-white border border-brand-lightBorder rounded-xl p-6 space-y-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label class="lbl">หัวข้อบทความ *</label>
+        <input id="f_title" class="fld" placeholder="เช่น ติดตั้ง Solar คืนทุนกี่ปี">
+      </div>
+      <div>
+        <label class="lbl">หมวดหมู่ *</label>
+        <select id="f_category" class="fld">
+          <option>งานโครงสร้าง</option>
+          <option>โซล่าร์เซลล์</option>
+          <option>ความรู้วิศวกรรม</option>
+          <option>ข่าวบริษัท</option>
+        </select>
+      </div>
+      <div>
+        <label class="lbl">วันที่</label>
+        <input id="f_date" type="date" class="fld">
+      </div>
+      <div>
+        <label class="lbl">ผู้เขียน</label>
+        <input id="f_author" class="fld" value="ทีมวิศวกร P2W">
+      </div>
+    </div>
+
+    <div>
+      <label class="lbl">ลิงก์รูปปก (URL) *</label>
+      <input id="f_cover" class="fld" placeholder="https://... หรือ ../public/ชื่อรูป.png">
+      <p class="text-[11px] text-gray-400 mt-1">ใช้ URL รูปจากอินเทอร์เน็ต หรืออัปโหลดรูปเข้า repo แล้วใส่ path</p>
+    </div>
+
+    <div>
+      <label class="lbl">เกริ่นนำสั้นๆ (แสดงในการ์ด) *</label>
+      <textarea id="f_excerpt" class="fld" rows="2" placeholder="สรุปบทความ 1-2 ประโยค"></textarea>
+    </div>
+
+    <div>
+      <label class="lbl">เนื้อหาบทความ *</label>
+      <p class="text-[11px] text-gray-400 mb-2">พิมพ์ได้ตามปกติ · เว้นบรรทัดว่างเพื่อขึ้นย่อหน้าใหม่ · ขึ้นต้นบรรทัดด้วย <code class="bg-gray-100 px-1 rounded">##</code> = หัวข้อย่อย · ขึ้นต้นด้วย <code class="bg-gray-100 px-1 rounded">[รูป]</code> ตามด้วย URL = แทรกรูป</p>
+      <textarea id="f_content" class="fld" rows="12" placeholder="ย่อหน้าแรกของบทความ...
+
+## หัวข้อย่อย
+
+ย่อหน้าถัดไป...
+
+[รูป]https://example.com/photo.jpg | คำบรรยายรูป (ใส่หลัง | ถ้ามี)
+
+ย่อหน้าสุดท้าย..."></textarea>
+    </div>
+
+    <button onclick="generate()" class="w-full bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold py-3 rounded-lg transition-colors">สร้างโค้ด</button>
+  </div>
+
+  <!-- Output -->
+  <div id="output" class="hidden mt-6">
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-medium">โค้ดที่ได้ — คัดลอกไปวางใน articles.json</h2>
+      <button onclick="copyOut()" class="text-xs bg-brand-dark text-white px-3 py-1.5 rounded-lg">คัดลอก</button>
+    </div>
+    <textarea id="outText" class="fld font-mono text-xs bg-gray-50" rows="14" readonly></textarea>
+    <div class="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-4 text-xs text-amber-800 leading-relaxed">
+      <strong>วิธีใช้:</strong> เปิดไฟล์ <code>articles.json</code> → วางโค้ดนี้ต่อจาก <code>[</code> ตัวแรก (คั่นบทความเดิมด้วยเครื่องหมาย <code>,</code>) → บันทึก → commit/push ขึ้น GitHub
+    </div>
+  </div>
+</div>
+
+<script>
+const EDITOR_PW = "Chev9872";
+function doLogin(e) {
+  e.preventDefault();
+  if (document.getElementById('pw').value === EDITOR_PW) {
+    document.getElementById('loginGate').classList.add('hidden');
+    document.getElementById('editorApp').classList.remove('hidden');
+  } else {
+    document.getElementById('pwErr').classList.remove('hidden');
+    document.getElementById('pw').value = '';
+  }
+  return false;
+}
+
+document.getElementById('f_date').value = new Date().toISOString().slice(0,10);
+
+function slugify(t) {
+  return t.toLowerCase().trim()
+    .replace(/[^\w฀-๿\s-]/g,'')
+    .replace(/\s+/g,'-')
+    .slice(0,40) || ('article-' + Date.now());
+}
+
+function parseContent(raw) {
+  const blocks = [];
+  const chunks = raw.split(/\n\s*\n/);
+  chunks.forEach(chunk => {
+    const line = chunk.trim();
+    if (!line) return;
+    if (line.startsWith('##')) {
+      blocks.push({ type:'h', text: line.replace(/^##\s*/,'').trim() });
+    } else if (line.startsWith('[รูป]')) {
+      const body = line.replace('[รูป]','').trim();
+      const [src, caption] = body.split('|').map(s => s.trim());
+      blocks.push({ type:'img', src: src||'', caption: caption||'' });
+    } else {
+      blocks.push({ type:'p', text: line });
+    }
+  });
+  return blocks;
+}
+
+function generate() {
+  const title = document.getElementById('f_title').value.trim();
+  const cover = document.getElementById('f_cover').value.trim();
+  const excerpt = document.getElementById('f_excerpt').value.trim();
+  const contentRaw = document.getElementById('f_content').value.trim();
+  if (!title || !cover || !excerpt || !contentRaw) {
+    alert('กรุณากรอก หัวข้อ / รูปปก / เกริ่นนำ / เนื้อหา ให้ครบ');
+    return;
+  }
+  const obj = {
+    id: slugify(title),
+    title: title,
+    category: document.getElementById('f_category').value,
+    date: document.getElementById('f_date').value,
+    author: document.getElementById('f_author').value.trim() || 'ทีมวิศวกร P2W',
+    cover: cover,
+    excerpt: excerpt,
+    content: parseContent(contentRaw)
+  };
+  const json = JSON.stringify(obj, null, 2);
+  document.getElementById('outText').value = json;
+  document.getElementById('output').classList.remove('hidden');
+  document.getElementById('output').scrollIntoView({ behavior:'smooth' });
+}
+
+function copyOut() {
+  const el = document.getElementById('outText');
+  el.select();
+  document.execCommand('copy');
+  alert('คัดลอกแล้ว');
+}
+</script>
+</body>
+</html>

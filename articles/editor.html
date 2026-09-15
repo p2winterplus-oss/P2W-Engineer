@@ -98,10 +98,36 @@ tailwind.config = { darkMode:'class', theme:{ extend:{ colors:{ brand:{
 ย่อหน้าสุดท้าย..."></textarea>
     </div>
 
-    <button onclick="generate()" class="w-full bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold py-3 rounded-lg transition-colors">สร้างโค้ด</button>
+    <div class="flex flex-col sm:flex-row gap-3 pt-1">
+      <button onclick="publish()" id="publishBtn" class="flex-1 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold py-3 rounded-lg transition-colors">🚀 เผยแพร่ทันที</button>
+      <button onclick="generate()" class="sm:w-48 border border-brand-lightBorder hover:border-brand-bronze text-gray-600 font-medium py-3 rounded-lg transition-colors">สร้างโค้ด (วางเอง)</button>
+    </div>
+    <p id="pubStatus" class="hidden text-sm text-center pt-1"></p>
   </div>
 
-  <!-- Output -->
+  <!-- GitHub settings -->
+  <div class="mt-4">
+    <button onclick="toggleSettings()" class="text-xs text-gray-500 hover:text-brand-bronze flex items-center gap-1">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+      ตั้งค่าการเชื่อมต่อ GitHub <span id="tokenStatus"></span>
+    </button>
+    <div id="settingsBox" class="hidden bg-white border border-brand-lightBorder rounded-xl p-5 mt-2 space-y-3">
+      <label class="lbl">GitHub Token (ใส่ครั้งเดียว เก็บไว้ในเครื่องนี้)</label>
+      <input id="ghToken" type="password" class="fld" placeholder="github_pat_...">
+      <div class="flex gap-2">
+        <button onclick="saveToken()" class="text-xs bg-brand-dark text-white px-4 py-2 rounded-lg">บันทึก Token</button>
+        <button onclick="clearToken()" class="text-xs border border-brand-lightBorder px-4 py-2 rounded-lg text-gray-500">ลบ Token</button>
+      </div>
+      <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 text-[11px] text-blue-800 leading-relaxed">
+        <strong>วิธีสร้าง token (ทำครั้งเดียว):</strong><br>
+        1. ไปที่ github.com → Settings → Developer settings → Personal access tokens → <strong>Fine-grained tokens</strong><br>
+        2. Generate → เลือก repo <code>P2W-Engineer</code> → Permissions: <strong>Contents = Read and write</strong><br>
+        3. คัดลอก token มาวางช่องด้านบน → บันทึก
+      </div>
+    </div>
+  </div>
+
+  <!-- Output (manual paste fallback) -->
   <div id="output" class="hidden mt-6">
     <div class="flex items-center justify-between mb-2">
       <h2 class="text-sm font-medium">โค้ดที่ได้ — คัดลอกไปวางใน articles.json</h2>
@@ -156,16 +182,16 @@ function parseContent(raw) {
   return blocks;
 }
 
-function generate() {
+function buildArticle() {
   const title = document.getElementById('f_title').value.trim();
   const cover = document.getElementById('f_cover').value.trim();
   const excerpt = document.getElementById('f_excerpt').value.trim();
   const contentRaw = document.getElementById('f_content').value.trim();
   if (!title || !cover || !excerpt || !contentRaw) {
     alert('กรุณากรอก หัวข้อ / รูปปก / เกริ่นนำ / เนื้อหา ให้ครบ');
-    return;
+    return null;
   }
-  const obj = {
+  return {
     id: slugify(title),
     title: title,
     category: document.getElementById('f_category').value,
@@ -175,8 +201,12 @@ function generate() {
     excerpt: excerpt,
     content: parseContent(contentRaw)
   };
-  const json = JSON.stringify(obj, null, 2);
-  document.getElementById('outText').value = json;
+}
+
+function generate() {
+  const obj = buildArticle();
+  if (!obj) return;
+  document.getElementById('outText').value = JSON.stringify(obj, null, 2);
   document.getElementById('output').classList.remove('hidden');
   document.getElementById('output').scrollIntoView({ behavior:'smooth' });
 }
@@ -187,6 +217,96 @@ function copyOut() {
   document.execCommand('copy');
   alert('คัดลอกแล้ว');
 }
+
+/* ===== GitHub publish ===== */
+const GH_OWNER = 'p2winterplus-oss';
+const GH_REPO = 'P2W-Engineer';
+const GH_PATH = 'articles/articles.json';
+const TOKEN_KEY = 'p2w_gh_token';
+
+function toggleSettings(){ document.getElementById('settingsBox').classList.toggle('hidden'); }
+function refreshTokenStatus(){
+  const t = localStorage.getItem(TOKEN_KEY);
+  document.getElementById('tokenStatus').textContent = t ? '✅ เชื่อมต่อแล้ว' : '⚠️ ยังไม่ได้ตั้งค่า';
+}
+function saveToken(){
+  const t = document.getElementById('ghToken').value.trim();
+  if(!t){ alert('กรุณาวาง token ก่อน'); return; }
+  try { localStorage.setItem(TOKEN_KEY, t); } catch(e){}
+  document.getElementById('ghToken').value='';
+  refreshTokenStatus();
+  alert('บันทึก token แล้ว');
+}
+function clearToken(){
+  try { localStorage.removeItem(TOKEN_KEY); } catch(e){}
+  refreshTokenStatus();
+  alert('ลบ token แล้ว');
+}
+
+function b64EncodeUnicode(str){
+  return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (m,p)=>String.fromCharCode('0x'+p)));
+}
+function b64DecodeUnicode(str){
+  return decodeURIComponent(atob(str.replace(/\n/g,'')).split('').map(c=>'%'+('00'+c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+}
+
+function setStatus(msg, color){
+  const el = document.getElementById('pubStatus');
+  el.textContent = msg;
+  el.className = 'text-sm text-center pt-1 ' + (color||'text-gray-500');
+  el.classList.remove('hidden');
+}
+
+async function publish(){
+  const token = localStorage.getItem(TOKEN_KEY);
+  if(!token){
+    alert('ยังไม่ได้ตั้งค่า GitHub token — เปิด "ตั้งค่าการเชื่อมต่อ GitHub" ด้านล่างก่อน');
+    toggleSettings();
+    return;
+  }
+  const obj = buildArticle();
+  if(!obj) return;
+
+  const btn = document.getElementById('publishBtn');
+  btn.disabled = true;
+  const api = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`;
+  const headers = { 'Authorization': 'Bearer '+token, 'Accept': 'application/vnd.github+json' };
+
+  try {
+    setStatus('กำลังโหลดข้อมูลบทความเดิม...', 'text-gray-500');
+    const getRes = await fetch(api + '?ref=main', { headers });
+    if(!getRes.ok) throw new Error('อ่านไฟล์ไม่สำเร็จ ('+getRes.status+') — token อาจไม่ถูกต้องหรือไม่มีสิทธิ์');
+    const fileData = await getRes.json();
+    const current = JSON.parse(b64DecodeUnicode(fileData.content));
+
+    if(current.some(a => a.id === obj.id)){
+      obj.id = obj.id + '-' + Date.now().toString().slice(-4);
+    }
+    current.unshift(obj);
+    const newContent = JSON.stringify(current, null, 2) + '\n';
+
+    setStatus('กำลังเผยแพร่บทความ...', 'text-gray-500');
+    const putRes = await fetch(api, {
+      method: 'PUT', headers,
+      body: JSON.stringify({
+        message: 'Add article: ' + obj.title,
+        content: b64EncodeUnicode(newContent),
+        sha: fileData.sha,
+        branch: 'main'
+      })
+    });
+    if(!putRes.ok) throw new Error('บันทึกไม่สำเร็จ ('+putRes.status+')');
+
+    setStatus('✅ เผยแพร่สำเร็จ! บทความจะขึ้นเว็บภายใน 1-2 นาที', 'text-green-600');
+    ['f_title','f_cover','f_excerpt','f_content'].forEach(id=>document.getElementById(id).value='');
+  } catch(err){
+    setStatus('❌ ' + err.message, 'text-red-600');
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+refreshTokenStatus();
 </script>
 </body>
 </html>

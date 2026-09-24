@@ -108,7 +108,7 @@
 - Phone: 088-788-8364
 - Email: p2w.interplus@gmail.com
 - Address: 49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ
-- Line OA: https://lin.ee/QJax26d
+- Line OA: https://lin.ee/5u6O7cw
 
 ## Domain & Routing
 - **Cloudflare Worker**: `p2w-engineer` — route `p2winterplus.com/engineer*` → GitHub Pages

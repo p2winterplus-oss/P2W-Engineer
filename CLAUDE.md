@@ -69,6 +69,20 @@
 - อีเมล (ถ้ามี)
 - แนบไฟล์รูปภาพ/แบบแปลน (ถ้ามี)
 
+## บทความ & ข่าวสาร (`articles/`)
+- **หน้ารวม + หน้าอ่าน**: `articles/index.html` — URL `https://p2winterplus.com/engineer/articles/` (อ่านบทความ = `?id=<id>`)
+- **ข้อมูล**: `articles/articles.json` — array ของบทความ `{id, title, category, date, author, cover, excerpt, content:[{type:p|h|img, text|src, caption}]}` เรียงใหม่สุดขึ้นก่อนอัตโนมัติ, อันใหม่สุดเป็น "บทความแนะนำ"
+- **หมวด**: งานโครงสร้าง / โซล่าร์เซลล์ / ความรู้วิศวกรรม / ข่าวบริษัท
+- **ลิงก์ในเมนู**: "บทความ" อยู่ระหว่าง ผลงาน กับ เกี่ยวกับเรา (desktop + mobile)
+- **Editor** 🔒: `articles/editor.html` — รหัส `Chev9872`, `noindex`, ไม่มีลิงก์สาธารณะชี้ไป
+  - ปุ่ม **"🚀 เผยแพร่ทันที"** — เขียน `articles.json` ผ่าน GitHub Contents API (GET sha → unshift → PUT) ขึ้นเว็บใน 1-2 นาที
+  - ต้องมี **GitHub fine-grained token** (Contents = Read and write, เฉพาะ repo P2W-Engineer) เก็บใน `localStorage` key `p2w_gh_token` ของเครื่องที่ใช้ — ตั้งค่าแล้วบนเครื่องของ user (อย่าให้ user วาง token ในแชท)
+  - ปุ่ม "สร้างโค้ด (วางเอง)" เป็นทางสำรองไม่ต้องใช้ token
+  - พิมพ์เนื้อหา: เว้นบรรทัด = ย่อหน้า, `##` = หัวข้อ, `[รูป]URL | คำบรรยาย` = แทรกรูป
+- **วิธีเพิ่มบทความ 3 ทาง**: editor เผยแพร่เอง / editor สร้างโค้ดวางเอง / user พิมพ์ในแชทให้ Claude เขียน+push
+- คู่มือ: `articles/README.md`
+- ⚠️ 2 บทความ `solar-tax-deduction` และ `solar-government-subsidy` ยังมี `⚠️ [ต้องเติมข้อมูลจริง]` — ตัวเลข/เงื่อนไขโครงการรัฐต้องเช็คกับประกาศทางการก่อน
+
 ## BOQ / Quotation Tool — ย้ายออกจากโปรเจกต์นี้แล้ว 📦
 - เคยอยู่ที่ `boq/index.html` (commit `d7a1f0d`) — **ลบออกแล้ว** เพราะจะย้ายไปโฮสต์ที่เว็บอื่น
 - สำเนาไฟล์: `C:\Users\BD\OneDrive\Claude AI Backup\P2W-BOQ-Tool-backup.html`
@@ -100,6 +114,17 @@
 - **Cloudflare Worker**: `p2w-engineer` — route `p2winterplus.com/engineer*` → GitHub Pages
 - Worker rewrite `src="..."` ให้ชี้กลับ GitHub Pages origin อัตโนมัติ
 
+### ⚠️ กับดัก Worker (สำคัญมาก — เจอจริงแล้ว)
+Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ทุก `src="X"` ที่ X **ไม่ได้ขึ้นต้นด้วย `http`** จะถูกแปะ `https://p2winterplus-oss.github.io/P2W-Engineer/` ข้างหน้า — **รวมถึงใน `<script>` ด้วย**
+- ❌ `src="${a.cover}"` ใน JS template → กลายเป็น `.../P2W-Engineer/${a.cover}` → รูปพัง
+- ❌ `src="/engineer/logo.png"` → กลายเป็น `.../P2W-Engineer//engineer/logo.png` → พัง
+- ✅ `src="logo.png"` (relative จาก root repo) → `.../P2W-Engineer/logo.png` ใช้ได้ (แบบที่หน้าแรกใช้)
+- ✅ `src="https://..."` (URL เต็ม) → Worker ไม่แตะ
+- ✅ **รูปที่สร้างด้วย JS** → ห้ามเขียน `src="` ในโค้ด ให้ใช้ `data-cover="..."` แล้ว set `img.src = ...` (property) แทน — ดู `hydrateImages()` ใน `articles/index.html`
+
+### ลิงก์ข้ามหน้า
+หน้าแรกโหลดที่ `/engineer` (ไม่มี `/` ท้าย) → ลิงก์ relative อย่าง `articles/` จะหลุดไป `/articles/` (404) — **ลิงก์ข้ามหน้าต้องใช้ `/engineer/...` แบบ absolute** (ใช้ได้บน custom domain เท่านั้น ลิงก์ github.io ตรงๆ ข้ามหน้าจะไม่ทำงาน ไม่เป็นไรเพราะลูกค้าใช้ domain)
+
 ## Tracking & Data Plan
 - **Visitor tracking**: Google Analytics — ยังไม่ได้ทำ (ต้องเพิ่ม script tag)
 - **Form → Google Sheet**: Google Apps Script — ยังไม่ได้ทำ
@@ -121,8 +146,11 @@
 - `robots.txt` — allow all bots + AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Meta AI)
 - `llms.txt` — AI-readable site summary (บริการ ราคา ผลงาน ติดต่อ)
 - SEO meta tags ครบ (description, keywords, OG, Twitter Card, JSON-LD structured data)
+- หน้าบทความ & ข่าวสาร + editor เผยแพร่เองผ่าน GitHub API (5 บทความตัวอย่าง)
 
 ## What's Missing / TODO ❌
+- เติมข้อมูลจริงใน 2 บทความโครงการรัฐโซล่าร์ (ตอนนี้มี ⚠️ placeholder)
+- ยังไม่ได้ลองกด "เผยแพร่ทันที" จาก editor จริงสักครั้ง
 - "เกี่ยวกับเรา" (About Us) section — team, company background
 - Testimonials / client reviews section
 - Google Analytics — เพิ่ม script tag

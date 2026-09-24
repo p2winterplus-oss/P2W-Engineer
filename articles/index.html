@@ -44,7 +44,7 @@ tailwind.config = {
 <header class="sticky top-0 z-40 bg-brand-lightBg/95 dark:bg-brand-dark/95 backdrop-blur-md border-b border-brand-lightBorder dark:border-brand-border/60 theme-transition">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
     <a href="/engineer/" class="flex items-center space-x-3">
-      <img src="/engineer/logo.png" alt="P2W INTERPLUS Logo" class="w-14 h-14 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
+      <img id="siteLogo" alt="P2W INTERPLUS Logo" class="w-14 h-14 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
       <div>
         <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block">P2W INTERPLUS</span>
         <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
@@ -188,7 +188,7 @@ function renderArticles() {
     featWrap.innerHTML = `
       <a href="?id=${f.id}" class="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border rounded-xl overflow-hidden hover:border-brand-bronze transition-colors group">
         <div class="relative min-h-[240px] overflow-hidden">
-          <img src="${f.cover}" alt="${f.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img data-cover="${f.cover}" alt="${f.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <span class="absolute top-4 left-4 bg-brand-dark text-brand-bronze text-[10px] px-3 py-1 rounded tracking-wider">บทความแนะนำ</span>
         </div>
         <div class="p-7 flex flex-col justify-center">
@@ -206,7 +206,7 @@ function renderArticles() {
     card.className = 'bg-white dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border rounded-xl overflow-hidden hover:border-brand-bronze transition-colors group flex flex-col';
     card.innerHTML = `
       <div class="relative h-44 overflow-hidden">
-        <img src="${a.cover}" alt="${a.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <img data-cover="${a.cover}" alt="${a.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2.5 py-1 rounded">${a.category}</span>
       </div>
       <div class="p-5 flex flex-col flex-1">
@@ -216,6 +216,8 @@ function renderArticles() {
       </div>`;
     grid.appendChild(card);
   });
+
+  hydrateImages(document.getElementById('listView'));
 }
 
 function showReader(id) {
@@ -250,13 +252,31 @@ function showReader(id) {
     } else if (block.type === 'img') {
       const fig = document.createElement('figure');
       fig.className = 'my-6';
-      fig.innerHTML = `<img src="${block.src}" alt="${block.caption||''}" class="w-full rounded-xl object-cover">` +
-        (block.caption ? `<figcaption class="text-center text-xs text-gray-400 mt-2">${block.caption}</figcaption>` : '');
+      const im = document.createElement('img');
+      im.className = 'w-full rounded-xl object-cover';
+      im.alt = block.caption || '';
+      im.src = block.src;
+      fig.appendChild(im);
+      if (block.caption) {
+        const cap = document.createElement('figcaption');
+        cap.className = 'text-center text-xs text-gray-400 mt-2';
+        cap.textContent = block.caption;
+        fig.appendChild(cap);
+      }
       body.appendChild(fig);
     }
   });
   window.scrollTo(0, 0);
 }
+
+function hydrateImages(root) {
+  root.querySelectorAll('img[data-cover]').forEach(im => {
+    im.src = im.getAttribute('data-cover');
+  });
+}
+
+const logoEl = document.getElementById('siteLogo');
+if (logoEl) logoEl.src = '/engineer/logo.png';
 
 init();
 </script>

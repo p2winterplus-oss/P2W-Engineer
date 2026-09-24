@@ -72,7 +72,7 @@
 ## บทความ & ข่าวสาร (`articles/`)
 - **หน้ารวม + หน้าอ่าน**: `articles/index.html` — URL `https://p2winterplus.com/engineer/articles/` (อ่านบทความ = `?id=<id>`)
 - **ข้อมูล**: `articles/articles.json` — array ของบทความ `{id, title, category, date, author, cover, excerpt, content:[{type:p|h|img, text|src, caption}]}` เรียงใหม่สุดขึ้นก่อนอัตโนมัติ, อันใหม่สุดเป็น "บทความแนะนำ"
-- **หมวด**: งานโครงสร้าง / โซล่าร์เซลล์ / ความรู้วิศวกรรม / ข่าวบริษัท
+- **หมวด**: งานโครงสร้าง / โซล่าร์เซลล์ / ความรู้วิศวกรรม / งานออกแบบ / ต่อเติม & รีโนเวท / ข่าวบริษัท
 - **ลิงก์ในเมนู**: "บทความ" อยู่ระหว่าง ผลงาน กับ เกี่ยวกับเรา (desktop + mobile)
 - **Editor** 🔒: `articles/editor.html` — รหัส `Chev9872`, `noindex`, ไม่มีลิงก์สาธารณะชี้ไป
   - ปุ่ม **"🚀 เผยแพร่ทันที"** — เขียน `articles.json` ผ่าน GitHub Contents API (GET sha → unshift → PUT) ขึ้นเว็บใน 1-2 นาที

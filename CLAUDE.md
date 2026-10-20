@@ -36,6 +36,7 @@
 - `WhyChooseUs.png` — background image สำหรับ section Why Choose Us
 - `robots.txt` — อนุญาต bot ทุกเจ้า รวม AI crawlers ✅
 - `llms.txt` — สรุปข้อมูลบริษัทสำหรับ LLM/AI อ่านโดยตรง ✅
+- `AGENTS.md` — สรุปกฎสำหรับ Codex/AI agent อื่น (ชี้มาที่ไฟล์นี้) — แก้ข้อมูลโปรเจกต์ให้อัปเดตทั้ง 2 ไฟล์
 
 ## Portfolio Cards (5 ใบ — 2x2 + 1)
 - **Card 01**: อาคารสำนักงาน 8 ชั้น (`public/engineer-01.png`) — STRUCTURAL CIVIL
@@ -106,7 +107,7 @@
 
 ## Contact Info (in footer)
 - Phone: 088-788-8364
-- Email: p2w.interplus@gmail.com
+- Email (แสดงบนเว็บ): adm.p2winterplus@gmail.com
 - Address: 49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ
 - Line OA: https://lin.ee/5u6O7cw
 
@@ -146,7 +147,7 @@ Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ท�
 - `robots.txt` — allow all bots + AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Meta AI)
 - `llms.txt` — AI-readable site summary (บริการ ราคา ผลงาน ติดต่อ)
 - SEO meta tags ครบ (description, keywords, OG, Twitter Card, JSON-LD structured data)
-- หน้าบทความ & ข่าวสาร + editor เผยแพร่เองผ่าน GitHub API (5 บทความตัวอย่าง)
+- หน้าบทความ & ข่าวสาร + editor เผยแพร่เองผ่าน GitHub API (17 บทความ: โซล่าร์ 7, ความรู้วิศวกรรม 4, งานออกแบบ 2, ต่อเติม & รีโนเวท 3, งานโครงสร้าง 1)
 
 ## What's Missing / TODO ❌
 - เติมข้อมูลจริงในบทความ solar-government-subsidy (ตอนนี้มี ⚠️ placeholder)

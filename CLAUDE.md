@@ -39,11 +39,12 @@
 - `AGENTS.md` — สรุปกฎสำหรับ Codex/AI agent อื่น (ชี้มาที่ไฟล์นี้) — แก้ข้อมูลโปรเจกต์ให้อัปเดตทั้ง 2 ไฟล์
 
 ## Portfolio Cards (5 ใบ — 2x2 + 1)
-- **Card 01**: อาคารสำนักงาน 8 ชั้น (`public/engineer-01.png`) — STRUCTURAL CIVIL
-- **Card 02**: บ้านพักอาศัยหรู 3 ชั้น (`public/engineer-02.png`) — STRUCTURAL CIVIL
-- **Card 03**: Solar Rooftop 50kW โรงงาน (`public/solar-factory.png`) — GREEN ENERGY SOLAR, คืนทุน 3-4 ปี
-- **Card 04**: Solar Rooftop 5kW บ้าน (`public/solar-home.png`) — GREEN ENERGY SOLAR, ลดค่าไฟ 60-80%
-- **Card 05**: รับออกแบบ/วิเคราะห์/ตรวจสอบโครงสร้าง (`public/engineering-design.png`) — STRUCTURAL DESIGN
+- **Card 01**: อาคารสำนักงาน 8 ชั้น (`public/engineer-01.jpg`) — STRUCTURAL CIVIL
+- **Card 02**: บ้านพักอาศัยหรู 3 ชั้น (`public/engineer-02.jpg`) — STRUCTURAL CIVIL
+- **Card 03**: Solar Rooftop 50kW โรงงาน (`public/solar-factory.jpg`) — GREEN ENERGY SOLAR, คืนทุน 3-4 ปี
+- **Card 04**: Solar Rooftop 5kW บ้าน (`public/solar-home.jpg`) — GREEN ENERGY SOLAR, ลดค่าไฟ 60-80%
+- **Card 05**: รับออกแบบ/วิเคราะห์/ตรวจสอบโครงสร้าง (`public/engineering-design.jpg`) — STRUCTURAL DESIGN
+- รูปการ์ดใช้ `.jpg` 1200px (~130-270KB) ย่อจาก `.png` ต้นฉบับ (2-3.7MB เก็บไว้ใน `public/` ไม่ได้ใช้บนหน้าเว็บ) — รูปใหม่ให้ย่อเป็น JPG/WebP ก่อนใส่ · ปุ่มกรอง ทั้งหมด/โยธา/โซล่าร์ ใช้ `data-cat` บนการ์ด + `filterPortfolio()`
 
 ## Copy / ข้อความสำคัญ (ล่าสุด)
 - **Service Tab 3**: "วิศวกรรมเครื่องกลและระบบอุตสาหกรรม" — ออกแบบ ตรวจสอบ ติดตั้งระบบอาคาร โรงงาน HVAC และยานยนต์
@@ -145,6 +146,11 @@ Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ท�
 - Deployed on GitHub Pages + Live via Cloudflare Worker
 - Portfolio 5 cards (2x2+1) พร้อมรูปจริง (engineer-01, engineer-02, solar-factory, solar-home, engineering-design)
 - `robots.txt` — allow all bots + AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Meta AI)
+- ปุ่มลอย Line (เขียว) + โทร (`tel:0887888364`) มุมขวาล่าง ทั้งหน้าแรกและหน้าบทความ (มือถือแสดงแค่ไอคอน)
+- `sitemap.xml` — หน้าแรก + หน้ารวมบทความ + ทุกบทความ (`?id=`) ⚠️ เพิ่มบทความใหม่ต้องเพิ่ม `<url>` ในไฟล์นี้ด้วย
+- หน้าอ่านบทความตั้ง canonical + meta description เป็นของบทความนั้นด้วย JS
+- Portfolio filter ใช้งานได้ + เมนูมือถือปิดเองหลังกดลิงก์
+- Service Tab 3 รายละเอียดครอบคลุม HVAC/โรงงาน/ยานยนต์ ตรงกับการ์ดแล้ว
 - `llms.txt` — AI-readable site summary (บริการ ราคา ผลงาน ติดต่อ)
 - SEO meta tags ครบ (description, keywords, OG, Twitter Card, JSON-LD structured data)
 - หน้าบทความ & ข่าวสาร + editor เผยแพร่เองผ่าน GitHub API (17 บทความ: โซล่าร์ 7, ความรู้วิศวกรรม 4, งานออกแบบ 2, ต่อเติม & รีโนเวท 3, งานโครงสร้าง 1)
@@ -156,8 +162,5 @@ Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ท�
 - Testimonials / client reviews section
 - Google Analytics — เพิ่ม script tag
 - Google Apps Script — เชื่อม form → Google Sheet
-- Line OA chat widget (floating button)
-- Portfolio filter buttons (โยธา/โซล่า) not yet functional
-- Mobile nav auto-close after link click
 - Header/Footer: link กลับ P2W Main (`/`) — ยังไม่ได้ใส่
 - Submit Google Search Console (ต้องทำเองใน browser)

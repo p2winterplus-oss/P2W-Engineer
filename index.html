@@ -177,6 +177,10 @@
             background: #C5A880;
             border-radius: 3px;
         }
+        .portfolio-filter { border-color: #E2DFD8; color: #6b7280; font-weight: 300; }
+        .dark .portfolio-filter { border-color: #2A2A28; color: #9ca3af; }
+        .portfolio-filter:hover { border-color: rgba(197,168,128,.5); }
+        .portfolio-filter.is-active, .dark .portfolio-filter.is-active { border-color: #C5A880; color: #C5A880; font-weight: 600; }
         .dark .logo-glow {
             filter:
                 drop-shadow(1px  0    0 #C5A880)
@@ -539,41 +543,42 @@
                 <!-- MECHANICAL DETAIL -->
                 <div id="detail-mechanical" class="service-detail-section hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                     <div class="lg:col-span-7 space-y-6">
-                        <span class="text-[10px] text-brand-bronze tracking-[0.3em] uppercase block font-light">Automotive Dynamics & Machine Engineering</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">ดัดแปลงยานยนต์และวิศวกรรมเครื่องกลควบคุม</h3>
+                        <span class="text-[10px] text-brand-bronze tracking-[0.3em] uppercase block font-light">Mechanical, HVAC & Industrial Systems</span>
+                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">วิศวกรรมเครื่องกลและระบบอุตสาหกรรม</h3>
                         <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            บริการด้านวิศวกรรมยานยนต์และระบบขับเคลื่อนอย่างเป็นทางการ คำนวณความแข็งแรงของระบบรับแรงบิดและพิกัดความปลอดภัยจากการดัดแปลงยานพาหนะเฉพาะตัว รวมถึงโครงสร้างแชสซีส์ที่ต้องรับแรงปะทะสูง
+                            ออกแบบ ตรวจสอบ และติดตั้งระบบเครื่องกลภายในอาคารและโรงงานอุตสาหกรรม ตั้งแต่ระบบปรับอากาศ (HVAC) ระบบระบายอากาศ ระบบท่อและเครื่องจักร ไปจนถึงงานวิศวกรรมยานยนต์และการดัดแปลงสภาพรถ โดยวิศวกรเครื่องกลผู้มีใบอนุญาต
                         </p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-500 dark:text-gray-300 font-light theme-transition">
+                            <div class="flex items-start space-x-2">
+                                <span class="text-brand-bronze">✔</span>
+                                <span>ออกแบบและติดตั้งระบบปรับอากาศ/ระบายอากาศ (HVAC) อาคารและโรงงาน</span>
+                            </div>
+                            <div class="flex items-start space-x-2">
+                                <span class="text-brand-bronze">✔</span>
+                                <span>ตรวจสอบและเซ็นรับรองเครื่องจักร หม้อไอน้ำ และระบบท่อแรงดันในโรงงาน</span>
+                            </div>
                             <div class="flex items-start space-x-2">
                                 <span class="text-brand-bronze">✔</span>
                                 <span>คำนวณและตรวจสอบระบบแก๊สแรงดัน NGV/LPG/LNG</span>
                             </div>
                             <div class="flex items-start space-x-2">
                                 <span class="text-brand-bronze">✔</span>
-                                <span>วิเคราะห์พิกัดความแข็งแรงของโครงรับน้ำหนักแชสซีส์</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>เซ็นควบคุมการทำงานของเครื่องจักรกลและหม้อไอน้ำอุตสาหกรรม</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>จัดส่งเอกสารและผลทดสอบตามเกณฑ์ความปลอดภัยของขนส่ง</span>
+                                <span>เซ็นรับรองการดัดแปลงโครงสร้างแชสซีส์รถ พร้อมเอกสารยื่นกรมการขนส่งทางบก</span>
                             </div>
                         </div>
                     </div>
                     <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
                         <h4 class="text-xs uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
                             <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            อัตราบริการตรวจสอบออกเอกสาร
+                            ประเมินค่าบริการเบื้องต้น
                         </h4>
                         <ul class="space-y-4 text-xs text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
+                            <li class="flex justify-between"><span>ออกแบบ/ติดตั้งระบบ HVAC อาคารและโรงงาน</span> <span class="font-semibold text-brand-dark dark:text-white font-mono">ตามขนาดงานจริง</span></li>
                             <li class="flex justify-between"><span>เซ็นใบวิศวกรดัดแปลงโครงสร้างแชสซีส์รถ</span> <span class="font-semibold text-brand-dark dark:text-white font-mono">เริ่มต้น 5,500.-</span></li>
                             <li class="flex justify-between"><span>ใบรับรองการตรวจสอบระบบกักเก็บแก๊ส</span> <span class="font-semibold text-brand-dark dark:text-white font-mono">เริ่มต้น 4,000.-</span></li>
                             <li class="flex justify-between"><span>คำนวณและทดสอบแรงดันระบบท่อ/เครื่องจักร</span> <span class="font-semibold text-brand-dark dark:text-white font-mono">ตามขนาดงานจริง</span></li>
                         </ul>
-                        <p class="text-[9px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*สามารถนำเอกสารไปขึ้นทะเบียนดัดแปลงจดทะเบียนสภาพต่อกรมการขนส่งทางบกได้ทันที</p>
+                        <p class="text-[9px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ราคาเริ่มต้นไม่รวมภาษีมูลค่าเพิ่ม งานระบบอาคาร/โรงงานประเมินหลังสำรวจหน้างาน · เอกสารดัดแปลงรถนำไปยื่นกรมการขนส่งทางบกได้ทันที</p>
                     </div>
                 </div>
 
@@ -1027,17 +1032,17 @@
                     <h2 class="text-3xl font-light text-brand-dark dark:text-white serif-title theme-transition">โครงการรังสรรค์และเคสศึกษาเด่น</h2>
                 </div>
                 <div class="mt-6 md:mt-0 flex space-x-2">
-                    <button class="px-4 py-2 border border-brand-bronze text-brand-bronze text-[10px] uppercase tracking-widest font-semibold">ทั้งหมด</button>
-                    <button class="px-4 py-2 border border-brand-lightBorder dark:border-brand-border hover:border-brand-bronze/50 text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white text-[10px] uppercase tracking-widest font-light transition-colors theme-transition">สถาปัตยกรรมโยธา</button>
-                    <button class="px-4 py-2 border border-brand-lightBorder dark:border-brand-border hover:border-brand-bronze/50 text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white text-[10px] uppercase tracking-widest font-light transition-colors theme-transition">โซล่ารูฟ</button>
+                    <button type="button" data-filter="all" onclick="filterPortfolio('all')" class="portfolio-filter is-active px-4 py-2 border text-[10px] uppercase tracking-widest transition-colors theme-transition">ทั้งหมด</button>
+                    <button type="button" data-filter="civil" onclick="filterPortfolio('civil')" class="portfolio-filter px-4 py-2 border text-[10px] uppercase tracking-widest transition-colors theme-transition">โยธา & โครงสร้าง</button>
+                    <button type="button" data-filter="solar" onclick="filterPortfolio('solar')" class="portfolio-filter px-4 py-2 border text-[10px] uppercase tracking-widest transition-colors theme-transition">โซล่าร์เซลล์</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Card 01: Office Building -->
-                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                <div data-cat="civil" class="portfolio-card bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 relative overflow-hidden">
-                        <img src="public/engineer-01.png" alt="Commercial Office Building" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="public/engineer-01.jpg" alt="Commercial Office Building" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                         <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Structural Civil / Commercial</span>
                     </div>
@@ -1049,9 +1054,9 @@
                 </div>
 
                 <!-- Card 02: Residential House -->
-                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                <div data-cat="civil" class="portfolio-card bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 relative overflow-hidden">
-                        <img src="public/engineer-02.png" alt="Residential House" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="public/engineer-02.jpg" alt="Residential House" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                         <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Structural Civil / Residential</span>
                     </div>
@@ -1063,9 +1068,9 @@
                 </div>
 
                 <!-- Card 02: Solar Rooftop 50kW Factory -->
-                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                <div data-cat="solar" class="portfolio-card bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 relative overflow-hidden">
-                        <img src="public/solar-factory.png" alt="Solar Rooftop Factory 50kW" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="public/solar-factory.jpg" alt="Solar Rooftop Factory 50kW" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                         <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Solar Rooftop / Industrial</span>
                     </div>
@@ -1077,9 +1082,9 @@
                 </div>
 
                 <!-- Card 03: Solar Rooftop 5kW Home -->
-                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                <div data-cat="solar" class="portfolio-card bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 relative overflow-hidden">
-                        <img src="public/solar-home.png" alt="Solar Rooftop Home 5kW" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="public/solar-home.jpg" alt="Solar Rooftop Home 5kW" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                         <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Solar Rooftop / Residential</span>
                     </div>
@@ -1091,9 +1096,9 @@
                 </div>
 
                 <!-- Card 04: Engineering Design & Analysis -->
-                <div class="bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
+                <div data-cat="civil" class="portfolio-card bg-brand-lightCard dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border overflow-hidden group hover:border-brand-bronze/45 transition-all duration-500 theme-transition">
                     <div class="h-56 relative overflow-hidden">
-                        <img src="public/engineering-design.png" alt="Engineering Design & Analysis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="public/engineering-design.jpg" alt="Engineering Design & Analysis" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all"></div>
                         <span class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-brand-bronze border border-brand-bronze/40 px-3 py-1.5 font-medium">Design & Structural / Analysis</span>
                     </div>
@@ -1130,7 +1135,7 @@
                 <ul class="space-y-3.5 text-xs text-gray-500 dark:text-gray-400 font-light theme-transition">
                     <li><a href="#services" onclick="switchPillarService('civil')" class="hover:text-brand-dark dark:hover:text-white transition-colors">สถาปัตยกรรมโยธา & งานเสาเข็ม</a></li>
                     <li><a href="#services" onclick="switchPillarService('solar')" class="hover:text-white transition-colors">ติดตั้งแผงพลังงานโซล่าเซลล์</a></li>
-                    <li><a href="#services" onclick="switchPillarService('mechanical')" class="hover:text-white transition-colors">ตรวจวิเคราะห์รถยนต์และเครื่องกล</a></li>
+                    <li><a href="#services" onclick="switchPillarService('mechanical')" class="hover:text-white transition-colors">ระบบเครื่องกล HVAC และยานยนต์</a></li>
                     <li><a href="#services" onclick="switchPillarService('consult')" class="hover:text-white transition-colors">เป็นที่ปรึกษาควบคุมระบบโครงการ</a></li>
                     <li><a href="#services" onclick="switchPillarService('certify')" class="hover:text-white transition-colors">ตรวจสอบความปลอดภัยเซ็นรับรอง</a></li>
                 </ul>
@@ -1141,7 +1146,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-500 dark:text-gray-400 font-light theme-transition">
                     <div>
                         <span class="block text-[10px] uppercase text-gray-400 dark:text-gray-500 tracking-wider mb-1 theme-transition">เบอร์โทร</span>
-                        <p class="text-brand-dark dark:text-white theme-transition">088-788-8364</p>
+                        <a href="tel:0887888364" class="text-brand-dark dark:text-white hover:text-brand-bronze dark:hover:text-brand-bronze underline-offset-4 hover:underline theme-transition">088-788-8364</a>
                     </div>
                     <div>
                         <span class="block text-[10px] uppercase text-gray-400 dark:text-gray-500 tracking-wider mb-1 theme-transition">จดหมายอิเล็กทรอนิกส์</span>
@@ -1174,6 +1179,18 @@
         </div>
     </footer>
 
+    <!-- FLOATING CONTACT BUTTONS (Line + Call) -->
+    <div class="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3">
+        <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" aria-label="แชทกับเราทาง Line" class="group flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white rounded-full shadow-xl p-3.5 sm:pl-4 sm:pr-5 sm:py-3 transition-all">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.64 2 11.13c0 4.02 3.56 7.39 8.37 8.03.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.92-5.85C21.38 14.5 22 12.9 22 11.13 22 6.64 17.52 3 12 3z"/></svg>
+            <span class="hidden sm:inline text-sm font-semibold">แชท Line</span>
+        </a>
+        <a href="tel:0887888364" aria-label="โทรหาเรา 088-788-8364" class="flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark rounded-full shadow-xl p-3.5 sm:pl-4 sm:pr-5 sm:py-3 transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg>
+            <span class="hidden sm:inline text-sm font-semibold">088-788-8364</span>
+        </a>
+    </div>
+
     <script>
         function toggleTheme() {
             const htmlElement = document.documentElement;
@@ -1192,6 +1209,18 @@
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        function filterPortfolio(cat) {
+            document.querySelectorAll('.portfolio-card').forEach(card => {
+                card.classList.toggle('hidden', cat !== 'all' && card.dataset.cat !== cat);
+            });
+            document.querySelectorAll('.portfolio-filter').forEach(btn => {
+                btn.classList.toggle('is-active', btn.dataset.filter === cat);
+            });
+        }
 
         function switchPillarService(serviceId) {
             document.querySelectorAll('.service-detail-section').forEach(sec => sec.classList.add('hidden'));
@@ -1251,18 +1280,6 @@
                     textSpan.className = 'text-[10px] uppercase tracking-wider text-gray-500 font-light';
                 }
             });
-        }
-
-        function handleWizardSubmit(event) {
-            event.preventDefault();
-            const serviceTypeVal = document.querySelector('input[name="wizardService"]:checked').value;
-            let engineerSpecialist = "คุณวุฒิชัย เจริญพานิช (วุฒิวิศวกรโยธา)";
-            if (serviceTypeVal === 'solar') engineerSpecialist = "คุณธีรเดช สายอนันต์ (สามัญวิศวกรไฟฟ้ากำลัง)";
-            else if (serviceTypeVal === 'mechanical') engineerSpecialist = "ดร.สุรพล เลิศศิริวิเศษ (สามัญวิศวกรเครื่องกล)";
-            else if (serviceTypeVal === 'consulting') engineerSpecialist = "คุณอภิชาติ นิมิตรานนท์ (วุฒิวิศวกรบริหารโครงการ)";
-            else if (serviceTypeVal === 'certification') engineerSpecialist = "ผู้เชี่ยวชาญคณะตรวจสอบความปลอดภัยอาคารชุดพิเศษ";
-            document.getElementById('matchedEngineer').innerText = engineerSpecialist;
-            document.getElementById('successModal').classList.remove('hidden');
         }
 
         function resetWizard() {

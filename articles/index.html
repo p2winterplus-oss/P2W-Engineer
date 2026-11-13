@@ -47,7 +47,7 @@ tailwind.config = {
       <img id="siteLogo" alt="P2W INTERPLUS Logo" class="w-14 h-14 object-contain dark:brightness-150 dark:drop-shadow-[0_0_10px_#C5A880]">
       <div>
         <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block">P2W INTERPLUS</span>
-        <span class="text-[9px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
+        <span class="text-[11px] text-brand-bronze tracking-[0.25em] uppercase block font-medium">Engineering Collective</span>
       </div>
     </a>
     <nav class="hidden md:flex items-center space-x-8 text-sm">
@@ -57,7 +57,7 @@ tailwind.config = {
       <a href="/engineer/articles/" class="text-brand-bronze font-medium">บทความ</a>
       <a href="/engineer/#contact" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white theme-transition">ติดต่อเรา</a>
     </nav>
-    <a href="/engineer/#consultation-wizard" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-xs tracking-wider uppercase px-5 py-2.5 transition-all">ขอคำปรึกษา</a>
+    <a href="/engineer/#consultation-wizard" class="hidden md:inline-flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm tracking-wider uppercase px-5 py-2.5 transition-all">ขอคำปรึกษา</a>
     <a href="/engineer/articles/" class="md:hidden text-brand-bronze text-sm">← บทความ</a>
   </div>
 </header>
@@ -66,7 +66,7 @@ tailwind.config = {
 <div id="listView">
   <!-- Page hero -->
   <section class="bg-brand-dark py-16 text-center border-b border-brand-border">
-    <span class="text-[10px] tracking-[0.35em] text-brand-bronze uppercase font-medium">Insights &amp; News</span>
+    <span class="text-xs tracking-[0.35em] text-brand-bronze uppercase font-medium">Insights &amp; News</span>
     <h1 class="serif-title text-3xl md:text-4xl font-light text-white mt-3">บทความ &amp; ข่าวสาร</h1>
     <p class="text-sm text-gray-400 mt-3 max-w-xl mx-auto px-6">ความรู้ด้านวิศวกรรม อัปเดตเทคโนโลยี และข่าวสารโครงการจาก P2W</p>
   </section>
@@ -88,7 +88,7 @@ tailwind.config = {
 <!-- ============ ARTICLE READER ============ -->
 <div id="readerView" class="hidden">
   <article class="max-w-3xl mx-auto px-6 sm:px-8 py-12">
-    <a href="/engineer/articles/" class="text-xs text-gray-500 hover:text-brand-bronze flex items-center gap-1 mb-8">
+    <a href="/engineer/articles/" class="text-sm text-gray-500 hover:text-brand-bronze flex items-center gap-1 mb-8">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
       กลับหน้าบทความ
     </a>
@@ -109,7 +109,7 @@ tailwind.config = {
 
 <!-- FOOTER -->
 <footer class="bg-brand-dark py-10 border-t border-brand-border mt-10">
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center text-[11px] text-gray-500 tracking-widest">
+  <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center text-[13px] text-gray-500 tracking-widest">
     <p>&copy; 2026 P2W INTERPLUS CO.,LTD. · โทร. <a href="tel:0887888364" class="hover:text-brand-bronze">088-788-8364</a> · <a href="mailto:info@p2winterplus.com" class="hover:text-brand-bronze">info@p2winterplus.com</a></p>
   </div>
 </footer>
@@ -201,13 +201,13 @@ function renderArticles() {
       <a href="?id=${f.id}" class="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border rounded-xl overflow-hidden hover:border-brand-bronze transition-colors group">
         <div class="relative min-h-[240px] overflow-hidden">
           <img data-cover="${f.cover}" alt="${f.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-          <span class="absolute top-4 left-4 bg-brand-dark text-brand-bronze text-[10px] px-3 py-1 rounded tracking-wider">บทความแนะนำ</span>
+          <span class="absolute top-4 left-4 bg-brand-dark text-brand-bronze text-xs px-3 py-1 rounded tracking-wider">บทความแนะนำ</span>
         </div>
         <div class="p-7 flex flex-col justify-center">
-          <div class="text-[11px] text-gray-400 mb-2">${f.category} · ${fmtDate(f.date)}</div>
+          <div class="text-[13px] text-gray-400 mb-2">${f.category} · ${fmtDate(f.date)}</div>
           <h2 class="serif-title text-2xl font-light leading-snug mb-3 group-hover:text-brand-bronze transition-colors">${f.title}</h2>
           <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-3">${f.excerpt}</p>
-          <span class="mt-4 text-xs text-brand-bronze font-medium">อ่านต่อ →</span>
+          <span class="mt-4 text-sm text-brand-bronze font-medium">อ่านต่อ →</span>
         </div>
       </a>`;
   }
@@ -219,12 +219,12 @@ function renderArticles() {
     card.innerHTML = `
       <div class="relative h-44 overflow-hidden">
         <img data-cover="${a.cover}" alt="${a.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        <span class="absolute top-3 left-3 bg-black/70 text-white text-[9px] px-2.5 py-1 rounded">${a.category}</span>
+        <span class="absolute top-3 left-3 bg-black/70 text-white text-[11px] px-2.5 py-1 rounded">${a.category}</span>
       </div>
       <div class="p-5 flex flex-col flex-1">
-        <div class="text-[10px] text-gray-400 mb-1.5">${fmtDate(a.date)}</div>
+        <div class="text-xs text-gray-400 mb-1.5">${fmtDate(a.date)}</div>
         <h3 class="text-[15px] font-medium leading-snug mb-2 group-hover:text-brand-bronze transition-colors">${a.title}</h3>
-        <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">${a.excerpt}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed line-clamp-2">${a.excerpt}</p>
       </div>`;
     grid.appendChild(card);
   });
@@ -246,7 +246,7 @@ function showReader(id) {
   const desc = document.querySelector('meta[name="description"]');
   if (desc && a.excerpt) desc.content = a.excerpt;
   document.getElementById('readerMeta').innerHTML =
-    `<div class="flex items-center gap-3 text-xs text-gray-400">
+    `<div class="flex items-center gap-3 text-sm text-gray-400">
        <span class="bg-brand-bronze/15 text-brand-bronze px-2.5 py-1 rounded">${a.category}</span>
        <span>${fmtDate(a.date)}</span>
        <span>· ${a.author || 'P2W'}</span>
@@ -276,7 +276,7 @@ function showReader(id) {
       fig.appendChild(im);
       if (block.caption) {
         const cap = document.createElement('figcaption');
-        cap.className = 'text-center text-xs text-gray-400 mt-2';
+        cap.className = 'text-center text-sm text-gray-400 mt-2';
         cap.textContent = block.caption;
         fig.appendChild(cap);
       }

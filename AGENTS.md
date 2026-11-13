@@ -26,7 +26,7 @@
 6. Commit แล้ว push ทุกครั้ง ก่อนเริ่มงานให้ `git pull` (ทำงานหลายเครื่อง)
 
 ## ข้อมูลติดต่อปัจจุบัน
-- โทร 088-788-8364 · อีเมลบนเว็บ adm.p2winterplus@gmail.com
+- โทร 088-788-8364 · อีเมลบนเว็บ info@p2winterplus.com
 - Line OA (ฝั่งวิศวกรรม): https://lin.ee/5u6O7cw
 - ฟอร์มส่งอีเมลผ่าน Web3Forms → pm.p2w.interplus@gmail.com
 

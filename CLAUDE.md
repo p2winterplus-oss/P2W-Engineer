@@ -108,7 +108,7 @@
 
 ## Contact Info (in footer)
 - Phone: 088-788-8364
-- Email (แสดงบนเว็บ): adm.p2winterplus@gmail.com
+- Email (แสดงบนเว็บ): info@p2winterplus.com
 - Address: 49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ
 - Line OA: https://lin.ee/5u6O7cw
 

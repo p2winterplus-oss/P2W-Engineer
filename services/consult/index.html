@@ -46,7 +46,19 @@ if (localStorage.getItem('theme') === 'light') document.documentElement.classLis
     </a>
     <nav class="hidden lg:flex items-center gap-7 text-sm whitespace-nowrap">
       <a href="/engineer" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">หน้าแรก</a>
-      <a href="/engineer#services" class="text-brand-bronze font-medium">บริการของเรา</a>
+      <div class="relative group">
+        <a href="/engineer#services" class="text-brand-bronze font-medium inline-flex items-center gap-1" aria-haspopup="true">บริการของเรา<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 hidden group-hover:block group-focus-within:block z-50">
+          <div class="w-80 bg-brand-lightBg dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border shadow-2xl py-2 whitespace-normal">
+            <a href="/engineer/services/civil/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">งานโยธาและโครงสร้าง</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">ออกแบบ ต่อเติม แก้บ้านทรุด-ร้าว</span></a>
+            <a href="/engineer/services/solar/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">ติดตั้งโซล่าร์เซลล์</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">On-Grid / Hybrid บ้านและโรงงาน</span></a>
+            <a href="/engineer/services/mechanical/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">งานระบบเครื่องกลและอุตสาหกรรม</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">HVAC เครื่องจักร ยานยนต์</span></a>
+            <a href="/engineer/services/consult/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item bg-brand-bronze/10"><span class="block text-sm font-medium text-brand-bronze">ที่ปรึกษาและบริหารโครงการ</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">PM คุมงาน Value Engineering</span></a>
+            <a href="/engineer/services/certify/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">ตรวจสอบและเซ็นรับรอง</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">ตรวจอาคาร อ.1 รับรองหลังคา ป้าย</span></a>
+            <a href="/engineer#services" class="block mx-5 mt-1 pt-3 pb-2 border-t border-brand-lightBorder dark:border-brand-border text-sm text-brand-bronze hover:underline">ดูบริการทั้งหมด →</a>
+          </div>
+        </div>
+      </div>
       <a href="/engineer#projects" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ผลงาน</a>
       <a href="/engineer/articles/" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">บทความ</a>
       <a href="/engineer#contact" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ติดต่อเรา</a>

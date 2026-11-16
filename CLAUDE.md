@@ -20,7 +20,7 @@
 - **Style**: Luxury architectural fine-line aesthetic
 
 ## Page Structure (Top → Bottom)
-1. **Header** — Logo (w-16) + nav + dark mode toggle + "ขอคำปรึกษา" CTA button → `#consultation-wizard`
+1. **Header** — Logo (w-16) + nav (hover "บริการของเรา" = dropdown 5 บริการ, มีในทุกหน้า; เมนูมือถือมีลิงก์ย่อย 5 บริการ) + dark mode toggle + "ขอคำปรึกษา" CTA button → `#consultation-wizard`
 2. **Hero** — Background image + overlay + Headline + metrics (15+ ปี / 45+ วิศวกร / 1,200+ โครงการ) + verification card
 3. **Services** (`#services`) — การ์ด 5 บริการ (ชื่อ, คำอธิบาย, 3 จุดเด่น, ราคาเริ่มต้น) กดแล้วไปหน้า `/engineer/services/<slug>/` + การ์ดที่ 6 "ไม่แน่ใจว่าต้องใช้บริการไหน?" (Line + ฟอร์ม) — ไม่มี tab switcher แล้ว
 4. **How We Work** — 5-step process with circle icons + connecting line
@@ -91,7 +91,7 @@
 - 5 หน้า: `civil` งานโยธาและโครงสร้าง · `solar` ติดตั้งโซล่าร์เซลล์ · `mechanical` งานระบบเครื่องกลและอุตสาหกรรม · `consult` ที่ปรึกษาและบริหารโครงการ · `certify` ตรวจสอบและเซ็นรับรอง
 - URL: `https://p2winterplus.com/engineer/services/<slug>/` (อยู่ใน `sitemap.xml` และ `llms.txt` แล้ว)
 - แต่ละหน้า: hero + ปุ่ม Line/ฟอร์ม/โทร · เหมาะกับใคร · งานที่รับทำ · ราคาเริ่มต้น · ผลงาน (civil/solar) · ขั้นตอน · FAQ · บทความที่เกี่ยวข้อง · บริการอื่น · JSON-LD (Service + FAQPage + BreadcrumbList)
-- เป็น HTML ธรรมดา แก้ตรงไฟล์ได้เลย — header/footer ซ้ำกันทั้ง 5 หน้า ถ้าแก้ส่วนร่วม (เบอร์, อีเมล, เมนู) ต้องแก้ครบทุกหน้า
+- เป็น HTML ธรรมดา แก้ตรงไฟล์ได้เลย — header/footer ซ้ำกันทั้ง 5 หน้า (+ dropdown บริการอยู่ใน header ของหน้าแรก, บทความ และ 5 หน้าบริการ) ถ้าแก้ส่วนร่วม (เบอร์, อีเมล, เมนู, ชื่อบริการ) ต้องแก้ครบทุกหน้า
 - ⚠️ ราคาอยู่ 2 ที่: การ์ดบนหน้าแรก (`ราคาเริ่มต้น` ในการ์ด) + ตารางราคาในหน้าบริการ — เปลี่ยนราคาต้องแก้ทั้งคู่ + `llms.txt`
 - รูปทุกรูปในหน้าบริการใช้ URL เต็ม (`https://p2winterplus-oss.github.io/P2W-Engineer/...` หรือ unsplash) เพราะกับดัก Worker
 - ปุ่ม "ส่งรายละเอียด" ลิงก์ไป `/engineer?service=<slug>#consultation-wizard` → หน้าแรกเลือกบริการใน wizard ให้อัตโนมัติ (`preselectService()`)

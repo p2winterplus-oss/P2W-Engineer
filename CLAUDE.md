@@ -22,7 +22,7 @@
 ## Page Structure (Top → Bottom)
 1. **Header** — Logo (w-16) + nav + dark mode toggle + "ขอคำปรึกษา" CTA button → `#consultation-wizard`
 2. **Hero** — Background image + overlay + Headline + metrics (15+ ปี / 45+ วิศวกร / 1,200+ โครงการ) + verification card
-3. **Services (5 Pillars)** — Tab switcher: โยธา / โซล่า / เครื่องกล / ที่ปรึกษา / รับรอง + pricing cards
+3. **Services** (`#services`) — การ์ด 5 บริการ (ชื่อ, คำอธิบาย, 3 จุดเด่น, ราคาเริ่มต้น) กดแล้วไปหน้า `/engineer/services/<slug>/` + การ์ดที่ 6 "ไม่แน่ใจว่าต้องใช้บริการไหน?" (Line + ฟอร์ม) — ไม่มี tab switcher แล้ว
 4. **How We Work** — 5-step process with circle icons + connecting line
 5. **Why Choose Us** — Full-width bg image (`WhyChooseUs.png`) + gradient overlay + 4 จุดเด่น (2x2 grid)
 6. **CTA Banner** — Dark bg + "มีโครงการที่ต้องการคำปรึกษา?" + ปุ่ม "ขอคำปรึกษา" → `#consultation-wizard`
@@ -47,8 +47,8 @@
 - รูปการ์ดใช้ `.jpg` 1200px (~130-270KB) ย่อจาก `.png` ต้นฉบับ (2-3.7MB เก็บไว้ใน `public/` ไม่ได้ใช้บนหน้าเว็บ) — รูปใหม่ให้ย่อเป็น JPG/WebP ก่อนใส่ · ปุ่มกรอง ทั้งหมด/โยธา/โซล่าร์ ใช้ `data-cat` บนการ์ด + `filterPortfolio()`
 
 ## Copy / ข้อความสำคัญ (ล่าสุด)
-- **Service Tab 3**: "วิศวกรรมเครื่องกลและระบบอุตสาหกรรม" — ออกแบบ ตรวจสอบ ติดตั้งระบบอาคาร โรงงาน HVAC และยานยนต์
-- **ราคาโซล่าร์ (Tab 2)**: On-Grid 3 kW เริ่มต้น 89,000 · On-Grid 5 kW 3 เฟส เริ่มต้น 133,000 · Hybrid 5 kW เริ่มต้น 165,000 (ตรงกับ `llms.txt`)
+- **บริการเครื่องกล** (`services/mechanical/`): "งานระบบเครื่องกลและอุตสาหกรรม" — ออกแบบ ตรวจสอบ ติดตั้งระบบอาคาร โรงงาน HVAC และยานยนต์
+- **ราคาโซล่าร์**: On-Grid 3 kW เริ่มต้น 89,000 · On-Grid 5 kW 3 เฟส เริ่มต้น 133,000 · Hybrid 5 kW เริ่มต้น 165,000 (ตรงกับ `llms.txt` + `services/solar/`)
 - **ขนาดตัวอักษร**: ขยายแล้ว 1 ขั้นทั้งเว็บ (ตัวเล็กสุด 11px, เนื้อหาหลัก text-sm) — อย่ากลับไปใช้ text-[9px]/[10px] · เมนูเต็มแสดงที่ `lg` ขึ้นไป ต่ำกว่านั้นใช้เมนูมือถือ
 - **How We Work ขั้นตอน 2**: "สำรวจ & วิเคราะห์ (Site Survey & Feasibility Study)"
 - **How We Work ขั้นตอน 5**: "ตรวจสอบ & ส่งมอบ (QA/QC & Commissioning)"
@@ -86,6 +86,16 @@
 - **วิธีเพิ่มบทความ 3 ทาง**: editor เผยแพร่เอง / editor สร้างโค้ดวางเอง / user พิมพ์ในแชทให้ Claude เขียน+push
 - คู่มือ: `articles/README.md`
 - ✅ `solar-tax-deduction` อัปเดตข้อมูลจริงแล้ว (พ.ร.ฎ. ฉบับที่ 805 พ.ศ. 2569, สูงสุด 200,000 บาท, ถึง 31 ธ.ค. 2571) · ⚠️ `solar-government-subsidy` ยังมี `⚠️ [ต้องเติมข้อมูลจริง]` — ตัวเลข/เงื่อนไขโครงการรัฐต้องเช็คกับประกาศทางการก่อน
+
+## หน้ารายละเอียดบริการ (`services/<slug>/index.html`)
+- 5 หน้า: `civil` งานโยธาและโครงสร้าง · `solar` ติดตั้งโซล่าร์เซลล์ · `mechanical` งานระบบเครื่องกลและอุตสาหกรรม · `consult` ที่ปรึกษาและบริหารโครงการ · `certify` ตรวจสอบและเซ็นรับรอง
+- URL: `https://p2winterplus.com/engineer/services/<slug>/` (อยู่ใน `sitemap.xml` และ `llms.txt` แล้ว)
+- แต่ละหน้า: hero + ปุ่ม Line/ฟอร์ม/โทร · เหมาะกับใคร · งานที่รับทำ · ราคาเริ่มต้น · ผลงาน (civil/solar) · ขั้นตอน · FAQ · บทความที่เกี่ยวข้อง · บริการอื่น · JSON-LD (Service + FAQPage + BreadcrumbList)
+- เป็น HTML ธรรมดา แก้ตรงไฟล์ได้เลย — header/footer ซ้ำกันทั้ง 5 หน้า ถ้าแก้ส่วนร่วม (เบอร์, อีเมล, เมนู) ต้องแก้ครบทุกหน้า
+- ⚠️ ราคาอยู่ 2 ที่: การ์ดบนหน้าแรก (`ราคาเริ่มต้น` ในการ์ด) + ตารางราคาในหน้าบริการ — เปลี่ยนราคาต้องแก้ทั้งคู่ + `llms.txt`
+- รูปทุกรูปในหน้าบริการใช้ URL เต็ม (`https://p2winterplus-oss.github.io/P2W-Engineer/...` หรือ unsplash) เพราะกับดัก Worker
+- ปุ่ม "ส่งรายละเอียด" ลิงก์ไป `/engineer?service=<slug>#consultation-wizard` → หน้าแรกเลือกบริการใน wizard ให้อัตโนมัติ (`preselectService()`)
+- ทดสอบ local ให้ลิงก์ `/engineer/...` ใช้ได้: ทำ junction `<tmp>/site/engineer` → repo แล้ว `python -m http.server --directory <tmp>/site`
 
 ## BOQ / Quotation Tool — ย้ายออกจากโปรเจกต์นี้แล้ว 📦
 - เคยอยู่ที่ `boq/index.html` (commit `d7a1f0d`) — **ลบออกแล้ว** เพราะจะย้ายไปโฮสต์ที่เว็บอื่น
@@ -137,7 +147,6 @@ Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ท�
 ## What's Done ✅
 - Full page layout with all sections
 - Dark/Light mode toggle
-- 5-service tab switcher with pricing (tab 3 อัปเดต copy เป็น HVAC/Industrial)
 - How We Work 5-step section + English subtitle ขั้นตอน 2 และ 5
 - Why Choose Us section — อัปเดตข้อความวิศวกรวิชาชีพ
 - CTA banner → `#consultation-wizard`
@@ -151,8 +160,8 @@ Worker ทำ **text-replace ดิบๆ ทั้งไฟล์ HTML**: ท�
 - ปุ่มลอย Line (เขียว) + โทร (`tel:0887888364`) มุมขวาล่าง ทั้งหน้าแรกและหน้าบทความ (มือถือแสดงแค่ไอคอน)
 - `sitemap.xml` — หน้าแรก + หน้ารวมบทความ + ทุกบทความ (`?id=`) ⚠️ เพิ่มบทความใหม่ต้องเพิ่ม `<url>` ในไฟล์นี้ด้วย
 - หน้าอ่านบทความตั้ง canonical + meta description เป็นของบทความนั้นด้วย JS
+- หน้าแรก: การ์ดบริการ 5 ใบ + หน้ารายละเอียดบริการ 5 หน้า (`services/`)
 - Portfolio filter ใช้งานได้ + เมนูมือถือปิดเองหลังกดลิงก์
-- Service Tab 3 รายละเอียดครอบคลุม HVAC/โรงงาน/ยานยนต์ ตรงกับการ์ดแล้ว
 - `llms.txt` — AI-readable site summary (บริการ ราคา ผลงาน ติดต่อ)
 - SEO meta tags ครบ (description, keywords, OG, Twitter Card, JSON-LD structured data)
 - หน้าบทความ & ข่าวสาร + editor เผยแพร่เองผ่าน GitHub API (17 บทความ: โซล่าร์ 7, ความรู้วิศวกรรม 4, งานออกแบบ 2, ต่อเติม & รีโนเวท 3, งานโครงสร้าง 1)

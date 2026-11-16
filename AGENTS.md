@@ -13,6 +13,7 @@
 - `articles/index.html` — หน้ารวม + หน้าอ่านบทความ (`?id=<id>`)
 - `articles/articles.json` — ข้อมูลบทความ `{id, title, category, date, author, cover, excerpt, content:[{type:p|h|img, text|src, caption}]}`
 - `articles/editor.html` — editor ภายใน (มีรหัสผ่าน, noindex) เผยแพร่ผ่าน GitHub Contents API
+- `services/<slug>/index.html` — หน้ารายละเอียด 5 บริการ (ราคาต้องตรงกับการ์ดหน้าแรก + `llms.txt`)
 - `llms.txt`, `robots.txt`, `sitemap.xml` — สำหรับ SEO / AI crawler (เพิ่มบทความใหม่ → เพิ่ม `<url>` ใน `sitemap.xml` ด้วย)
 
 ## ⚠️ กฎที่ต้องทำตาม

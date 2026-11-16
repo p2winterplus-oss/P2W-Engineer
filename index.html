@@ -327,7 +327,7 @@
 
                 <div class="flex flex-col sm:flex-row gap-6">
                     <a href="#services" class="bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark text-xs tracking-[0.2em] font-semibold uppercase px-8 py-4 transition-all duration-300 text-center">
-                        สำรวจ 5 บทบัญญัติวิศวกรรม
+                        ดูบริการทั้งหมด
                     </a>
                     <a href="#consultation-wizard" class="border border-brand-lightBorder dark:border-brand-border text-brand-dark dark:text-white hover:border-brand-bronze hover:text-brand-bronze dark:hover:text-brand-bronze text-xs tracking-[0.2em] font-semibold uppercase px-8 py-4 transition-all duration-300 text-center theme-transition">
                         ประเมินงบประมาณระบบ &rarr;
@@ -391,276 +391,98 @@
         </div>
     </section>
 
-    <!-- THE 5 ENGINEERING PILLARS (Interactive Showcase Area) -->
+    <!-- SERVICES: 5 clear cards, each links to /engineer/services/<slug>/ -->
     <section id="services" class="py-24 bg-brand-stone dark:bg-brand-charcoal relative theme-transition">
         <div class="max-w-7xl mx-auto px-6 sm:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs tracking-[0.3em] text-brand-bronze uppercase block font-light">Engineering Excellence & Standards</span>
-                <h2 class="text-3xl md:text-4xl font-light mt-2 text-brand-dark dark:text-white serif-title theme-transition">เสาหลักความเชี่ยวชาญทั้ง 5 ของเรา</h2>
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs tracking-[0.3em] text-brand-bronze uppercase block font-light">Our Services</span>
+                <h2 class="text-3xl md:text-4xl font-light mt-2 text-brand-dark dark:text-white serif-title theme-transition">บริการของเรา</h2>
                 <div class="w-12 h-[1px] bg-brand-bronze mx-auto mt-4"></div>
+                <p class="text-base text-gray-500 dark:text-gray-400 mt-5 theme-transition">เลือกงานที่คุณต้องการ ดูรายละเอียด ราคาเริ่มต้น และคำถามที่พบบ่อยของแต่ละบริการได้ทันที</p>
             </div>
 
-            <!-- The 5 Buttons Grid from First Version (Aesthetically Designed in Bronze Theme) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-                <!-- Tab 1: Civil -->
-                <button onclick="switchPillarService('civil')" id="btn-civil" class="pillar-tab-btn active p-6 text-left border border-brand-bronze bg-brand-lightCard dark:bg-brand-dark transition-all duration-500">
-                    <div class="w-10 h-10 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a href="/engineer/services/civil/" class="group flex flex-col p-6 md:p-7 border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard dark:bg-brand-dark/50 hover:border-brand-bronze transition-colors theme-transition">
+                    <div class="w-12 h-12 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-5"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg></div>
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white group-hover:text-brand-bronze transition-colors theme-transition">งานโยธาและโครงสร้าง</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">ออกแบบและคำนวณโครงสร้าง สร้างใหม่ ต่อเติม และแก้ไขบ้านหรืออาคารที่ทรุดหรือแตกร้าว</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 theme-transition">
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ออกแบบและคำนวณโครงสร้าง สร้างใหม่ / ต่อเติม ตามหลักวิศวกรรม</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ตรวจและแก้ไขอาคารทรุด บ้านแตกร้าว ถึงระดับชั้นดินและฐานราก</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>วิเคราะห์และออกแบบด้วยระบบ Structural Analysis 3D</span></li>
+                    </ul>
+                    <div class="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-brand-lightBorder dark:border-brand-border theme-transition">
+                        <span class="text-base font-semibold text-brand-bronze">เริ่มต้น 15,000 บาท</span>
+                        <span class="text-sm text-brand-dark dark:text-white group-hover:text-brand-bronze whitespace-nowrap theme-transition">ดูรายละเอียด →</span>
                     </div>
-                    <h3 class="font-semibold text-brand-dark dark:text-white text-sm uppercase tracking-widest theme-transition">วิศวกรรมโยธา</h3>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2">สร้าง ต่อเติม ปรับภูมิทัศน์ และแก้ไขฐานรากตึก</p>
-                    <span class="text-[11px] text-brand-bronze mt-4 block uppercase tracking-wider font-medium font-mono" id="label-civil">แสดงข้อมูลอยู่ &darr;</span>
-                </button>
+                </a>
 
-                <!-- Tab 2: Solar -->
-                <button onclick="switchPillarService('solar')" id="btn-solar" class="pillar-tab-btn p-6 text-left border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard/75 dark:bg-brand-dark/45 transition-all duration-500 hover:border-brand-bronze/50">
-                    <div class="w-10 h-10 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+                <a href="/engineer/services/solar/" class="group flex flex-col p-6 md:p-7 border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard dark:bg-brand-dark/50 hover:border-brand-bronze transition-colors theme-transition">
+                    <div class="w-12 h-12 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-5"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg></div>
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white group-hover:text-brand-bronze transition-colors theme-transition">ติดตั้งโซล่าร์เซลล์</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">ติดตั้ง Solar Rooftop สำหรับบ้าน อาคาร และโรงงาน ทั้งระบบ On-Grid, Hybrid และ Off-Grid</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 theme-transition">
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ระบบ On-Grid</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ระบบ Hybrid</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ระบบ Off-Grid</span></li>
+                    </ul>
+                    <div class="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-brand-lightBorder dark:border-brand-border theme-transition">
+                        <span class="text-base font-semibold text-brand-bronze">เริ่มต้น 89,000 บาท</span>
+                        <span class="text-sm text-brand-dark dark:text-white group-hover:text-brand-bronze whitespace-nowrap theme-transition">ดูรายละเอียด →</span>
                     </div>
-                    <h3 class="font-semibold text-brand-dark dark:text-white text-sm uppercase tracking-widest theme-transition">งานติดตั้งโซล่า</h3>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2">On-grid / Off-grid / Hybrid ครบวงจรเพื่อความคุ้มค่า</p>
-                    <span class="text-[11px] text-gray-400 mt-4 block uppercase tracking-wider font-medium font-mono" id="label-solar">ดูข้อมูลเพิ่มเติม &rarr;</span>
-                </button>
+                </a>
 
-                <!-- Tab 3: Mechanical -->
-                <button onclick="switchPillarService('mechanical')" id="btn-mechanical" class="pillar-tab-btn p-6 text-left border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard/75 dark:bg-brand-dark/45 transition-all duration-500 hover:border-brand-bronze/50">
-                    <div class="w-10 h-10 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
+                <a href="/engineer/services/mechanical/" class="group flex flex-col p-6 md:p-7 border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard dark:bg-brand-dark/50 hover:border-brand-bronze transition-colors theme-transition">
+                    <div class="w-12 h-12 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-5"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white group-hover:text-brand-bronze transition-colors theme-transition">งานระบบเครื่องกลและอุตสาหกรรม</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">ระบบปรับอากาศ (HVAC) ระบบในอาคารและโรงงาน เครื่องจักร หม้อไอน้ำ และงานวิศวกรรมยานยนต์</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 theme-transition">
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ออกแบบและติดตั้งระบบปรับอากาศ/ระบายอากาศ (HVAC) อาคารและโรงงาน</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ตรวจสอบและเซ็นรับรองเครื่องจักร หม้อไอน้ำ และระบบท่อแรงดัน</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>คำนวณและตรวจสอบระบบแก๊สแรงดัน NGV / LPG / LNG</span></li>
+                    </ul>
+                    <div class="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-brand-lightBorder dark:border-brand-border theme-transition">
+                        <span class="text-base font-semibold text-brand-bronze">เริ่มต้น 4,000 บาท</span>
+                        <span class="text-sm text-brand-dark dark:text-white group-hover:text-brand-bronze whitespace-nowrap theme-transition">ดูรายละเอียด →</span>
                     </div>
-                    <h3 class="font-semibold text-brand-dark dark:text-white text-sm uppercase tracking-widest theme-transition">วิศวกรรมเครื่องกลและระบบอุตสาหกรรม</h3>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2">ออกแบบ ตรวจสอบ และติดตั้งระบบเครื่องกลภายในอาคาร โรงงานอุตสาหกรรม ระบบปรับอากาศ (HVAC) และยานยนต์ โดยวิศวกรผู้เชี่ยวชาญ</p>
-                    <span class="text-[11px] text-gray-400 mt-4 block uppercase tracking-wider font-medium font-mono" id="label-mechanical">ดูข้อมูลเพิ่มเติม &rarr;</span>
-                </button>
+                </a>
 
-                <!-- Tab 4: Consult -->
-                <button onclick="switchPillarService('consult')" id="btn-consult" class="pillar-tab-btn p-6 text-left border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard/75 dark:bg-brand-dark/45 transition-all duration-500 hover:border-brand-bronze/50">
-                    <div class="w-10 h-10 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                <a href="/engineer/services/consult/" class="group flex flex-col p-6 md:p-7 border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard dark:bg-brand-dark/50 hover:border-brand-bronze transition-colors theme-transition">
+                    <div class="w-12 h-12 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-5"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white group-hover:text-brand-bronze transition-colors theme-transition">ที่ปรึกษาและบริหารโครงการ</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">บริหารโครงการ (PM) คุมงานก่อสร้าง ลดต้นทุนด้วย Value Engineering และศึกษาความเป็นไปได้</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 theme-transition">
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>บริหารโครงการ (Project Manager) และควบคุมงานไซต์ก่อสร้าง</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>Value Engineering ปรับแบบ/วัสดุเพื่อลดงบโดยไม่เสียมาตรฐานวิศวกรรม</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ศึกษาความเป็นไปได้ของโครงการ และทดสอบโครงสร้างอาคารขนาดใหญ่</span></li>
+                    </ul>
+                    <div class="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-brand-lightBorder dark:border-brand-border theme-transition">
+                        <span class="text-base font-semibold text-brand-bronze">เริ่มต้น 45,000 บาท/เดือน</span>
+                        <span class="text-sm text-brand-dark dark:text-white group-hover:text-brand-bronze whitespace-nowrap theme-transition">ดูรายละเอียด →</span>
                     </div>
-                    <h3 class="font-semibold text-brand-dark dark:text-white text-sm uppercase tracking-widest theme-transition">ที่ปรึกษาวิศวกรรม</h3>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2">เป็นที่ปรึกษาหลากสาขาโดยคณะวิศวกรวิชาชีพ</p>
-                    <span class="text-[11px] text-gray-400 mt-4 block uppercase tracking-wider font-medium font-mono" id="label-consult">ดูข้อมูลเพิ่มเติม &rarr;</span>
-                </button>
+                </a>
 
-                <!-- Tab 5: Certify -->
-                <button onclick="switchPillarService('certify')" id="btn-certify" class="pillar-tab-btn p-6 text-left border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard/75 dark:bg-brand-dark/45 transition-all duration-500 hover:border-brand-bronze/50">
-                    <div class="w-10 h-10 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-4">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                <a href="/engineer/services/certify/" class="group flex flex-col p-6 md:p-7 border border-brand-lightBorder dark:border-brand-border bg-brand-lightCard dark:bg-brand-dark/50 hover:border-brand-bronze transition-colors theme-transition">
+                    <div class="w-12 h-12 bg-brand-bronze/10 text-brand-bronze flex items-center justify-center mb-5"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white group-hover:text-brand-bronze transition-colors theme-transition">ตรวจสอบและเซ็นรับรอง</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">ตรวจสอบอาคารประจำปีตามกฎหมาย (อ.1) รับรองโครงสร้างหลังคาก่อนติดโซล่าร์ และป้ายโฆษณา</p>
+                    <ul class="mt-4 space-y-2 text-sm text-gray-600 dark:text-gray-300 theme-transition">
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ตรวจสอบและเซ็นรับรองอาคารประจำปี 9 ประเภทตามกฎหมาย (อ.1)</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>ประเมินความแข็งแรงโครงสร้างหลังคาก่อนติดตั้ง Solar Roof</span></li>
+                        <li class="flex gap-2"><span class="text-brand-bronze">✔</span><span>เซ็นรับรองโครงสร้างเหล็กขนาดใหญ่และป้ายโฆษณา</span></li>
+                    </ul>
+                    <div class="mt-auto pt-5 flex items-center justify-between gap-3 border-t border-brand-lightBorder dark:border-brand-border theme-transition">
+                        <span class="text-base font-semibold text-brand-bronze">เริ่มต้น 10,000 บาท</span>
+                        <span class="text-sm text-brand-dark dark:text-white group-hover:text-brand-bronze whitespace-nowrap theme-transition">ดูรายละเอียด →</span>
                     </div>
-                    <h3 class="font-semibold text-brand-dark dark:text-white text-sm uppercase tracking-widest theme-transition">ตรวจสอบ/รับรอง</h3>
-                    <p class="text-xs text-gray-500 mt-2 line-clamp-2">ตรวจทดสอบประจำปีและเซ็นอนุมัติใบประกอบการค้า</p>
-                    <span class="text-[11px] text-gray-400 mt-4 block uppercase tracking-wider font-medium font-mono" id="label-certify">ดูข้อมูลเพิ่มเติม &rarr;</span>
-                </button>
-            </div>
+                </a>
 
-            <!-- Detail Sections with pricing parameters beautifully styled in Bronze/Obsidian -->
-            <div class="bg-brand-lightCard dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border p-6 md:p-12 relative shadow-xl theme-transition">
-                <!-- CIVIL DETAIL -->
-                <div id="detail-civil" class="service-detail-section grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs text-brand-bronze tracking-[0.3em] uppercase block font-light">Civil & Structural Engineering</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">งานสถาปัตยกรรมโยธา และวิศวกรรมโครงสร้าง</h3>
-                        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            เราให้บริการออกแบบ ควบคุมการผลิต และปรับปรุงโครงสร้างอาคารทุกประเภท ไม่ว่าจะเป็นบ้านพักระดับลักชัวรี่ ตึกแถว หรือโรงงานอุตสาหกรรม โดยใช้เทคโนโลยี BIM จำลองแบบ 3 มิติ เพื่อให้ได้สัดส่วนที่ถูกต้อง ปลอดภัย และไร้ความเสี่ยงด้านเสาเข็มทรุด
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-500 dark:text-gray-300 font-light theme-transition">
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>สร้างใหม่ / ต่อเติมโครงสร้างตามหลักวิชาการวิศวกรรม</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>แก้ไขอาคารทรุด ตัวบ้านแตกร้าว ลึกถึงชั้นดินฐานราก</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>วิเคราะห์และออกแบบด้วยระบบ Structural Analysis 3D</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>กำกับดูแลด้วยวุฒิวิศวกรโครงสร้างโยธามากประสบการณ์</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
-                        <h4 class="text-sm uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            ประเมินค่าบริการเบื้องต้น
-                        </h4>
-                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ประเมินโครงสร้างและพารามิเตอร์รับน้ำหนัก</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 15,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ออกแบบเขียนแบบและคำนวณโครงสร้าง</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 25,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ตรวจประเมินปัญหาอาคารทรุด (ทดสอบดิน)</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 18,000.-</span></li>
-                        </ul>
-                        <p class="text-[11px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ราคาเริ่มต้นไม่รวมภาษีมูลค่าเพิ่ม กรุณาปรึกษาทีมสถาปนิกและวิศวกรโครงการเพื่อวิเคราะห์หน้างานจริง</p>
-                    </div>
-                </div>
-
-                <!-- SOLAR DETAIL -->
-                <div id="detail-solar" class="service-detail-section hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs text-brand-bronze tracking-[0.3em] uppercase block font-light">Integrated Solar Energy Solutions</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">ระบบพลังงานสะอาดโซล่าเซลล์สุนทรียะ</h3>
-                        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            เราประยุกต์ใช้แนวคิด Solar Aesthetics ในการสอดผสานความปลอดภัยของการดึงพลังงานไฟฟ้าฟรีจากแสงอาทิตย์เข้ากับดีไซน์หลังคาอันงดงาม คำนวณทิศทางการรับลมและเงาของอาคารเพื่อประสิทธิภาพการผลิตไฟฟ้าสูงสุด ปลอดภัยสูง ไร้รอยรั่ว
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-500 dark:text-gray-300 font-light theme-transition">
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ระบบ On-Grid: สำหรับลดค่าพลังงานไฟฟ้าในบ้าน/สำนักงานกลางวัน</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ระบบ Off-Grid: ผลิตและใช้งานแบบไม่ผ่านเสาไฟฟ้า เหมาะกับที่ห่างไกล</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ระบบ Hybrid: ยกระดับการกักพลังงานลงแบตเตอรี่สำรองใช้งานกลางคืน</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ฟรีบริการยื่นขออนุญาตขนานไฟกับการไฟฟ้านครหลวง/ภูมิภาค</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
-                        <h4 class="text-sm uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            ประเมินค่าบริการพร้อมติดตั้งตามขนาด
-                        </h4>
-                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ระบบ On-Grid 3 kW (บ้านพักอาศัย)</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 89,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ระบบ On-Grid 5 kW 3 เฟส</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 133,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ระบบ Hybrid 5 kW (มีแบตเตอรี่สำรอง)</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 165,000.-</span></li>
-                        </ul>
-                        <p class="text-[11px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ราคาเบื้องต้นรวมแผงเกรด Tier 1 คุ้มทุนในระยะสั้น พร้อมดูแลและทำความสะอาดแผงฟรี 2 ปีแรก</p>
-                    </div>
-                </div>
-
-                <!-- MECHANICAL DETAIL -->
-                <div id="detail-mechanical" class="service-detail-section hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs text-brand-bronze tracking-[0.3em] uppercase block font-light">Mechanical, HVAC & Industrial Systems</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">วิศวกรรมเครื่องกลและระบบอุตสาหกรรม</h3>
-                        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            ออกแบบ ตรวจสอบ และติดตั้งระบบเครื่องกลภายในอาคารและโรงงานอุตสาหกรรม ตั้งแต่ระบบปรับอากาศ (HVAC) ระบบระบายอากาศ ระบบท่อและเครื่องจักร ไปจนถึงงานวิศวกรรมยานยนต์และการดัดแปลงสภาพรถ โดยวิศวกรเครื่องกลผู้มีใบอนุญาต
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-500 dark:text-gray-300 font-light theme-transition">
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ออกแบบและติดตั้งระบบปรับอากาศ/ระบายอากาศ (HVAC) อาคารและโรงงาน</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ตรวจสอบและเซ็นรับรองเครื่องจักร หม้อไอน้ำ และระบบท่อแรงดันในโรงงาน</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>คำนวณและตรวจสอบระบบแก๊สแรงดัน NGV/LPG/LNG</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>เซ็นรับรองการดัดแปลงโครงสร้างแชสซีส์รถ พร้อมเอกสารยื่นกรมการขนส่งทางบก</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
-                        <h4 class="text-sm uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            ประเมินค่าบริการเบื้องต้น
-                        </h4>
-                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ออกแบบ/ติดตั้งระบบ HVAC อาคารและโรงงาน</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">ตามขนาดงานจริง</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>เซ็นใบวิศวกรดัดแปลงโครงสร้างแชสซีส์รถ</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 5,500.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ใบรับรองการตรวจสอบระบบกักเก็บแก๊ส</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 4,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>คำนวณและทดสอบแรงดันระบบท่อ/เครื่องจักร</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">ตามขนาดงานจริง</span></li>
-                        </ul>
-                        <p class="text-[11px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ราคาเริ่มต้นไม่รวมภาษีมูลค่าเพิ่ม งานระบบอาคาร/โรงงานประเมินหลังสำรวจหน้างาน · เอกสารดัดแปลงรถนำไปยื่นกรมการขนส่งทางบกได้ทันที</p>
-                    </div>
-                </div>
-
-                <!-- CONSULT DETAIL -->
-                <div id="detail-consult" class="service-detail-section hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs text-brand-bronze tracking-[0.3em] uppercase block font-light">Professional Syndicate & Advisors</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">ที่ปรึกษาควบคุมระบบโครงการสหวิชาชีพ</h3>
-                        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            เรามอบความมั่นคงปลอดภัยให้กับงบประมาณการลงทุนโครงการ คณะวิศวกรควบคุมวิชาชีพของเราครอบคลุมตั้งแต่ฝ่ายโยธา สถาปัตยกรรม ไฟฟ้ากำลัง สิ่งแวดล้อม และเครื่องกล ร่วมบริหารโครงการแบบบูรณาการตั้งแต่ขั้นตอนประเมินสเปซผังเมือง
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-500 dark:text-gray-300 font-light theme-transition">
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>บริการบริหารโครงการ (Project Manager) และคุมไซต์ก่อสร้าง</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ทำแบบ Value Engineering ปรับราคาลดงบโดยไม่เสียมาตรฐานวิศวกรรม</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ศึกษาความเป็นไปได้ของแผนพัฒนาและทดสอบโครงสร้างอาคารใหญ่</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>รายงานความก้าวหน้าโครงการส่งตรงแก่ลูกค้าด้วยระบบคลาวด์ออนไลน์</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
-                        <h4 class="text-sm uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            รูปแบบสัญญาที่ปรึกษาและผู้จัดการ
-                        </h4>
-                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ประเมินศึกษาความเป็นไปได้โครงการเบื้องต้น</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 50,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>สัญญาคุมงานไซต์ก่อสร้างและสเปซรายเดือน</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 45,000.-/ด.</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>การวิเคราะห์ความเสี่ยงเชิงสถาปัตย์และพิกัด</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">ตามเนื้องานจริง</span></li>
-                        </ul>
-                        <p class="text-[11px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ที่ปรึกษาสามัญวิศวกรจะส่งรายงานความคืบหน้าตรงทุกสัปดาห์</p>
-                    </div>
-                </div>
-
-                <!-- CERTIFY DETAIL -->
-                <div id="detail-certify" class="service-detail-section hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-                    <div class="lg:col-span-7 space-y-6">
-                        <span class="text-xs text-brand-bronze tracking-[0.3em] uppercase block font-light">Aesthetic Safety Inspection & Stamps</span>
-                        <h3 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white serif-title leading-snug theme-transition">เซ็นตรวจสอบรับรองอาคารและความปลอดภัย</h3>
-                        <p class="text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-light theme-transition">
-                            ถูกต้อง ครบถ้วนตามตัวบทกฎหมาย มั่นใจสูงสุดในเรื่องความมั่นคงปลอดภัย สตูดิโอให้บริการส่งคณะวิศวกรวิชาชีพเข้าตรวจสุขภาพอาคาร ตรวจระบบอัคคีภัย สภาพระบบไฟฟ้าด้วยความร้อน (Thermal Scan) และออกเอกสารเซ็นรับรองอย่างถูกต้อง
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-gray-500 dark:text-gray-300 font-light theme-transition">
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>เซ็นรับรองตรวจสอบอาคารประจำปี 9 ประเภทที่กำหนดทางกม. (อ.1)</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ประเมินสภาพความปลอดภัยและความแข็งแรงโครงสร้างติดตั้ง Solar Roof</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>เซ็นใบอนุญาตแบบแผนรับรองโครงสร้างเหล็กขนาดใหญ่ ป้ายโฆษณา</span>
-                            </div>
-                            <div class="flex items-start space-x-2">
-                                <span class="text-brand-bronze">✔</span>
-                                <span>ลงทะเบียนลายเซ็นด้วยวิศวกรผู้ถือบัตร ก.ว. ระดับวุฒิบัตรวิชาชีพตรงตามกม.</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:col-span-5 bg-brand-stone/50 dark:bg-brand-charcoal/40 border border-brand-lightBorder dark:border-brand-border p-6 theme-transition">
-                        <h4 class="text-sm uppercase tracking-widest text-brand-bronze mb-4 font-semibold flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-brand-bronze rounded-full"></span>
-                            ประเมินค่าบริการรับรองทางกฎหมาย
-                        </h4>
-                        <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-300 border-b border-brand-lightBorder dark:border-brand-border pb-4 font-light theme-transition">
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>เซ็นรับรองโครงสร้างหลังคาก่อนขึ้น Solar Roof</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 15,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>ใบรับรองการตรวจสอบความปลอดภัยประจำปี อ.1</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 35,000.-</span></li>
-                            <li class="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4"><span>เซ็นรับรองมาตรฐานความมั่นคงป้ายโฆษณา</span> <span class="font-semibold text-brand-dark dark:text-white font-mono whitespace-nowrap sm:text-right">เริ่มต้น 10,000.-</span></li>
-                        </ul>
-                        <p class="text-[11px] text-gray-500 mt-3 font-light leading-relaxed theme-transition">*ค่าบริการขึ้นอยู่กับพื้นที่และผังอาคารจริง คณะทีมงานตรวจจะเข้าปฏิบัติงานเร็วที่สุดภายใน 3 วันหลังคอนเฟิร์มสเปค</p>
+                <div class="flex flex-col justify-center p-6 md:p-7 border border-dashed border-brand-bronze/50 bg-brand-bronze/5 theme-transition">
+                    <h3 class="text-xl font-medium text-brand-dark dark:text-white theme-transition">ไม่แน่ใจว่าต้องใช้บริการไหน?</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 leading-relaxed theme-transition">ส่งรูปหน้างานหรือเล่าปัญหาให้วิศวกรฟัง เราช่วยแนะนำให้ฟรี</p>
+                    <div class="mt-5 flex flex-col gap-3">
+                        <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" class="text-center bg-[#06C755] hover:bg-[#05b34c] text-white font-semibold text-sm px-5 py-3">ถามวิศวกรทาง Line</a>
+                        <a href="#consultation-wizard" class="text-center border border-brand-bronze text-brand-bronze hover:bg-brand-bronze hover:text-brand-dark font-semibold text-sm px-5 py-3 transition-colors">กรอกแบบฟอร์มขอคำปรึกษา</a>
                     </div>
                 </div>
             </div>
@@ -1133,11 +955,11 @@
             <div class="md:col-span-3 space-y-4">
                 <h4 class="text-xs font-bold uppercase text-brand-bronze tracking-[0.2em]">บริการวิศวกรรม</h4>
                 <ul class="space-y-3.5 text-sm text-gray-500 dark:text-gray-400 font-light theme-transition">
-                    <li><a href="#services" onclick="switchPillarService('civil')" class="hover:text-brand-dark dark:hover:text-white transition-colors">สถาปัตยกรรมโยธา & งานเสาเข็ม</a></li>
-                    <li><a href="#services" onclick="switchPillarService('solar')" class="hover:text-white transition-colors">ติดตั้งแผงพลังงานโซล่าเซลล์</a></li>
-                    <li><a href="#services" onclick="switchPillarService('mechanical')" class="hover:text-white transition-colors">ระบบเครื่องกล HVAC และยานยนต์</a></li>
-                    <li><a href="#services" onclick="switchPillarService('consult')" class="hover:text-white transition-colors">เป็นที่ปรึกษาควบคุมระบบโครงการ</a></li>
-                    <li><a href="#services" onclick="switchPillarService('certify')" class="hover:text-white transition-colors">ตรวจสอบความปลอดภัยเซ็นรับรอง</a></li>
+                    <li><a href="/engineer/services/civil/" class="hover:text-brand-dark dark:hover:text-white transition-colors">สถาปัตยกรรมโยธา & งานเสาเข็ม</a></li>
+                    <li><a href="/engineer/services/solar/" class="hover:text-white transition-colors">ติดตั้งแผงพลังงานโซล่าเซลล์</a></li>
+                    <li><a href="/engineer/services/mechanical/" class="hover:text-white transition-colors">ระบบเครื่องกล HVAC และยานยนต์</a></li>
+                    <li><a href="/engineer/services/consult/" class="hover:text-white transition-colors">เป็นที่ปรึกษาควบคุมระบบโครงการ</a></li>
+                    <li><a href="/engineer/services/certify/" class="hover:text-white transition-colors">ตรวจสอบความปลอดภัยเซ็นรับรอง</a></li>
                 </ul>
             </div>
 
@@ -1222,34 +1044,13 @@
             });
         }
 
-        function switchPillarService(serviceId) {
-            document.querySelectorAll('.service-detail-section').forEach(sec => sec.classList.add('hidden'));
-            const targetSection = document.getElementById(`detail-${serviceId}`);
-            if (targetSection) targetSection.classList.remove('hidden');
-
-            document.querySelectorAll('.pillar-tab-btn').forEach(btn => {
-                btn.classList.remove('border-brand-bronze', 'bg-brand-lightCard', 'dark:bg-brand-dark');
-                btn.classList.add('border-brand-lightBorder', 'dark:border-brand-border', 'bg-brand-lightCard/75', 'dark:bg-brand-dark/45');
-                const label = btn.querySelector('span');
-                if (label) {
-                    label.innerHTML = 'ดูข้อมูลเพิ่มเติม &rarr;';
-                    label.classList.remove('text-brand-bronze');
-                    label.classList.add('text-gray-400');
-                }
-            });
-
-            const activeBtn = document.getElementById(`btn-${serviceId}`);
-            if (activeBtn) {
-                activeBtn.classList.remove('border-brand-lightBorder', 'dark:border-brand-border', 'bg-brand-lightCard/75', 'dark:bg-brand-dark/45');
-                activeBtn.classList.add('border-brand-bronze', 'bg-brand-lightCard', 'dark:bg-brand-dark');
-                const label = activeBtn.querySelector('span');
-                if (label) {
-                    label.innerHTML = 'แสดงข้อมูลอยู่ &darr;';
-                    label.classList.remove('text-gray-400');
-                    label.classList.add('text-brand-bronze');
-                }
-            }
-        }
+        // ?service=<slug> (from /engineer/services/<slug>/) pre-selects the wizard service
+        (function preselectService() {
+            const order = ["civil", "solar", "mechanical", "consult", "certify"];
+            const i = order.indexOf(new URLSearchParams(location.search).get("service"));
+            const radios = document.querySelectorAll("input[name=\"wizardService\"]");
+            if (i >= 0 && radios[i]) radios[i].checked = true;
+        })();
 
         function goToStep(stepNum) {
             document.getElementById('wizard-step-1').classList.add('hidden');

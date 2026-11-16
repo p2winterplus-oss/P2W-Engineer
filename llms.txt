@@ -14,12 +14,14 @@ Line OA: https://lin.ee/5u6O7cw
 ## บริการหลัก (5 Pillars)
 
 ### 1. งานโยธาและโครงสร้าง
+- หน้ารายละเอียด: https://p2winterplus.com/engineer/services/civil/
 - ออกแบบและคำนวณโครงสร้างอาคาร คฤหาสน์ บ้านพักอาศัย
 - ต่อเติม ดัดแปลง รื้อถอน
 - ตรวจสอบความมั่นคงแข็งแรงของโครงสร้าง
 - ราคา: เริ่มต้น 15,000 บาท
 
 ### 2. ระบบโซล่าร์เซลล์ (Solar Rooftop)
+- หน้ารายละเอียด: https://p2winterplus.com/engineer/services/solar/
 - ติดตั้ง Solar Rooftop สำหรับบ้านพักอาศัย (ขนาด 3–10 kW)
 - ติดตั้ง Solar Rooftop สำหรับโรงงาน/อาคารพาณิชย์ (ขนาด 20–500 kW+)
 - ออกแบบระบบ คำนวณผลตอบแทน ยื่นขออนุญาตการไฟฟ้า
@@ -27,16 +29,19 @@ Line OA: https://lin.ee/5u6O7cw
 - ระบบโรงงาน: คืนทุนภายใน 3–4 ปี
 
 ### 3. งานระบบเครื่องกล (MEP)
+- หน้ารายละเอียด: https://p2winterplus.com/engineer/services/mechanical/
 - ระบบปรับอากาศและระบายอากาศ (HVAC)
 - ระบบสุขาภิบาล ประปา ดับเพลิง
 - ระบบไฟฟ้าและสื่อสาร
 
 ### 4. ที่ปรึกษาด้านวิศวกรรม
+- หน้ารายละเอียด: https://p2winterplus.com/engineer/services/consult/
 - วิเคราะห์ความเป็นไปได้ของโครงการ (Feasibility Study)
 - ควบคุมงานก่อสร้าง (Construction Supervision)
 - บริหารโครงการ (Project Management)
 
 ### 5. รับรองแบบและตรวจสอบโครงสร้าง
+- หน้ารายละเอียด: https://p2winterplus.com/engineer/services/certify/
 - ออกรายงานตรวจสอบโดยวิศวกรวิชาชีพ (ว.ส.ท.)
 - รับรองแบบก่อสร้างเพื่อยื่นขออนุญาต
 

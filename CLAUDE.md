@@ -92,7 +92,7 @@
 - URL: `https://p2winterplus.com/engineer/services/<slug>/` (อยู่ใน `sitemap.xml` และ `llms.txt` แล้ว)
 - แต่ละหน้า: hero + ปุ่ม Line/ฟอร์ม/โทร · เหมาะกับใคร · งานที่รับทำ · ราคาเริ่มต้น · ผลงาน (civil/solar) · ขั้นตอน · FAQ · บทความที่เกี่ยวข้อง · บริการอื่น · JSON-LD (Service + FAQPage + BreadcrumbList)
 - เป็น HTML ธรรมดา แก้ตรงไฟล์ได้เลย — header/footer ซ้ำกันทั้ง 5 หน้า (+ dropdown บริการอยู่ใน header ของหน้าแรก, บทความ และ 5 หน้าบริการ) ถ้าแก้ส่วนร่วม (เบอร์, อีเมล, เมนู, ชื่อบริการ) ต้องแก้ครบทุกหน้า
-- ⚠️ ราคาอยู่ 2 ที่: การ์ดบนหน้าแรก (`ราคาเริ่มต้น` ในการ์ด) + ตารางราคาในหน้าบริการ — เปลี่ยนราคาต้องแก้ทั้งคู่ + `llms.txt`
+- ⚠️ **ราคาอยู่ 4 ที่ ต้องตรงกันเสมอ**: ตารางราคาในหน้าบริการ (ต้นฉบับ) → การ์ดหน้าแรก (ราคาต่ำสุดของบริการ) → JSON-LD `hasOfferCatalog` ใน `index.html` → `llms.txt` (ทั้งรายการบริการและตารางราคา) · ราคาเริ่มต้นปัจจุบัน: โยธา 15,000 · โซล่าร์ 89,000 · เครื่องกล 4,000 · ที่ปรึกษา 45,000/เดือน · ตรวจสอบ/รับรอง 10,000 (บริษัทยังไม่ได้ยืนยันราคาจริงทั้งหมด — 16 พ.ย. 2569)
 - รูปทุกรูปในหน้าบริการใช้ URL เต็ม (`https://p2winterplus-oss.github.io/P2W-Engineer/...` หรือ unsplash) เพราะกับดัก Worker
 - ปุ่ม "ส่งรายละเอียด" ลิงก์ไป `/engineer?service=<slug>#consultation-wizard` → หน้าแรกเลือกบริการใน wizard ให้อัตโนมัติ (`preselectService()`)
 - ทดสอบ local ให้ลิงก์ `/engineer/...` ใช้ได้: ทำ junction `<tmp>/site/engineer` → repo แล้ว `python -m http.server --directory <tmp>/site`
@@ -116,7 +116,7 @@
 - Open Graph (og:title, og:description, og:image, og:url)
 - Twitter Card
 - `<meta name="ai-content-declaration">` + link to llms.txt
-- JSON-LD Structured Data (ProfessionalService + OfferCatalog 4 บริการ)
+- JSON-LD Structured Data (ProfessionalService + OfferCatalog 5 บริการ พร้อมราคาเริ่มต้นตรงกับการ์ดหน้าแรก)
 
 ## Contact Info (in footer)
 - Phone: 088-788-8364

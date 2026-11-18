@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>นโยบายความเป็นส่วนตัว | P2W INTERPLUS</title>
+<meta name="description" content="นโยบายความเป็นส่วนตัวของ P2W INTERPLUS วิศวกรรม — ข้อมูลที่เราเก็บ วัตถุประสงค์ การเปิดเผย ระยะเวลาเก็บ และสิทธิของคุณตาม พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://p2winterplus.com/engineer/privacy/">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { darkMode: 'class', theme: { extend: {
+  colors: { brand: { dark: '#0D0D0C', charcoal: '#1B1B19', bronze: '#C5A880', bronzedark: '#A3845B', bronzelight: '#E2CDA9', border: '#2A2A28', stone: '#F5F2EB', lightBg: '#F9F8F6', lightCard: '#F5F2EB', lightBorder: '#E2DFD8' } },
+  fontFamily: { sans: ['Prompt', 'sans-serif'], serif: ['Playfair Display', 'Prompt', 'serif'] } } } };
+if (localStorage.getItem('theme') === 'light') document.documentElement.classList.remove('dark');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Prompt', sans-serif; }
+  .serif-title { font-family: 'Playfair Display', 'Prompt', serif; }
+  .dark .logo-glow { filter: drop-shadow(1px 0 0 #C5A880) drop-shadow(-1px 0 0 #C5A880) drop-shadow(0 1px 0 #C5A880) drop-shadow(0 -1px 0 #C5A880); }
+  .faq a { color: #C5A880; text-decoration: underline; text-underline-offset: 3px; }
+  details summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus { transform: rotate(45deg); }
+  .policy h2 { font-size: 1.25rem; font-weight: 600; margin: 2.25rem 0 .75rem; color: inherit; }
+  .policy p { margin-bottom: 1rem; }
+  .policy ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+  .policy li { margin-bottom: .5rem; }
+  .policy a { color: #C5A880; text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body class="bg-brand-lightBg dark:bg-brand-dark text-gray-800 dark:text-gray-300 antialiased">
+
+<header class="sticky top-0 z-40 bg-brand-lightBg/95 dark:bg-brand-dark/95 backdrop-blur-md border-b border-brand-lightBorder dark:border-brand-border/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between gap-4">
+    <a href="/engineer" class="flex items-center gap-3 shrink-0">
+      <img src="https://p2winterplus-oss.github.io/P2W-Engineer/logo.png" alt="P2W INTERPLUS Logo" class="w-14 h-14 object-contain logo-glow">
+      <div>
+        <span class="text-sm font-semibold tracking-[0.15em] text-brand-dark dark:text-white uppercase block">P2W INTERPLUS</span>
+        <span class="text-[11px] text-brand-bronze tracking-[0.2em] uppercase block font-medium">Engineering</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7 text-sm whitespace-nowrap">
+      <a href="/engineer" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">หน้าแรก</a>
+      <div class="relative group">
+        <a href="/engineer#services" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white inline-flex items-center gap-1" aria-haspopup="true">บริการของเรา<svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg></a>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 hidden group-hover:block group-focus-within:block z-50">
+          <div class="w-80 bg-brand-lightBg dark:bg-brand-charcoal border border-brand-lightBorder dark:border-brand-border shadow-2xl py-2 whitespace-normal">
+            <a href="/engineer/services/civil/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">งานโยธาและโครงสร้าง</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">ออกแบบ ต่อเติม แก้บ้านทรุด-ร้าว</span></a>
+            <a href="/engineer/services/solar/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">ติดตั้งโซล่าร์เซลล์</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">On-Grid / Hybrid บ้านและโรงงาน</span></a>
+            <a href="/engineer/services/mechanical/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">งานระบบเครื่องกลและอุตสาหกรรม</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">HVAC เครื่องจักร ยานยนต์</span></a>
+            <a href="/engineer/services/consult/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">ที่ปรึกษาและบริหารโครงการ</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">PM คุมงาน Value Engineering</span></a>
+            <a href="/engineer/services/certify/" class="block px-5 py-3 hover:bg-brand-bronze/10 group/item"><span class="block text-sm font-medium text-brand-dark dark:text-white group-hover/item:text-brand-bronze">ตรวจสอบและเซ็นรับรอง</span><span class="block text-xs text-gray-500 dark:text-gray-400 mt-0.5">ตรวจอาคาร อ.1 รับรองหลังคา ป้าย</span></a>
+            <a href="/engineer#services" class="block mx-5 mt-1 pt-3 pb-2 border-t border-brand-lightBorder dark:border-brand-border text-sm text-brand-bronze hover:underline">ดูบริการทั้งหมด →</a>
+          </div>
+        </div>
+      </div>
+      <a href="/engineer#projects" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ผลงาน</a>
+      <a href="/engineer/articles/" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">บทความ</a>
+      <a href="/engineer#contact" class="text-gray-500 dark:text-gray-400 hover:text-brand-dark dark:hover:text-white">ติดต่อเรา</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <button onclick="toggleTheme()" class="p-2 text-gray-400 hover:text-brand-bronze" aria-label="สลับโหมด">
+        <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+      </button>
+      <a href="/engineer#consultation-wizard" class="hidden sm:inline-flex bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold text-sm px-5 py-2.5 whitespace-nowrap">ขอคำปรึกษา</a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-5 sm:px-8 py-14 md:py-20">
+  <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb"><a href="/engineer" class="hover:text-brand-bronze">หน้าแรก</a> <span class="mx-1.5">/</span> <span>นโยบายความเป็นส่วนตัว</span></nav>
+  <h1 class="text-3xl md:text-4xl font-light text-brand-dark dark:text-white leading-tight">นโยบายความเป็นส่วนตัว</h1>
+  <p class="text-sm text-gray-500 mt-3">มีผลตั้งแต่วันที่ 18 พฤศจิกายน 2569</p>
+
+  <div class="policy mt-10 text-base leading-relaxed text-gray-700 dark:text-gray-300">
+    <p>บริษัท พีทูดับบลิว อินเตอร์พลัส จำกัด (P2W INTERPLUS CO.,LTD.) ("บริษัท" หรือ "เรา") ให้ความสำคัญกับการคุ้มครองข้อมูลส่วนบุคคลของคุณ นโยบายนี้อธิบายว่าเราเก็บ ใช้ และดูแลข้อมูลส่วนบุคคลที่ได้รับผ่านเว็บไซต์ p2winterplus.com/engineer และช่องทางติดต่ออื่นของเราอย่างไร ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</p>
+
+    <h2>1. ผู้ควบคุมข้อมูลส่วนบุคคล</h2>
+    <p>P2W INTERPLUS CO.,LTD.<br>49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ<br>อีเมล: <a href="mailto:info@p2winterplus.com">info@p2winterplus.com</a> · โทร. <a href="tel:0887888364">088-788-8364</a></p>
+
+    <h2>2. ข้อมูลที่เราเก็บ</h2>
+    <ul>
+      <li><strong>ข้อมูลที่คุณกรอกในแบบฟอร์มขอคำปรึกษา:</strong> ชื่อผู้ติดต่อ หมายเลขโทรศัพท์ บริษัทหรือหน่วยงาน Line ID อีเมล ประเภทบริการที่สนใจ รายละเอียดโครงการ และไฟล์รูปภาพหรือแบบแปลนที่คุณแนบมา</li>
+      <li><strong>ข้อมูลที่คุณส่งให้เราทาง Line โทรศัพท์ หรืออีเมล:</strong> เช่น ชื่อ ช่องทางติดต่อ รูปถ่ายหน้างาน บิลค่าไฟ และรายละเอียดงาน</li>
+      <li><strong>ข้อมูลการตั้งค่าบนอุปกรณ์ของคุณ:</strong> เว็บไซต์บันทึกเฉพาะการเลือกโหมดสว่าง/มืดไว้ในเบราว์เซอร์ของคุณ (localStorage) ข้อมูลนี้ไม่ถูกส่งมาที่เรา</li>
+    </ul>
+    <p>ปัจจุบันเว็บไซต์ไม่ได้ใช้คุกกี้หรือเครื่องมือติดตามเพื่อการโฆษณา หากในอนาคตมีการใช้เครื่องมือวิเคราะห์การเข้าชมเว็บไซต์ เราจะปรับปรุงนโยบายนี้ให้ทราบ</p>
+
+    <h2>3. วัตถุประสงค์ในการใช้ข้อมูล</h2>
+    <ul>
+      <li>ติดต่อกลับเพื่อให้คำปรึกษา ประเมินงาน และจัดทำใบเสนอราคาตามที่คุณร้องขอ</li>
+      <li>สำรวจหน้างาน ออกแบบ และให้บริการตามสัญญาจ้าง</li>
+      <li>ติดต่อประสานงานระหว่างดำเนินงานและหลังส่งมอบงาน</li>
+      <li>ปฏิบัติตามกฎหมายที่เกี่ยวข้อง เช่น กฎหมายภาษีและบัญชี</li>
+    </ul>
+    <p>เราประมวลผลข้อมูลโดยอาศัยฐานการดำเนินการตามคำขอของคุณก่อนเข้าทำสัญญาและการปฏิบัติตามสัญญา รวมถึงการปฏิบัติตามกฎหมาย เราไม่ขายข้อมูลของคุณ และไม่ใช้ข้อมูลเพื่อส่งโฆษณาโดยไม่ได้รับความยินยอม</p>
+
+    <h2>4. การเปิดเผยข้อมูลให้บุคคลอื่น</h2>
+    <p>เราเปิดเผยข้อมูลเท่าที่จำเป็นต่อการให้บริการเท่านั้น ได้แก่</p>
+    <ul>
+      <li>ผู้ให้บริการระบบส่งแบบฟอร์ม (Web3Forms) ซึ่งส่งข้อมูลจากแบบฟอร์มมาที่อีเมลของบริษัท และผู้ให้บริการอีเมล</li>
+      <li>ผู้ให้บริการโฮสติ้งและเครือข่ายของเว็บไซต์ (เช่น GitHub และ Cloudflare) ซึ่งอาจบันทึกข้อมูลทางเทคนิคของการเข้าชม เช่น หมายเลข IP ตามการทำงานปกติของระบบ</li>
+      <li>หน่วยงานรัฐหรือการไฟฟ้า เมื่อจำเป็นต้องยื่นเอกสารขออนุญาตในนามของคุณ และได้รับความยินยอมจากคุณแล้ว</li>
+      <li>หน่วยงานที่มีอำนาจตามกฎหมาย เมื่อมีกฎหมายกำหนด</li>
+    </ul>
+    <p>ผู้ให้บริการบางรายอาจจัดเก็บข้อมูลบนเซิร์ฟเวอร์นอกประเทศไทย ซึ่งเป็นไปตามมาตรฐานการคุ้มครองข้อมูลของผู้ให้บริการนั้น</p>
+
+    <h2>5. ระยะเวลาเก็บข้อมูล</h2>
+    <p>เราเก็บข้อมูลเท่าที่จำเป็นตามวัตถุประสงค์ข้างต้น สำหรับผู้ที่ติดต่อสอบถามแต่ยังไม่ได้ว่าจ้าง เราจะเก็บข้อมูลไม่เกิน 2 ปีนับจากการติดต่อครั้งล่าสุด สำหรับลูกค้าที่ว่าจ้าง เราจะเก็บข้อมูลตลอดระยะเวลาของสัญญาและระยะเวลาที่กฎหมายกำหนด จากนั้นจะลบหรือทำลายข้อมูล</p>
+
+    <h2>6. สิทธิของคุณ</h2>
+    <p>คุณมีสิทธิตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล ได้แก่ สิทธิขอเข้าถึงและขอรับสำเนาข้อมูล สิทธิขอแก้ไขข้อมูลให้ถูกต้อง สิทธิขอลบหรือทำลายข้อมูล สิทธิขอระงับการใช้ข้อมูล สิทธิคัดค้านการประมวลผล สิทธิขอโอนย้ายข้อมูล และสิทธิถอนความยินยอม (ในกรณีที่ประมวลผลโดยอาศัยความยินยอม)</p>
+    <p>หากต้องการใช้สิทธิ ติดต่อเราทางอีเมล <a href="mailto:info@p2winterplus.com">info@p2winterplus.com</a> หรือโทร. <a href="tel:0887888364">088-788-8364</a> เราจะดำเนินการภายใน 30 วันนับจากวันที่ได้รับคำขอ หากคุณเห็นว่าเราไม่ปฏิบัติตามกฎหมาย คุณมีสิทธิร้องเรียนต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล (สคส.)</p>
+
+    <h2>7. การรักษาความปลอดภัย</h2>
+    <p>เราจำกัดการเข้าถึงข้อมูลเฉพาะผู้ที่เกี่ยวข้องกับการให้บริการ และใช้ระบบที่มีการเข้ารหัสในการรับส่งข้อมูล (HTTPS)</p>
+
+    <h2>8. การเปลี่ยนแปลงนโยบาย</h2>
+    <p>เราอาจปรับปรุงนโยบายนี้เป็นครั้งคราว โดยจะแสดงวันที่มีผลบังคับใช้ล่าสุดไว้ที่ด้านบนของหน้านี้</p>
+  </div>
+</main>
+
+<footer class="bg-brand-dark border-t border-brand-border py-10 px-5">
+  <div class="max-w-7xl mx-auto text-center text-sm text-gray-500 space-y-2">
+    <p>P2W INTERPLUS CO.,LTD. · 49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ</p>
+    <p>โทร. <a href="tel:0887888364" class="hover:text-brand-bronze">088-788-8364</a> · <a href="mailto:info@p2winterplus.com" class="hover:text-brand-bronze">info@p2winterplus.com</a> · <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" class="hover:text-brand-bronze">Line OA</a> · จ.-ส. 09:00-18:00</p>
+    <p class="text-xs">&copy; 2026 P2W INTERPLUS. All rights reserved. · <a href="/engineer/privacy/" class="hover:text-brand-bronze underline">นโยบายความเป็นส่วนตัว</a></p>
+  </div>
+</footer>
+
+<!-- FLOATING CONTACT BUTTONS (Line + Call) -->
+<div class="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3">
+  <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" aria-label="แชทกับเราทาง Line" class="flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white rounded-full shadow-xl p-3.5 sm:pl-4 sm:pr-5 sm:py-3"><svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.64 2 11.13c0 4.02 3.56 7.39 8.37 8.03.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.92-5.85C21.38 14.5 22 12.9 22 11.13 22 6.64 17.52 3 12 3z"/></svg><span class="hidden sm:inline text-sm font-semibold">แชท Line</span></a>
+  <a href="tel:0887888364" aria-label="โทรหาเรา 088-788-8364" class="flex items-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark rounded-full shadow-xl p-3.5 sm:pl-4 sm:pr-5 sm:py-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.68l1.5 4.49a1 1 0 01-.5 1.21l-2.26 1.13a11.04 11.04 0 005.52 5.52l1.13-2.26a1 1 0 011.21-.5l4.49 1.5a1 1 0 01.68.95V19a2 2 0 01-2 2h-1C9.72 21 3 14.28 3 6V5z"/></svg><span class="hidden sm:inline text-sm font-semibold">088-788-8364</span></a>
+</div>
+
+<script>
+function toggleTheme() {
+  const dark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+</script>
+</body>
+</html>

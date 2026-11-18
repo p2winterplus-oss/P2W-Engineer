@@ -31,6 +31,12 @@ if (localStorage.getItem('theme') === 'light') document.documentElement.classLis
   .faq a { color: #C5A880; text-decoration: underline; text-underline-offset: 3px; }
   details summary::-webkit-details-marker { display: none; }
   details[open] .faq-plus { transform: rotate(45deg); }
+  .calc-opt { cursor: pointer; }
+  .calc-opt span { display: block; text-align: center; padding: .75rem .5rem; border: 1px solid #E2DFD8; font-weight: 500; color: #0D0D0C; }
+  .dark .calc-opt span { border-color: #2A2A28; color: #fff; }
+  .calc-opt small { display: block; font-size: .75rem; font-weight: 400; color: #6b7280; margin-top: .15rem; }
+  .calc-opt input:checked + span { border-color: #C5A880; background: rgba(197,168,128,.12); color: #C5A880; }
+  .calc-opt input:focus-visible + span { outline: 2px solid #C5A880; outline-offset: 2px; }
 </style>
 </head>
 <body class="bg-brand-lightBg dark:bg-brand-dark text-gray-800 dark:text-gray-300 antialiased">
@@ -90,6 +96,7 @@ if (localStorage.getItem('theme') === 'light') document.documentElement.classLis
     <h1 class="text-3xl md:text-5xl font-light text-white leading-tight max-w-3xl">ติดตั้งโซล่าร์เซลล์</h1>
     <p class="mt-5 text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">ติดตั้ง Solar Rooftop สำหรับบ้าน อาคาร และโรงงาน ทั้งระบบ On-Grid, Hybrid และ Off-Grid</p>
     <p class="mt-4 text-brand-bronze text-lg font-medium">เริ่มต้น 89,000 บาท</p>
+    <a href="#calculator" class="mt-2 inline-flex items-center gap-1 text-base text-white underline underline-offset-4 decoration-brand-bronze hover:text-brand-bronze">คำนวณค่าไฟที่ประหยัดได้ →</a>
     <div class="mt-8 flex flex-col sm:flex-row gap-3">
       <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white font-semibold px-6 py-3.5"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.64 2 11.13c0 4.02 3.56 7.39 8.37 8.03.33.07.77.22.88.5.1.25.07.65.03.9l-.14.86c-.04.25-.2 1 .87.54 1.08-.45 5.8-3.42 7.92-5.85C21.38 14.5 22 12.9 22 11.13 22 6.64 17.52 3 12 3z"/></svg> ปรึกษาฟรีทาง Line</a>
       <a href="/engineer?service=solar#consultation-wizard" class="inline-flex items-center justify-center gap-2 bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold px-6 py-3.5">ส่งรายละเอียดให้วิศวกรประเมิน</a>
@@ -140,6 +147,55 @@ if (localStorage.getItem('theme') === 'light') document.documentElement.classLis
         <p class="text-sm text-gray-500 mt-4 leading-relaxed">*ราคาเบื้องต้นรวมแผงเกรด Tier 1 พร้อมดูแลและทำความสะอาดแผงฟรี 2 ปีแรก</p>
         <a href="/engineer?service=solar#consultation-wizard" class="mt-6 block text-center bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold px-6 py-3.5">ขอใบเสนอราคา / ประเมินฟรี</a>
       </div>
+    </div>
+  </section>
+
+  <!-- SOLAR SAVINGS CALCULATOR -->
+  <section id="calculator" class="pb-14 md:pb-20 scroll-mt-24">
+    <div class="border border-brand-bronze/50 bg-brand-lightCard dark:bg-brand-charcoal/60 p-6 md:p-10">
+      <span class="text-xs tracking-[0.25em] text-brand-bronze uppercase">Solar Calculator</span>
+      <h2 class="text-2xl md:text-3xl font-light text-brand-dark dark:text-white mt-2">คำนวณค่าไฟที่ประหยัดได้</h2>
+      <p class="text-base text-gray-600 dark:text-gray-400 mt-2">กรอกค่าไฟต่อเดือน ดูว่าควรติดระบบขนาดเท่าไหร่ ประหยัดได้ประมาณเท่าไหร่ และคืนทุนกี่ปี</p>
+
+      <div class="grid lg:grid-cols-2 gap-8 mt-8">
+        <div class="space-y-6">
+          <div>
+            <label for="calcBill" class="block text-base font-medium text-brand-dark dark:text-white mb-2">ค่าไฟต่อเดือน (บาท)</label>
+            <input id="calcBill" type="number" inputmode="numeric" min="0" step="100" value="3000" class="w-full bg-brand-lightBg dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze focus:outline-none px-4 py-3 text-lg text-brand-dark dark:text-white">
+            <input id="calcBillRange" type="range" min="500" max="20000" step="100" value="3000" class="w-full mt-3 accent-[#C5A880]" aria-label="ค่าไฟต่อเดือน">
+          </div>
+          <div>
+            <span class="block text-base font-medium text-brand-dark dark:text-white mb-2">ใช้ไฟช่วงกลางวัน (08:00–17:00) มากแค่ไหน?</span>
+            <div class="grid grid-cols-3 gap-2" role="radiogroup">
+              <label class="calc-opt"><input type="radio" name="calcDay" value="0.3" class="sr-only"><span>น้อย<small>ออกจากบ้านทั้งวัน</small></span></label>
+              <label class="calc-opt"><input type="radio" name="calcDay" value="0.5" class="sr-only" checked><span>ปานกลาง<small>มีคนอยู่บ้านบ้าง</small></span></label>
+              <label class="calc-opt"><input type="radio" name="calcDay" value="0.7" class="sr-only"><span>มาก<small>อยู่บ้าน/ร้าน/ออฟฟิศ</small></span></label>
+            </div>
+          </div>
+          <div>
+            <label for="calcRate" class="block text-sm text-gray-500 dark:text-gray-400 mb-1">ค่าไฟเฉลี่ยต่อหน่วย (บาท) — ดูได้จากบิลค่าไฟ</label>
+            <input id="calcRate" type="number" min="1" max="10" step="0.1" value="4.2" class="w-32 bg-brand-lightBg dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border focus:border-brand-bronze focus:outline-none px-3 py-2 text-base text-brand-dark dark:text-white">
+          </div>
+        </div>
+
+        <div class="bg-brand-lightBg dark:bg-brand-dark border border-brand-lightBorder dark:border-brand-border p-6" aria-live="polite">
+          <p class="text-sm text-gray-500 dark:text-gray-400">ขนาดระบบที่แนะนำ</p>
+          <p id="calcSize" class="text-3xl font-semibold text-brand-bronze mt-1">–</p>
+          <p id="calcPkg" class="text-sm text-gray-600 dark:text-gray-400 mt-1"></p>
+          <div class="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-brand-lightBorder dark:border-brand-border">
+            <div><p class="text-sm text-gray-500 dark:text-gray-400">ประหยัดต่อเดือน</p><p id="calcMonth" class="text-xl font-semibold text-brand-dark dark:text-white">–</p></div>
+            <div><p class="text-sm text-gray-500 dark:text-gray-400">ประหยัดต่อปี</p><p id="calcYear" class="text-xl font-semibold text-brand-dark dark:text-white">–</p></div>
+            <div><p class="text-sm text-gray-500 dark:text-gray-400">ราคาระบบ</p><p id="calcPrice" class="text-xl font-semibold text-brand-dark dark:text-white">–</p></div>
+            <div><p class="text-sm text-gray-500 dark:text-gray-400">คืนทุนประมาณ</p><p id="calcPayback" class="text-xl font-semibold text-brand-dark dark:text-white">–</p></div>
+          </div>
+          <p id="calcSubsidy" class="hidden text-sm text-gray-600 dark:text-gray-300 mt-5 p-3 bg-brand-bronze/10 border border-brand-bronze/30">ระบบ 5–10 kW อาจเข้าเงื่อนไขเงินสนับสนุนโซลาร์ภาคประชาชน 50,000 บาท (ต้องติดตั้งโดยผู้ประกอบการที่ขึ้นทะเบียนกับการไฟฟ้า) <a href="/engineer/articles/?id=solar-government-subsidy" class="text-brand-bronze underline">อ่านเงื่อนไข</a></p>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" class="flex-1 text-center bg-[#06C755] hover:bg-[#05b34c] text-white font-semibold px-5 py-3">ส่งบิลค่าไฟให้วิศวกรประเมิน</a>
+            <a href="/engineer?service=solar#consultation-wizard" class="flex-1 text-center bg-brand-bronze hover:bg-brand-bronzedark text-brand-dark font-semibold px-5 py-3">ขอใบเสนอราคา</a>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm text-gray-500 mt-6 leading-relaxed">*ตัวเลขเป็นการประมาณเบื้องต้น คิดจากแผง 1 kW ผลิตไฟเฉลี่ยประมาณ 4 หน่วยต่อวัน (120 หน่วยต่อเดือน) และนับเฉพาะไฟที่ใช้เองช่วงกลางวัน ยังไม่รวมรายได้จากการขายไฟส่วนเกินคืน ผลจริงขึ้นกับทิศทางหลังคา เงา และพฤติกรรมการใช้ไฟ ส่งบิลค่าไฟให้วิศวกรคำนวณให้ละเอียดได้ฟรี</p>
     </div>
   </section>
 
@@ -223,7 +279,7 @@ if (localStorage.getItem('theme') === 'light') document.documentElement.classLis
   <div class="max-w-7xl mx-auto text-center text-sm text-gray-500 space-y-2">
     <p>P2W INTERPLUS CO.,LTD. · 49/306 ซ.นิมิตใหม่40 ถ.นิมิตใหม่ แขวงสามวาตะวันออก เขตคลองสามวา กรุงเทพฯ</p>
     <p>โทร. <a href="tel:0887888364" class="hover:text-brand-bronze">088-788-8364</a> · <a href="mailto:info@p2winterplus.com" class="hover:text-brand-bronze">info@p2winterplus.com</a> · <a href="https://lin.ee/5u6O7cw" target="_blank" rel="noopener" class="hover:text-brand-bronze">Line OA</a> · จ.-ส. 09:00-18:00</p>
-    <p class="text-xs">&copy; 2026 P2W INTERPLUS. All rights reserved.</p>
+    <p class="text-xs">&copy; 2026 P2W INTERPLUS. All rights reserved. · <a href="/engineer/privacy/" class="hover:text-brand-bronze underline">นโยบายความเป็นส่วนตัว</a></p>
   </div>
 </footer>
 
@@ -238,6 +294,37 @@ function toggleTheme() {
   const dark = document.documentElement.classList.toggle('dark');
   localStorage.setItem('theme', dark ? 'dark' : 'light');
 }
+// Solar savings calculator — rough estimate: 1 kW ≈ 120 kWh/month, savings = self-consumed daytime units only
+(function () {
+  const $ = id => document.getElementById(id);
+  const bill = $("calcBill"), range = $("calcBillRange"), rate = $("calcRate");
+  const fmt = n => Math.round(n).toLocaleString("th-TH");
+  function calc() {
+    const b = Math.max(0, +bill.value || 0), r = Math.max(1, +rate.value || 4.2);
+    const share = +document.querySelector("input[name=calcDay]:checked").value;
+    const dayUnits = (b / r) * share, need = dayUnits / 120;
+    let size, price = null, pkg;
+    if (b <= 0) { ["calcSize","calcMonth","calcYear","calcPrice","calcPayback"].forEach(i => $(i).textContent = "–"); $("calcPkg").textContent = ""; $("calcSubsidy").classList.add("hidden"); return; }
+    if (need <= 3.5) { size = 3; price = 89000; pkg = "ระบบ On-Grid 3 kW (บ้านพักอาศัย)"; }
+    else if (need <= 5.5) { size = 5; price = 133000; pkg = "ระบบ On-Grid 5 kW (ราคาสำหรับไฟ 3 เฟส)"; }
+    else if (need <= 10) { size = Math.ceil(need); pkg = "ระบบ On-Grid " + size + " kW — ราคาประเมินตามหน้างาน"; }
+    else { size = Math.ceil(need); pkg = "ระบบขนาดใหญ่ เหมาะกับอาคารหรือโรงงาน — ราคาประเมินตามหน้างาน"; }
+    const save = Math.min(size * 120, dayUnits) * r;
+    $("calcSize").textContent = size + " kW";
+    $("calcPkg").textContent = pkg;
+    $("calcMonth").textContent = "~" + fmt(save) + " บาท";
+    $("calcYear").textContent = "~" + fmt(save * 12) + " บาท";
+    $("calcPrice").textContent = price ? "เริ่มต้น " + fmt(price) + " บาท" : "ประเมินฟรี";
+    const years = price && save > 0 ? price / (save * 12) : null;
+    $("calcPayback").textContent = years ? "~" + years.toFixed(1) + " ปี" + (years > 8 ? " (ค่าไฟยังไม่สูง คืนทุนนาน)" : "") : "–";
+    $("calcSubsidy").classList.toggle("hidden", !(size >= 5 && size <= 10));
+  }
+  bill.addEventListener("input", () => { range.value = bill.value; calc(); });
+  range.addEventListener("input", () => { bill.value = range.value; calc(); });
+  rate.addEventListener("input", calc);
+  document.querySelectorAll("input[name=calcDay]").forEach(el => el.addEventListener("change", calc));
+  calc();
+})();
 </script>
 </body>
 </html>
